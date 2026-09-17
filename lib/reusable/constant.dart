@@ -1,11 +1,5 @@
 import 'package:flutter/cupertino.dart';
 
-// abhi isse hata nhi skta baad meh hateunga abhi implement kiya hu wa h hatya toh error
-class AppSize {
-  static const double mHeight = 10;
-  static const double mWidth = 10;
-}
-
 class ContentSpace {
   // Height gaps (Vertical)
   static const sHeight = SizedBox(height: 5);

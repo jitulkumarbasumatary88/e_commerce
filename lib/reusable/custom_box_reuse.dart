@@ -6,7 +6,7 @@ class CustomBoxReuse extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final Color? color;
   final Border? border;
-  final Widget child;
+  final Widget? child;
 
   const CustomBoxReuse({
     super.key,
@@ -15,7 +15,7 @@ class CustomBoxReuse extends StatelessWidget {
     this.padding,
     this.color,
     this.border,
-    required this.child,
+    this.child,
   });
 
   @override
