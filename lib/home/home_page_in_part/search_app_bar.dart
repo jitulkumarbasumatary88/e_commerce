@@ -19,7 +19,7 @@ class SearchAppBar extends StatelessWidget {
           prefixIcon: const Icon(Icons.search_rounded),
           suffixIcon: const Icon(Icons.mic_rounded),
           filled: true,
-          fillColor: Colors.blue,
+          fillColor: Colors.white,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
             borderSide: BorderSide.none,
