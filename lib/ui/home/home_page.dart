@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:e_commerce_app/bar/bottom_nav_bar.dart';
-import 'package:e_commerce_app/home/home_page_body.dart';
+
+import '../bar/bottom_nav_bar.dart';
+import 'home_page_body.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,7 +13,7 @@ class HomePage extends StatelessWidget {
       bottomNavigationBar: BottomNavBar(),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
           child: HomePageBody(),
         ),
       ),

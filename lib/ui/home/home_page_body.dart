@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-import '../reusable/constant.dart';
-import 'home_page_in_part/big_banner.dart';
-import 'home_page_in_part/circle_cat_product.dart';
-import 'home_page_in_part/deal_trend_product.dart';
-import 'home_page_in_part/featured_items.dart';
-import 'home_page_in_part/home_app_bar.dart';
-import 'home_page_in_part/horizontal_scroll_product.dart';
-import 'home_page_in_part/new_spon_card.dart';
-import 'home_page_in_part/search_app_bar.dart';
-import 'home_page_in_part/three_dot.dart';
+import '../../reusable/constant.dart';
+import 'home_page_reuse_part/big_banner.dart';
+import 'home_page_reuse_part/circle_cat_product.dart';
+import 'home_page_reuse_part/deal_trend_product.dart';
+import 'home_page_reuse_part/featured_items.dart';
+import 'home_page_reuse_part/home_app_bar.dart';
+import 'home_page_reuse_part/horizontal_scroll_product.dart';
+import 'home_page_reuse_part/new_spon_card.dart';
+import 'home_page_reuse_part/search_app_bar.dart';
+import 'home_page_reuse_part/three_dot.dart';
 
 class HomePageBody extends StatelessWidget {
   const HomePageBody({super.key});

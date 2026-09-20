@@ -5,6 +5,7 @@ class CustomBoxReuse extends StatelessWidget {
   final double? width;
   final EdgeInsetsGeometry? padding;
   final Color? color;
+  final BorderRadius? borderRadius;
   final Border? border;
   final Widget? child;
 
@@ -14,6 +15,7 @@ class CustomBoxReuse extends StatelessWidget {
     this.width,
     this.padding,
     this.color,
+    this.borderRadius,
     this.border,
     this.child,
   });
@@ -26,7 +28,7 @@ class CustomBoxReuse extends StatelessWidget {
       padding: padding ?? const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: color ?? Colors.white,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: borderRadius ?? BorderRadius.circular(12),
         border: border,
       ),
       child: child,

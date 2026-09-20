@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../reusable/custom_box_reuse.dart';
+import '../../../reusable/custom_box_reuse.dart';
 
 class HorizontalScrollProduct extends StatelessWidget {
   const HorizontalScrollProduct({super.key});
@@ -59,7 +59,7 @@ class HorizontalScrollProduct extends StatelessWidget {
                       Row(
                         children: [
                           for (int i = 0; i < 5; i++)
-                            Icon(Icons.star_rounded, color: Colors.amber),
+                            Icon(Icons.star_rate_rounded, color: Colors.amber),
 
                           Text('56890'),
                         ],

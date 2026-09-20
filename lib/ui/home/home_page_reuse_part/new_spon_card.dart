@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../reusable/custom_box_reuse.dart';
+import '../../../reusable/custom_box_reuse.dart';
 
 class NewSponCard extends StatelessWidget {
   final String? text1;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../reusable/custom_box_reuse.dart';
+import '../../../reusable/custom_box_reuse.dart';
 
 class FeaturedItems extends StatelessWidget {
   const FeaturedItems({super.key});
