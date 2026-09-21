@@ -98,7 +98,7 @@ class HomePage extends StatelessWidget {
                         width: 30,
                         color: Colors.pinkAccent,
                       ),
-                      if (i < 4) ContentSpace.sWidth,
+                      if (i < 2) ContentSpace.sWidth,
                     ],
                   ],
                 ),
