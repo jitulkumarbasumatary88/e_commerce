@@ -1,17 +1,17 @@
-import 'package:e_commerce_app/reusable/custom_box_reuse.dart';
 import 'package:flutter/material.dart';
 
-class ProductGridBox extends StatelessWidget {
-  final IconData iconImage;
+import '../../reusable_widgets/constant.dart';
+import '../../reusable_widgets/custom_box_reuse.dart';
+
+class ProductDesign extends StatelessWidget {
   final String text1;
   final String text2;
   final String text3;
   final IconData icon;
   final String text4;
 
-  const ProductGridBox({
+  const ProductDesign({
     super.key,
-    required this.iconImage,
     required this.text1,
     required this.text2,
     required this.text3,
@@ -27,19 +27,28 @@ class ProductGridBox extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(iconImage, size: 150),
+          CustomBoxReuse(color: Colors.grey, height: 150),
+
+          ContentSpace.mHeight,
 
           Text(maxLines: 1, overflow: TextOverflow.ellipsis, text1),
 
+          ContentSpace.sHeight,
+
           Text(maxLines: 2, overflow: TextOverflow.ellipsis, text2),
 
+          ContentSpace.sHeight,
+
           Text(text3),
+
+          ContentSpace.sHeight,
 
           FittedBox(
             fit: BoxFit.scaleDown,
             child: Row(
               children: [
                 for (int i = 0; i < 5; i++) Icon(icon, color: Colors.amber),
+                ContentSpace.mWidth,
                 Text(text4),
               ],
             ),
