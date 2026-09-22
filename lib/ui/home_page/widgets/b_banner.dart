@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../reusable_widgets/custom_box_reuse.dart';
+import '../../reusable_widgets/custom_container.dart';
 
 class BBanner extends StatelessWidget {
   final String text1;
@@ -40,7 +40,7 @@ class BBanner extends StatelessWidget {
           if (text3 != null) Text(text3!),
 
           if (buttonText != null)
-            CustomBoxReuse(
+            CustomContainer(
               color: buttonColor,
               border: Border.all(color: Colors.white),
               child: Row(
@@ -52,9 +52,9 @@ class BBanner extends StatelessWidget {
       ),
     );
 
-    final imageContent = CustomBoxReuse(child: Icon(bannerIcon));
+    final imageContent = CustomContainer(child: Icon(bannerIcon));
 
-    return CustomBoxReuse(
+    return CustomContainer(
       color: backgroundColor ?? Colors.white,
       child: Row(
         children: isImageLeft

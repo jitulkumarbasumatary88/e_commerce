@@ -1,10 +1,10 @@
+import 'package:e_commerce_app/ui/reusable_widgets/custom_container.dart';
 import 'package:flutter/material.dart';
 
 import 'constant.dart';
-import 'custom_box_reuse.dart';
 
-class HorizontalListProducts extends StatelessWidget {
-  const HorizontalListProducts({super.key});
+class CustomHorizontalList extends StatelessWidget {
+  const CustomHorizontalList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,13 +14,13 @@ class HorizontalListProducts extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: 10,
         itemBuilder: (context, index) {
-          return CustomBoxReuse(
+          return CustomContainer(
             width: 200,
             color: Colors.grey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomBoxReuse(height: 150),
+                CustomContainer(height: 150),
                 ContentSpace.mHeight,
                 Text('Nike Sneakers'),
                 ContentSpace.sHeight,

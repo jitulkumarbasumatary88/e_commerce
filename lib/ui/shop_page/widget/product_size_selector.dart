@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../reusable_widgets/constant.dart';
-import '../../reusable_widgets/custom_box_reuse.dart';
+import '../../reusable_widgets/custom_container.dart';
 
 class ProductSizeSelector extends StatelessWidget {
   const ProductSizeSelector({super.key});
@@ -20,7 +20,7 @@ class ProductSizeSelector extends StatelessWidget {
           children: [
             for (int i = 0; i < 5; i++) ...[
               Flexible(
-                child: CustomBoxReuse(
+                child: CustomContainer(
                   border: Border.all(color: Colors.pinkAccent, width: 2),
                   child: Text('6 UK'),
                 ),

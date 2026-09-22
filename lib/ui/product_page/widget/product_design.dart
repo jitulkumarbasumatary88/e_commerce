@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../reusable_widgets/constant.dart';
-import '../../reusable_widgets/custom_box_reuse.dart';
+import '../../reusable_widgets/custom_container.dart';
 
 class ProductDesign extends StatelessWidget {
   final String text1;
@@ -21,13 +21,13 @@ class ProductDesign extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomBoxReuse(
+    return CustomContainer(
       color: Colors.blue,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomBoxReuse(color: Colors.grey, height: 150),
+          CustomContainer(color: Colors.grey, height: 150),
 
           ContentSpace.mHeight,
 

@@ -6,7 +6,7 @@ import 'package:e_commerce_app/ui/shop_page/widget/product_size_selector.dart';
 import 'package:flutter/material.dart';
 
 import '../reusable_widgets/constant.dart';
-import '../reusable_widgets/custom_box_reuse.dart';
+import '../reusable_widgets/custom_container.dart';
 
 class ShopPage extends StatelessWidget {
   const ShopPage({super.key});
@@ -17,7 +17,7 @@ class ShopPage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           PinnedHeaderSliver(
-            child: CustomBoxReuse(
+            child: CustomContainer(
               color: Colors.blue,
               borderRadius: BorderRadius.zero,
               child: SafeArea(

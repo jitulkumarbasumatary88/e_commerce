@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../reusable_widgets/custom_box_reuse.dart';
+import '../../reusable_widgets/custom_container.dart';
 
 class NewArrivalOrSponsorBanner extends StatelessWidget {
   final String? text1;
@@ -22,13 +22,13 @@ class NewArrivalOrSponsorBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomBoxReuse(
+    return CustomContainer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (text1 != null) Text(text1!),
 
-          CustomBoxReuse(
+          CustomContainer(
             color: Colors.grey,
             height: 100,
             width: double.infinity,
@@ -45,7 +45,7 @@ class NewArrivalOrSponsorBanner extends StatelessWidget {
               ),
 
               if (buttonText != null)
-                CustomBoxReuse(
+                CustomContainer(
                   color: Colors.pinkAccent,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,

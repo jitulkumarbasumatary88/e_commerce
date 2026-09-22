@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/ui/home_page/home_page.dart';
 import 'package:e_commerce_app/ui/product_page/product_page.dart';
+import 'package:e_commerce_app/ui/profile_page/profile_page.dart';
 import 'package:e_commerce_app/ui/shop_page/shop_page.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       // home: HomePage(),
       // home: ProductPage(),
-      home: ShopPage(),
+      // home: ShopPage(),
+      home: ProfilePage(),
     );
   }
 }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../../reusable_widgets/constant.dart';
-import '../../reusable_widgets/custom_box_reuse.dart';
-import '../../reusable_widgets/horizontal_list_products.dart';
+import '../../reusable_widgets/custom_container.dart';
+import '../../reusable_widgets/custom_horizontal_list.dart';
 
 class ProductSimilarSection extends StatelessWidget {
   const ProductSimilarSection({super.key});
@@ -23,7 +23,7 @@ class ProductSimilarSection extends StatelessWidget {
             Row(
               children: [
                 for (int i = 0; i < 2; i++) ...[
-                  CustomBoxReuse(
+                  CustomContainer(
                     color: Colors.blue,
                     child: Row(
                       children: [
@@ -42,7 +42,7 @@ class ProductSimilarSection extends StatelessWidget {
 
         ContentSpace.mHeight,
 
-        HorizontalListProducts(),
+        CustomHorizontalList(),
       ],
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../reusable_widgets/constant.dart';
-import '../../reusable_widgets/custom_box_reuse.dart';
+import '../../reusable_widgets/custom_container.dart';
 
 class ProductActionSection extends StatelessWidget {
   const ProductActionSection({super.key});
@@ -16,7 +16,7 @@ class ProductActionSection extends StatelessWidget {
           runSpacing: 5,
           children: [
             for (int i = 0; i < 3; i++)
-              CustomBoxReuse(
+              CustomContainer(
                 padding: EdgeInsets.only(top: 2, bottom: 2, right: 2),
                 borderRadius: BorderRadius.circular(4),
                 border: Border.all(color: Colors.grey),
@@ -43,7 +43,7 @@ class ProductActionSection extends StatelessWidget {
         Row(
           children: [
             for (int i = 0; i < 2; i++) ...[
-              CustomBoxReuse(
+              CustomContainer(
                 color: Colors.blue,
                 child: Row(
                   children: [
@@ -60,7 +60,7 @@ class ProductActionSection extends StatelessWidget {
 
         ContentSpace.mHeight,
 
-        CustomBoxReuse(
+        CustomContainer(
           width: double.infinity,
           color: Colors.pinkAccent,
           child: Column(
@@ -79,7 +79,7 @@ class ProductActionSection extends StatelessWidget {
           children: [
             for (int i = 0; i < 2; i++) ...[
               Expanded(
-                child: CustomBoxReuse(
+                child: CustomContainer(
                   border: Border.all(color: Colors.grey),
                   child: Row(
                     children: [

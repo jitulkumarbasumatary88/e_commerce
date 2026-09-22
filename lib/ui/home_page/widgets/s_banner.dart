@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../reusable_widgets/custom_box_reuse.dart';
+import '../../reusable_widgets/custom_container.dart';
 
 class SBanner extends StatelessWidget {
   final String text1;
@@ -22,7 +22,7 @@ class SBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomBoxReuse(
+    return CustomContainer(
       color: backgroundColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -36,7 +36,7 @@ class SBanner extends StatelessWidget {
             ],
           ),
 
-          CustomBoxReuse(
+          CustomContainer(
             color: backgroundColor,
             border: Border.all(color: Colors.white),
             child: Row(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomBoxReuse extends StatelessWidget {
+class CustomContainer extends StatelessWidget {
   final double? height;
   final double? width;
   final EdgeInsetsGeometry? padding;
@@ -9,7 +9,7 @@ class CustomBoxReuse extends StatelessWidget {
   final Border? border;
   final Widget? child;
 
-  const CustomBoxReuse({
+  const CustomContainer({
     super.key,
     this.height,
     this.width,

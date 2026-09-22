@@ -5,8 +5,8 @@ import 'package:e_commerce_app/ui/home_page/widgets/s_banner.dart';
 import 'package:flutter/material.dart';
 
 import '../reusable_widgets/constant.dart';
-import '../reusable_widgets/custom_box_reuse.dart';
-import '../reusable_widgets/horizontal_list_products.dart';
+import '../reusable_widgets/custom_container.dart';
+import '../reusable_widgets/custom_horizontal_list.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -59,7 +59,7 @@ class HomePage extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(child: Text('All Featured')),
-                    CustomBoxReuse(
+                    CustomContainer(
                       child: Row(
                         children: [
                           Text('Sort'),
@@ -67,7 +67,7 @@ class HomePage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    CustomBoxReuse(
+                    CustomContainer(
                       child: Row(
                         children: [
                           Text('Filter'),
@@ -93,7 +93,7 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     for (int i = 0; i < 3; i++) ...[
-                      CustomBoxReuse(
+                      CustomContainer(
                         height: 5,
                         width: 30,
                         color: Colors.pinkAccent,
@@ -112,7 +112,7 @@ class HomePage extends StatelessWidget {
                   backgroundColor: Colors.blue,
                 ),
 
-                HorizontalListProducts(),
+                CustomHorizontalList(),
 
                 BBanner(
                   text1: 'Special Offers 😱',
@@ -141,7 +141,7 @@ class HomePage extends StatelessWidget {
                   backgroundColor: Colors.pinkAccent,
                 ),
 
-                HorizontalListProducts(),
+                CustomHorizontalList(),
 
                 NewArrivalOrSponsorBanner(
                   text2: 'New Arrivals',
