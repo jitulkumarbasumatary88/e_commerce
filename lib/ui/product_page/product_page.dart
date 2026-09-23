@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/ui/product_page/widget/product_design.dart';
+import 'package:e_commerce_app/ui/product_page/widget/product_widget.dart';
 import 'package:flutter/material.dart';
 
 class ProductPage extends StatelessWidget {
@@ -20,7 +20,7 @@ class ProductPage extends StatelessWidget {
                   mainAxisExtent: 320,
                 ),
                 delegate: SliverChildBuilderDelegate((context, index) {
-                  return ProductDesign(
+                  return ProductWidget(
                     text1: 'Black Winter',
                     text2: 'Autumn And Winter Casual cotton-padded jacket',
                     text3: '₹499',
