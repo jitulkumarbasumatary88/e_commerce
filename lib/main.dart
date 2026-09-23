@@ -2,6 +2,7 @@ import 'package:e_commerce_app/ui/authentication_page/forgot_password_page.dart'
 import 'package:e_commerce_app/ui/authentication_page/sign_in_page.dart';
 import 'package:e_commerce_app/ui/authentication_page/sign_up_page.dart';
 import 'package:e_commerce_app/ui/checkout_page/checkout_page.dart';
+import 'package:e_commerce_app/ui/get_started_page/get_started_page.dart';
 import 'package:e_commerce_app/ui/home_page/home_page.dart';
 import 'package:e_commerce_app/ui/place_order_page/place_order_page.dart';
 import 'package:e_commerce_app/ui/product_page/product_page.dart';
@@ -39,7 +40,8 @@ class MyApp extends StatelessWidget {
       // home: MakePaymentPage(),
       // home: SignInPage(),
       // home: SignUpPage(),
-      home: ForgotPasswordPage(),
+      // home: ForgotPasswordPage(),
+      home: GetStartedPage(),
     );
   }
 }
