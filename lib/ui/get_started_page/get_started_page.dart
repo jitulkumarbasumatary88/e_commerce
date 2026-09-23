@@ -16,6 +16,7 @@ class GetStartedPage extends StatelessWidget {
             height: double.infinity,
             width: double.infinity,
             color: Colors.grey,
+            borderRadius: BorderRadius.zero,
           ),
 
           // Bottom Content
