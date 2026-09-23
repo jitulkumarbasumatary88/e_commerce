@@ -1,6 +1,6 @@
 import 'package:e_commerce_app/ui/reusable_widgets/constant.dart';
 import 'package:e_commerce_app/ui/reusable_widgets/custom_container.dart';
-import 'package:e_commerce_app/ui/reusable_widgets/custom_textfield.dart';
+import 'package:e_commerce_app/ui/reusable_widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
