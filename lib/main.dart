@@ -27,14 +27,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
-      // home: ProductPage(),
-      // home: ShopPage(),
-      // home: ProfilePage(),
-      // home: CheckoutPage(),
-      // home: PlaceOrderPage(),
-      // home: ShippingPage(),
-      // home: SuccessfullyPage(),
       // home: SplashPage(),
       // home: ChooseProductPage(),
       // home: MakePaymentPage(),
@@ -43,6 +35,14 @@ class MyApp extends StatelessWidget {
       // home: SignUpPage(),
       // home: ForgotPasswordPage(),
       // home: GetStartedPage(),
+      home: HomePage(),
+      // home: ProductPage(),
+      // home: ShopPage(),
+      // home: ProfilePage(),
+      // home: CheckoutPage(),
+      // home: PlaceOrderPage(),
+      // home: ShippingPage(),
+      // home: SuccessfullyPage(),
     );
   }
 }
