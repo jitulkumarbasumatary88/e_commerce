@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import '../../reusable_widgets/constant.dart';
 import '../../reusable_widgets/custom_container.dart';
 
-class OnboardingPage extends StatelessWidget {
+class Onboarding extends StatelessWidget {
   final Widget image;
   final String title;
   final String description;
   final int pageIndex;
 
-  const OnboardingPage({
+  const Onboarding({
     super.key,
     required this.image,
     required this.title,
