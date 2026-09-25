@@ -16,11 +16,10 @@ class CustomHorizontalList extends StatelessWidget {
         itemBuilder: (context, index) {
           return CustomContainer(
             width: 200,
-            color: Colors.grey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomContainer(height: 150),
+                CustomContainer(height: 150, color: Colors.grey),
                 ContentSpace.mHeight,
                 Text('Nike Sneakers'),
                 ContentSpace.sHeight,

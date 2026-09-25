@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/ui/reusable_widgets/constant.dart';
 import 'package:flutter/material.dart';
 
 import '../../reusable_widgets/custom_container.dart';
@@ -35,24 +36,35 @@ class BBanner extends StatelessWidget {
         children: [
           Text(text1),
 
+          ContentSpace.mHeight,
+
           if (text2 != null) Text(text2!),
 
           if (text3 != null) Text(text3!),
 
-          if (buttonText != null)
+          if (buttonText != null) ...[
+            ContentSpace.lHeight,
             CustomContainer(
               color: buttonColor,
               border: Border.all(color: Colors.white),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
-                children: [Text(buttonText!), Icon(buttonIcon)],
+                children: [
+                  Text(buttonText!),
+                  if (buttonIcon != null) Icon(buttonIcon),
+                ],
               ),
             ),
+          ],
         ],
       ),
     );
 
-    final imageContent = CustomContainer(child: Icon(bannerIcon));
+    final imageContent = CustomContainer(
+      height: 200,
+      width: 150,
+      color: Colors.grey,
+    );
 
     return CustomContainer(
       color: backgroundColor ?? Colors.white,
