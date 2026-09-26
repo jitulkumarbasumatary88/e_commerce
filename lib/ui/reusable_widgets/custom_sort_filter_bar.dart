@@ -1,7 +1,6 @@
 import 'package:e_commerce_app/ui/reusable_widgets/constant.dart';
+import 'package:e_commerce_app/ui/reusable_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-
-import 'custom_container.dart';
 
 class CustomSortFilterBar extends StatelessWidget {
   final String title;
@@ -14,18 +13,20 @@ class CustomSortFilterBar extends StatelessWidget {
       children: [
         Expanded(child: Text(title)),
 
-        CustomContainer(
-          child: const Row(
-            children: [Text('Sort'), Icon(Icons.swap_vert_rounded)],
-          ),
+        CustomButton(
+          buttonText: 'Sort',
+          textColor: Colors.black,
+          buttonIcon: Icons.swap_vert_rounded,
+          buttonIconColor: Colors.black,
         ),
 
         ContentSpace.sWidth,
 
-        CustomContainer(
-          child: const Row(
-            children: [Text('Filter'), Icon(Icons.filter_alt_outlined)],
-          ),
+        CustomButton(
+          buttonText: 'Filter',
+          textColor: Colors.black,
+          buttonIcon: Icons.filter_alt_outlined,
+          buttonIconColor: Colors.black,
         ),
       ],
     );

@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/ui/reusable_widgets/constant.dart';
+import 'package:e_commerce_app/ui/reusable_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../reusable_widgets/custom_container.dart';
@@ -6,8 +8,6 @@ class SBanner extends StatelessWidget {
   final String text1;
   final IconData icon;
   final String text2;
-  final String buttonText;
-  final IconData buttonIcon;
   final Color backgroundColor;
 
   const SBanner({
@@ -15,8 +15,6 @@ class SBanner extends StatelessWidget {
     required this.text1,
     required this.icon,
     required this.text2,
-    required this.buttonText,
-    required this.buttonIcon,
     required this.backgroundColor,
   });
 
@@ -25,24 +23,25 @@ class SBanner extends StatelessWidget {
     return CustomContainer(
       color: backgroundColor,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(text1),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(text1),
 
-              Row(children: [Icon(icon), Text(text2)]),
-            ],
+                ContentSpace.sHeight,
+
+                Row(children: [Icon(icon), ContentSpace.sWidth, Text(text2)]),
+              ],
+            ),
           ),
 
-          CustomContainer(
-            color: backgroundColor,
+          CustomButton(
+            buttonText: 'View All',
+            buttonIcon: Icons.keyboard_arrow_right_rounded,
+            buttonBgColor: backgroundColor,
             border: Border.all(color: Colors.white),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [Text(buttonText), Icon(buttonIcon)],
-            ),
           ),
         ],
       ),

@@ -11,6 +11,7 @@ class CustomHorizontalList extends StatelessWidget {
     return SizedBox(
       height: 320,
       child: ListView.separated(
+        physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: 10,
         itemBuilder: (context, index) {

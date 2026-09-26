@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../reusable_widgets/constant.dart';
 import '../../reusable_widgets/custom_container.dart';
 
-class ThreeDotOrScroll extends StatelessWidget {
-  const ThreeDotOrScroll({super.key});
+class CapsuleDotScroll extends StatelessWidget {
+  const CapsuleDotScroll({super.key});
 
   @override
   Widget build(BuildContext context) {

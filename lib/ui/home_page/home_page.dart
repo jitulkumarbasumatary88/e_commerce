@@ -1,8 +1,11 @@
-import 'package:e_commerce_app/ui/home_page/widgets/b_banner.dart';
 import 'package:e_commerce_app/ui/home_page/widgets/bottom_nav_bar.dart';
-import 'package:e_commerce_app/ui/home_page/widgets/new_arrival_or_sponsor_banner.dart';
+import 'package:e_commerce_app/ui/home_page/widgets/new_arrivals.dart';
+import 'package:e_commerce_app/ui/home_page/widgets/offer_one.dart';
+import 'package:e_commerce_app/ui/home_page/widgets/offer_three.dart';
 import 'package:e_commerce_app/ui/home_page/widgets/s_banner.dart';
-import 'package:e_commerce_app/ui/home_page/widgets/three_dot_or_scroll.dart';
+import 'package:e_commerce_app/ui/home_page/widgets/capsule_dot_scroll.dart';
+import 'package:e_commerce_app/ui/home_page/widgets/offer_two.dart';
+import 'package:e_commerce_app/ui/home_page/widgets/sponsored.dart';
 import 'package:e_commerce_app/ui/reusable_widgets/custom_header.dart';
 import 'package:e_commerce_app/ui/reusable_widgets/custom_sort_filter_bar.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +21,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.green,
       body: CustomScrollView(
+        physics: BouncingScrollPhysics(),
         slivers: [
           ...buildCustomHeader(),
 
@@ -30,20 +34,11 @@ class HomePage extends StatelessWidget {
 
                   ContentSpace.mHeight,
 
-                  BBanner(
-                    text1: '50 - 40% OFF',
-                    text2: 'Now in (product)',
-                    text3: 'All colours',
-                    buttonText: 'Shop Now',
-                    buttonIcon: Icons.arrow_forward_rounded,
-                    backgroundColor: Colors.pinkAccent,
-                    buttonColor: Colors.pinkAccent,
-                    bannerIcon: Icons.image,
-                  ),
+                  OfferOne(),
 
                   ContentSpace.mHeight,
 
-                  ThreeDotOrScroll(),
+                  CapsuleDotScroll(),
 
                   ContentSpace.mHeight,
 
@@ -51,8 +46,6 @@ class HomePage extends StatelessWidget {
                     text1: 'Deal of the Day',
                     icon: Icons.access_alarm_rounded,
                     text2: '22h 55m 20s remaining',
-                    buttonText: 'View All',
-                    buttonIcon: Icons.arrow_forward_rounded,
                     backgroundColor: Colors.blue,
                   ),
 
@@ -62,24 +55,11 @@ class HomePage extends StatelessWidget {
 
                   ContentSpace.mHeight,
 
-                  BBanner(
-                    text1: 'Special Offers 😱',
-                    text2: 'We make sure you get the offer you need at best prices',
-                    bannerIcon: Icons.image,
-                    isImageLeft: true,
-                  ),
+                  OfferTwo(),
 
                   ContentSpace.mHeight,
 
-                  BBanner(
-                    text1: 'Flat and Heels',
-                    text2: 'Stand a chance to get rewarded',
-                    buttonText: 'Visit Now',
-                    buttonIcon: Icons.arrow_forward_rounded,
-                    buttonColor: Colors.pinkAccent,
-                    bannerIcon: Icons.image,
-                    isImageLeft: true,
-                  ),
+                  OfferThree(),
 
                   ContentSpace.mHeight,
 
@@ -87,8 +67,6 @@ class HomePage extends StatelessWidget {
                     text1: 'Trending Products',
                     icon: Icons.calendar_month_rounded,
                     text2: 'Last Date 29/02/22',
-                    buttonText: 'View All',
-                    buttonIcon: Icons.arrow_forward_rounded,
                     backgroundColor: Colors.pinkAccent,
                   ),
 
@@ -98,22 +76,11 @@ class HomePage extends StatelessWidget {
 
                   ContentSpace.mHeight,
 
-                  NewArrivalOrSponsorBanner(
-                    text2: 'New Arrivals',
-                    text3: 'Summer 25 Collections',
-                    buttonText: 'View All',
-                    buttonIcon: Icons.arrow_forward_rounded,
-                    icon2: Icons.image,
-                  ),
+                  NewArrivals(),
 
                   ContentSpace.mHeight,
 
-                  NewArrivalOrSponsorBanner(
-                    text1: 'Sponsored',
-                    text2: 'up to 50% Off',
-                    buttonIcon: Icons.arrow_forward_rounded,
-                    icon2: Icons.image,
-                  ),
+                  Sponsored(),
                 ],
               ),
             ),
