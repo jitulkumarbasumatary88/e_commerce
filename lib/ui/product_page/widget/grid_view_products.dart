@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import '../../reusable_widgets/constant.dart';
 import '../../reusable_widgets/custom_container.dart';
 
-class ProductWidget extends StatelessWidget {
+class GridViewProducts extends StatelessWidget {
   final String text1;
   final String text2;
   final String text3;
   final IconData icon;
   final String text4;
 
-  const ProductWidget({
+  const GridViewProducts({
     super.key,
     required this.text1,
     required this.text2,
