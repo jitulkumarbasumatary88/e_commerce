@@ -18,13 +18,19 @@ class BottomNavButton extends StatelessWidget {
             children: [
               Expanded(
                 child: Column(
+                  spacing: 5,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [Text('7,000.00'), Text('View Details')],
                 ),
               ),
+
               CustomContainer(
-                color: Colors.redAccent,
-                child: Text('Proceed to Payment'),
+                color: Colors.pinkAccent,
+                borderRadius: BorderRadius.circular(6),
+                child: Text(
+                  'Proceed to Payment',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ],
           ),

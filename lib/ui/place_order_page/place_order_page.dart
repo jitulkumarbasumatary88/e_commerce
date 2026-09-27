@@ -1,8 +1,8 @@
 import 'package:e_commerce_app/ui/place_order_page/widget/bottom_nav_button.dart';
+import 'package:e_commerce_app/ui/reusable_widgets/custom_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../reusable_widgets/constant.dart';
 import '../reusable_widgets/custom_container.dart';
 
 class PlaceOrderPage extends StatelessWidget {
@@ -12,6 +12,7 @@ class PlaceOrderPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
+        physics: BouncingScrollPhysics(),
         slivers: [
           PinnedHeaderSliver(
             child: CustomContainer(
@@ -36,8 +37,11 @@ class PlaceOrderPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 30,
                 children: [
                   Column(
+                    spacing: 5,
                     children: [
                       CustomContainer(
                         height: 80,
@@ -50,34 +54,33 @@ class PlaceOrderPage extends StatelessWidget {
                       Text('Checked Single-Breasted Blazer'),
 
                       Row(
+                        spacing: 5,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          for (int i = 0; i < 2; i++) ...[
-                            CustomContainer(
-                              padding: EdgeInsets.only(left: 8),
-                              borderRadius: BorderRadius.circular(4),
-                              border: Border.all(color: Colors.grey),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    'Size 42',
-                                    style: TextStyle(fontSize: 12),
-                                  ),
-                                  Icon(Icons.arrow_drop_down_rounded),
-                                ],
-                              ),
-                            ),
-                            if (i < 1) ContentSpace.mWidth,
-                          ],
+                          CustomButton(
+                            buttonText: 'Size 42',
+                            textColor: Colors.black,
+                            buttonIcon: Icons.arrow_drop_down_rounded,
+                            buttonIconColor: Colors.black,
+                            buttonBgColor: Colors.grey,
+                          ),
+
+                          CustomButton(
+                            buttonText: 'Qty 1',
+                            textColor: Colors.black,
+                            buttonIcon: Icons.arrow_drop_down_rounded,
+                            buttonIconColor: Colors.black,
+                            buttonBgColor: Colors.grey,
+                          ),
                         ],
                       ),
 
                       Row(
+                        spacing: 5,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text('Delivery by'),
-                          ContentSpace.sWidth,
+
                           Text(
                             '10 May 2XXX',
                             style: TextStyle(fontWeight: FontWeight.bold),
@@ -87,25 +90,24 @@ class PlaceOrderPage extends StatelessWidget {
                     ],
                   ),
 
-                  ContentSpace.lHeight,
-
                   Row(
+                    spacing: 5,
                     children: [
                       Icon(CupertinoIcons.ticket),
-                      ContentSpace.sWidth,
+
                       Text('Apply Coupons'),
+
                       Spacer(),
+
                       Text('Select'),
                     ],
                   ),
 
-                  ContentSpace.lHeight,
                   Divider(color: Colors.grey),
-                  ContentSpace.lHeight,
 
                   // Payment Details
                   Text('Other Payment Details'),
-                  ContentSpace.lHeight,
+
                   Row(
                     children: [
                       Text('Order Amounts'),
@@ -113,33 +115,44 @@ class PlaceOrderPage extends StatelessWidget {
                       Text('7,000.00'),
                     ],
                   ),
-                  ContentSpace.mHeight,
+
                   Row(
+                    spacing: 5,
                     children: [
                       Text('Order Amounts'),
-                      ContentSpace.mWidth,
-                      Text('Know More', style: TextStyle(color: Colors.red)),
+
+                      Text(
+                        'Know More',
+                        style: TextStyle(color: Colors.pinkAccent),
+                      ),
+
                       Spacer(),
-                      Text('Apply Coupon', style: TextStyle(color: Colors.red)),
+
+                      Text(
+                        'Apply Coupon',
+                        style: TextStyle(color: Colors.pinkAccent),
+                      ),
                     ],
                   ),
-                  ContentSpace.mHeight,
+
                   Row(children: [Text('Delivery Fee'), Spacer(), Text('Free')]),
 
-                  ContentSpace.lHeight,
                   Divider(color: Colors.grey),
-                  ContentSpace.lHeight,
 
                   // Order Total
                   Row(
                     children: [Text('Order Total'), Spacer(), Text('7,000.00')],
                   ),
-                  ContentSpace.mHeight,
+
                   Row(
+                    spacing: 5,
                     children: [
                       Text('EMI Available'),
-                      ContentSpace.mWidth,
-                      Text('Details', style: TextStyle(color: Colors.red)),
+
+                      Text(
+                        'Details',
+                        style: TextStyle(color: Colors.pinkAccent),
+                      ),
                     ],
                   ),
                 ],

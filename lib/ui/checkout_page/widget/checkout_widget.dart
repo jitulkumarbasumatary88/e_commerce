@@ -55,7 +55,7 @@ class CheckoutWidget extends StatelessWidget {
           ),
 
           Row(
-            spacing: 10,
+            spacing: 5,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomContainer(
@@ -68,7 +68,10 @@ class CheckoutWidget extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('upto 33% off', style: TextStyle(color: Colors.red)),
+                  Text(
+                    'upto 33% off',
+                    style: TextStyle(color: Colors.pinkAccent),
+                  ),
                   Text(
                     '\$ 64.00',
                     style: TextStyle(

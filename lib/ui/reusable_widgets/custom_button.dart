@@ -5,7 +5,7 @@ import 'custom_container.dart';
 class CustomButton extends StatelessWidget {
   final String buttonText;
   final Color textColor;
-  final IconData? buttonIcon;
+  final IconData buttonIcon;
   final Color buttonIconColor;
   final Color? buttonBgColor;
   final Border? border;
@@ -14,7 +14,7 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.buttonText,
     this.textColor = Colors.white,
-    this.buttonIcon,
+    required this.buttonIcon,
     this.buttonIconColor = Colors.white,
     this.buttonBgColor,
     this.border,

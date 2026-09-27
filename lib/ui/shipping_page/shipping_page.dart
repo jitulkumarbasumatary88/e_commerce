@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/ui/reusable_widgets/constant.dart';
+// import 'package:e_commerce_app/ui/reusable_widgets/constant.dart';
 import 'package:e_commerce_app/ui/reusable_widgets/custom_container.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +9,7 @@ class ShippingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
+        physics: BouncingScrollPhysics(),
         slivers: [
           SliverAppBar(
             centerTitle: true,
@@ -20,6 +21,7 @@ class ShippingPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
+                spacing: 20,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
@@ -27,45 +29,40 @@ class ShippingPage extends StatelessWidget {
                     children: [Text('Order'), Text('₹ 7,000')],
                   ),
 
-                  ContentSpace.lHeight,
-
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [Text('Shipping'), Text('₹ 30')],
                   ),
-                  ContentSpace.lHeight,
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [Text('Total'), Text('₹ 7,030')],
                   ),
-                  ContentSpace.lHeight,
 
                   Divider(color: Colors.grey),
 
-                  ContentSpace.lHeight,
-
                   Text('Payment'),
 
-                  ContentSpace.lHeight,
-
-                  for (int i = 0; i < 4; i++) ...[
+                  for (int i = 0; i < 4; i++)
                     CustomContainer(
-                      border: Border.all(color: Colors.redAccent),
+                      border: Border.all(color: Colors.pinkAccent),
+                      borderRadius: BorderRadius.circular(6),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [Text('VISA'), Text('*********2109')],
                       ),
                     ),
-                    if (i < 3) ContentSpace.lHeight,
-                  ],
-
-                  ContentSpace.lHeight,
 
                   CustomContainer(
                     width: double.infinity,
-                    color: Colors.redAccent,
-                    child: Center(child: Text('Continue')),
+                    color: Colors.pinkAccent,
+                    borderRadius: BorderRadius.circular(6),
+                    child: Center(
+                      child: Text(
+                        'Continue',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
                   ),
                 ],
               ),
