@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/ui/reusable_widgets/constant.dart';
-import 'package:e_commerce_app/ui/reusable_widgets/custom_button.dart';
 import 'package:e_commerce_app/ui/reusable_widgets/custom_container.dart';
 import 'package:flutter/material.dart';
 
@@ -23,20 +22,19 @@ class CheckoutWidget extends StatelessWidget {
             children: [
               Text('Variations :'),
 
-              CustomButton(
-                buttonText: 'Black',
-                textColor: Colors.black,
-                buttonIcon: Icons.square_rounded,
-                buttonIconColor: Colors.black,
+              CustomContainer(
+                padding: EdgeInsets.all(5),
+
+                borderRadius: BorderRadius.circular(6),
                 border: Border.all(color: Colors.grey),
+                child: const Text('Black', style: TextStyle(fontSize: 12)),
               ),
 
-              CustomButton(
-                buttonText: 'Red',
-                textColor: Colors.black,
-                buttonIcon: Icons.square_rounded,
-                buttonIconColor: Colors.red,
+              CustomContainer(
+                padding: EdgeInsets.all(5),
+                borderRadius: BorderRadius.circular(6),
                 border: Border.all(color: Colors.grey),
+                child: const Text('Red', style: TextStyle(fontSize: 12)),
               ),
             ],
           ),
@@ -60,12 +58,11 @@ class CheckoutWidget extends StatelessWidget {
             spacing: 10,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              CustomButton(
-                buttonText: '34.00',
-                textColor: Colors.black,
-                buttonIcon: Icons.currency_rupee_rounded,
-                buttonIconColor: Colors.black,
+              CustomContainer(
+                padding: EdgeInsets.all(5),
+                borderRadius: BorderRadius.circular(4),
                 border: Border.all(color: Colors.grey),
+                child: const Text('\$ 34.00', style: TextStyle(fontSize: 12)),
               ),
 
               Column(
