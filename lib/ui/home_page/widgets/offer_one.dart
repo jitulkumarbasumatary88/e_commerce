@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/ui/reusable_widgets/constant.dart';
 import 'package:e_commerce_app/ui/reusable_widgets/custom_button.dart';
 import 'package:e_commerce_app/ui/reusable_widgets/custom_container.dart';
 import 'package:flutter/material.dart';
@@ -14,16 +13,12 @@ class OfferOne extends StatelessWidget {
         children: [
           Expanded(
             child: Column(
+              spacing: 10,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('50 - 40% OFF'),
 
-                ContentSpace.mHeight,
-
-                Text('Now in (product)'),
-                Text('All colours'),
-
-                ContentSpace.mHeight,
+                Text('Now in (product)\nAll colours'),
 
                 CustomButton(
                   buttonText: 'Shop Now',

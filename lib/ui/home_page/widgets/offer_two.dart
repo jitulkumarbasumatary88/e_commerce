@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../reusable_widgets/constant.dart';
 import '../../reusable_widgets/custom_container.dart';
 
 class OfferTwo extends StatelessWidget {
@@ -10,18 +9,16 @@ class OfferTwo extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomContainer(
       child: Row(
+        spacing: 10,
         children: [
           CustomContainer(height: 100, width: 100, color: Colors.grey),
 
-          ContentSpace.mWidth,
-
           Expanded(
             child: Column(
+              spacing: 10,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Special Offers 😱'),
-
-                ContentSpace.mHeight,
 
                 Text(
                   maxLines: 2,

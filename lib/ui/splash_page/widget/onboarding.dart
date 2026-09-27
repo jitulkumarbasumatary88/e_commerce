@@ -30,10 +30,10 @@ class Onboarding extends StatelessWidget {
                 children: [Text('${pageIndex + 1}/3'), Text('Skip')],
               ),
 
-              ContentSpace.lHeight,
-
               Expanded(
                 child: Column(
+                  spacing: 20,
+
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CustomContainer(
@@ -43,18 +43,12 @@ class Onboarding extends StatelessWidget {
                       child: image,
                     ),
 
-                    ContentSpace.lHeight,
-
                     Text(title),
-
-                    ContentSpace.lHeight,
 
                     Text(description, textAlign: TextAlign.center),
                   ],
                 ),
               ),
-
-              ContentSpace.lHeight,
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

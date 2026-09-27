@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/ui/checkout_page/widget/checkout_widget.dart';
-import 'package:e_commerce_app/ui/reusable_widgets/constant.dart';
+
 import 'package:flutter/material.dart';
 
 import '../reusable_widgets/custom_container.dart';
@@ -11,6 +11,7 @@ class CheckoutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: CustomScrollView(
+        physics: BouncingScrollPhysics(),
         slivers: [
           SliverAppBar(
             centerTitle: true,
@@ -22,24 +23,25 @@ class CheckoutPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
+                spacing: 10,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
+                    spacing: 5,
                     children: [
                       Icon(Icons.location_on_rounded),
-                      ContentSpace.sWidth,
                       Text('Delivery Address'),
                     ],
                   ),
 
-                  ContentSpace.mHeight,
-
                   Row(
+                    spacing: 5,
                     children: [
                       Expanded(
                         child: CustomContainer(
                           color: Colors.blue,
                           child: Column(
+                            spacing: 5,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
@@ -50,15 +52,13 @@ class CheckoutPage extends StatelessWidget {
                                   Icon(Icons.edit_note_rounded),
                                 ],
                               ),
-                              ContentSpace.sHeight,
+
                               Text('216 St Paul\'s Rd, London N1 2LL, UK'),
                               Text('Contact : +44-784232'),
                             ],
                           ),
                         ),
                       ),
-
-                      ContentSpace.sWidth,
 
                       CustomContainer(
                         color: Colors.blue,
@@ -67,15 +67,9 @@ class CheckoutPage extends StatelessWidget {
                     ],
                   ),
 
-                  ContentSpace.mHeight,
-
                   Text('Shopping List'),
 
-                  ContentSpace.mHeight,
-
                   CheckoutWidget(),
-
-                  ContentSpace.mHeight,
 
                   CheckoutWidget(),
                 ],

@@ -24,31 +24,27 @@ class GridViewProducts extends StatelessWidget {
     return CustomContainer(
       color: Colors.blue,
       child: Column(
+        spacing: 5,
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomContainer(color: Colors.grey, height: 150),
 
-          ContentSpace.mHeight,
-
           Text(maxLines: 1, overflow: TextOverflow.ellipsis, text1),
-
-          ContentSpace.sHeight,
 
           Text(maxLines: 2, overflow: TextOverflow.ellipsis, text2),
 
-          ContentSpace.sHeight,
-
           Text(text3),
-
-          ContentSpace.sHeight,
 
           FittedBox(
             fit: BoxFit.scaleDown,
             child: Row(
               children: [
-                for (int i = 0; i < 5; i++) Icon(icon, color: Colors.amber),
-                ContentSpace.mWidth,
+                for (int i = 0; i < 5; i++)
+                  Icon(icon, color: i < 4 ? Colors.amber : Colors.grey),
+
+                ContentSpace.sWidth,
+
                 Text(text4),
               ],
             ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../reusable_widgets/constant.dart';
 import '../../reusable_widgets/custom_button.dart';
 import '../../reusable_widgets/custom_container.dart';
 
@@ -11,6 +10,7 @@ class NewArrivals extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomContainer(
       child: Column(
+        spacing: 10,
         children: [
           CustomContainer(
             color: Colors.grey,
@@ -18,17 +18,14 @@ class NewArrivals extends StatelessWidget {
             width: double.infinity,
           ),
 
-          ContentSpace.mHeight,
-
           Row(
             children: [
               Expanded(
                 child: Column(
+                  spacing: 10,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('New Arrivals'),
-
-                    ContentSpace.sHeight,
 
                     Text("Summer' 25 Collections"),
                   ],

@@ -1,15 +1,15 @@
-import 'package:e_commerce_app/ui/reusable_widgets/constant.dart';
 import 'package:e_commerce_app/ui/reusable_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
 class CustomSortFilterBar extends StatelessWidget {
   final String title;
 
-  const CustomSortFilterBar({super.key, required this.title});
+  const   CustomSortFilterBar({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      spacing: 5,
       children: [
         Expanded(child: Text(title)),
 
@@ -19,8 +19,6 @@ class CustomSortFilterBar extends StatelessWidget {
           buttonIcon: Icons.swap_vert_rounded,
           buttonIconColor: Colors.black,
         ),
-
-        ContentSpace.sWidth,
 
         CustomButton(
           buttonText: 'Filter',

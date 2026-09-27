@@ -2,34 +2,35 @@ import 'package:flutter/material.dart';
 
 import '../../reusable_widgets/constant.dart';
 
-class ProductInfoPricing extends StatelessWidget {
-  const ProductInfoPricing({super.key});
+class ShopInfoPricing extends StatelessWidget {
+  const ShopInfoPricing({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: 10,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Nike Sneakers'),
 
-        ContentSpace.mHeight,
-
         Text('Vision Alta Men’s Shoes Size (All Colours)'),
-
-        ContentSpace.mHeight,
 
         Row(
           children: [
             for (int i = 0; i < 5; i++)
-              Icon(Icons.star_rate_rounded, color: Colors.amber),
-            ContentSpace.mWidth,
+              Icon(
+                Icons.star_rate_rounded,
+                color: i < 4 ? Colors.amber : Colors.grey,
+              ),
+
+            ContentSpace.sWidth,
+
             Text('56,890'),
           ],
         ),
 
-        ContentSpace.mHeight,
-
         Row(
+          spacing: 10,
           children: [
             Text(
               '₹2,999',
@@ -39,18 +40,14 @@ class ProductInfoPricing extends StatelessWidget {
                 color: Colors.grey,
               ),
             ),
-            ContentSpace.mWidth,
+
             Text('₹1,500'),
-            ContentSpace.mWidth,
-            Text('50% Off'),
+
+            Text('50% Off', style: TextStyle(color: Colors.pinkAccent)),
           ],
         ),
 
-        ContentSpace.mHeight,
-
         Text('Product Details'),
-
-        ContentSpace.mHeight,
 
         Text(
           maxLines: 5,

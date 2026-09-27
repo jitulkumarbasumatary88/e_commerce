@@ -1,7 +1,6 @@
 import 'package:e_commerce_app/ui/reusable_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
-import '../../reusable_widgets/constant.dart';
 import '../../reusable_widgets/custom_container.dart';
 
 class OfferThree extends StatelessWidget {
@@ -11,22 +10,18 @@ class OfferThree extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomContainer(
       child: Row(
+        spacing: 10,
         children: [
           CustomContainer(height: 180, width: 140, color: Colors.grey),
 
-          ContentSpace.mWidth,
-
           Expanded(
             child: Column(
+              spacing: 10,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text('Flat and Heels'),
 
-                ContentSpace.mHeight,
-
                 Text(maxLines: 2, 'Stand a chance to get rewarded'),
-
-                ContentSpace.mHeight,
 
                 Align(
                   alignment: Alignment.centerRight,

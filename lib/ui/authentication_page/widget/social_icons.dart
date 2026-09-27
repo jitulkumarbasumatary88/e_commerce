@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../reusable_widgets/constant.dart';
 import '../../reusable_widgets/custom_container.dart';
 
 class SocialIcons extends StatelessWidget {
@@ -9,6 +8,7 @@ class SocialIcons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      spacing: 20,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         CustomContainer(
@@ -19,8 +19,6 @@ class SocialIcons extends StatelessWidget {
           child: const Center(child: Text('G')),
         ),
 
-        ContentSpace.mWidth,
-
         CustomContainer(
           height: 50,
           width: 50,
@@ -28,8 +26,6 @@ class SocialIcons extends StatelessWidget {
           border: Border.all(color: Colors.black),
           child: const Center(child: Icon(Icons.apple)),
         ),
-
-        ContentSpace.mWidth,
 
         CustomContainer(
           height: 50,

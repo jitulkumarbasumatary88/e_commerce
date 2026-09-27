@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../reusable_widgets/constant.dart';
 import '../../reusable_widgets/custom_container.dart';
 
 class Sponsored extends StatelessWidget {
@@ -10,19 +9,16 @@ class Sponsored extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomContainer(
       child: Column(
+        spacing: 10,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Sponsored'),
-
-          ContentSpace.mHeight,
 
           CustomContainer(
             color: Colors.grey,
             height: 200,
             width: double.infinity,
           ),
-
-          ContentSpace.mHeight,
 
           Row(
             children: [

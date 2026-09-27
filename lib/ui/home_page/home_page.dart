@@ -10,7 +10,6 @@ import 'package:e_commerce_app/ui/reusable_widgets/custom_header.dart';
 import 'package:e_commerce_app/ui/reusable_widgets/custom_sort_filter_bar.dart';
 import 'package:flutter/material.dart';
 
-import '../reusable_widgets/constant.dart';
 import '../reusable_widgets/custom_horizontal_list.dart';
 
 class HomePage extends StatelessWidget {
@@ -29,18 +28,13 @@ class HomePage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
+                spacing: 10,
                 children: [
                   CustomSortFilterBar(title: 'All Featured'),
 
-                  ContentSpace.mHeight,
-
                   OfferOne(),
 
-                  ContentSpace.mHeight,
-
                   CapsuleDotScroll(),
-
-                  ContentSpace.mHeight,
 
                   SBanner(
                     text1: 'Deal of the Day',
@@ -49,19 +43,11 @@ class HomePage extends StatelessWidget {
                     backgroundColor: Colors.blue,
                   ),
 
-                  ContentSpace.mHeight,
-
                   CustomHorizontalList(),
-
-                  ContentSpace.mHeight,
 
                   OfferTwo(),
 
-                  ContentSpace.mHeight,
-
                   OfferThree(),
-
-                  ContentSpace.mHeight,
 
                   SBanner(
                     text1: 'Trending Products',
@@ -70,15 +56,9 @@ class HomePage extends StatelessWidget {
                     backgroundColor: Colors.pinkAccent,
                   ),
 
-                  ContentSpace.mHeight,
-
                   CustomHorizontalList(),
 
-                  ContentSpace.mHeight,
-
                   NewArrivals(),
-
-                  ContentSpace.mHeight,
 
                   Sponsored(),
                 ],

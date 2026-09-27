@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/ui/reusable_widgets/constant.dart';
 import 'package:e_commerce_app/ui/reusable_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -26,13 +25,16 @@ class SBanner extends StatelessWidget {
         children: [
           Expanded(
             child: Column(
+              spacing: 5,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(text1),
 
-                ContentSpace.sHeight,
-
-                Row(children: [Icon(icon), ContentSpace.sWidth, Text(text2)]),
+                Wrap(
+                  spacing: 5,
+                  runSpacing: 5,
+                  children: [Icon(icon), Text(text2)],
+                ),
               ],
             ),
           ),

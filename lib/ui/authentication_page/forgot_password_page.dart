@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../reusable_widgets/constant.dart';
 import '../reusable_widgets/custom_container.dart';
 import '../reusable_widgets/custom_text_field.dart';
 
@@ -12,29 +11,25 @@ class ForgotPasswordPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: CustomScrollView(
+          physics: BouncingScrollPhysics(),
           slivers: [
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.all(10),
                 child: Column(
+                  spacing: 20,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Text('Forgot\npassword?'),
-
-                    ContentSpace.lHeight,
 
                     const CustomTextField(
                       hintText: 'Enter your email address',
                       prefixIcon: Icon(Icons.mail_outline),
                     ),
 
-                    ContentSpace.lHeight,
-
                     const Text(
                       '* We will send you a message to set or reset your new password',
                     ),
-
-                    ContentSpace.lHeight,
 
                     CustomContainer(
                       width: double.infinity,

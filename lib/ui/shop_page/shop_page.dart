@@ -1,11 +1,10 @@
-import 'package:e_commerce_app/ui/shop_page/widget/product_action_section.dart';
-import 'package:e_commerce_app/ui/shop_page/widget/product_image_slider.dart';
-import 'package:e_commerce_app/ui/shop_page/widget/product_info_pricing.dart';
-import 'package:e_commerce_app/ui/shop_page/widget/product_similar_section.dart';
-import 'package:e_commerce_app/ui/shop_page/widget/product_size_selector.dart';
+import 'package:e_commerce_app/ui/shop_page/widgets/shop_action_section.dart';
+import 'package:e_commerce_app/ui/shop_page/widgets/shop_image_slider.dart';
+import 'package:e_commerce_app/ui/shop_page/widgets/shop_info_pricing.dart';
+import 'package:e_commerce_app/ui/shop_page/widgets/shop_similar_section.dart';
+import 'package:e_commerce_app/ui/shop_page/widgets/shop_size_selector.dart';
 import 'package:flutter/material.dart';
 
-import '../reusable_widgets/constant.dart';
 import '../reusable_widgets/custom_container.dart';
 
 class ShopPage extends StatelessWidget {
@@ -14,7 +13,9 @@ class ShopPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.brown,
       body: CustomScrollView(
+        physics: BouncingScrollPhysics(),
         slivers: [
           PinnedHeaderSliver(
             child: CustomContainer(
@@ -37,17 +38,18 @@ class ShopPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
+                spacing: 10,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ProductImageSlider(),
-                  ContentSpace.mHeight,
-                  ProductSizeSelector(),
-                  ContentSpace.mHeight,
-                  ProductInfoPricing(),
-                  ContentSpace.mHeight,
-                  ProductActionSection(),
-                  ContentSpace.mHeight,
-                  ProductSimilarSection(),
+                  ShopImageSlider(),
+
+                  ShopSizeSelector(),
+
+                  ShopInfoPricing(),
+
+                  ShopActionSection(),
+
+                  ShopSimilarSection(),
                 ],
               ),
             ),

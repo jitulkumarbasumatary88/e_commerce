@@ -18,25 +18,31 @@ class CustomHorizontalList extends StatelessWidget {
           return CustomContainer(
             width: 200,
             child: Column(
+              spacing: 5,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomContainer(height: 150, color: Colors.grey),
-                ContentSpace.mHeight,
+
                 Text('Nike Sneakers'),
-                ContentSpace.sHeight,
+
                 Text(
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   'Nike Air Jordan Retro 1 Low Mystic Black',
                 ),
-                ContentSpace.sHeight,
+
                 Text('₹1,900'),
-                ContentSpace.sHeight,
+
                 Row(
                   children: [
                     for (int i = 0; i < 5; i++)
-                      Icon(Icons.star_rate_rounded, color: Colors.amber),
-                    ContentSpace.mWidth,
+                      Icon(
+                        Icons.star_rate_rounded,
+                        color: i < 4 ? Colors.amber : Colors.grey,
+                      ),
+
+                    ContentSpace.sWidth,
+
                     Text('46,890'),
                   ],
                 ),
@@ -44,6 +50,7 @@ class CustomHorizontalList extends StatelessWidget {
             ),
           );
         },
+
         separatorBuilder: (BuildContext context, int index) {
           return ContentSpace.mWidth;
         },

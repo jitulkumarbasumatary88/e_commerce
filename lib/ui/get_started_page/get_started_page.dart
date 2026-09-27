@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../reusable_widgets/constant.dart';
 import '../reusable_widgets/custom_container.dart';
 
 class GetStartedPage extends StatelessWidget {
@@ -21,6 +20,7 @@ class GetStartedPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
+              spacing: 20,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 const Text(
@@ -28,14 +28,10 @@ class GetStartedPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
 
-                ContentSpace.lHeight,
-
                 const Text(
                   'Find it here, buy it now!',
                   textAlign: TextAlign.center,
                 ),
-
-                ContentSpace.lHeight,
 
                 CustomContainer(
                   width: double.infinity,

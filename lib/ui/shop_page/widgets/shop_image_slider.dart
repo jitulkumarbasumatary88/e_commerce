@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
 
-import '../../reusable_widgets/constant.dart';
 import '../../reusable_widgets/custom_container.dart';
 
-class ProductImageSlider extends StatelessWidget {
-  const ProductImageSlider({super.key});
+class ShopImageSlider extends StatelessWidget {
+  const ShopImageSlider({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      spacing: 10,
       children: [
         CustomContainer(color: Colors.grey, height: 200),
 
-        ContentSpace.mHeight,
-
         Row(
+          spacing: 5,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            for (int i = 0; i < 5; i++) ...[
-              CustomContainer(height: 5, width: 30, color: Colors.pinkAccent),
-              if (i < 4) ContentSpace.sWidth,
-            ],
+            for (int i = 0; i < 5; i++)
+              CustomContainer(
+                height: 5,
+                width: 25,
+                color: i == 0 ? Colors.pinkAccent : Colors.grey,
+              ),
           ],
         ),
       ],
