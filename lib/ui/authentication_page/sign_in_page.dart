@@ -28,19 +28,24 @@ class SignInPage extends StatelessWidget {
                       prefixIcon: Icon(Icons.person_outline),
                     ),
 
-                    const CustomTextField(
-                      hintText: 'Password',
-                      prefixIcon: Icon(Icons.lock_outline),
-                      suffixIcon: Icon(Icons.visibility_outlined),
-                      obscureText: true,
-                    ),
+                    Column(
+                      spacing: 5,
+                      children: [
+                        const CustomTextField(
+                          hintText: 'Password',
+                          prefixIcon: Icon(Icons.lock_outline),
+                          suffixIcon: Icon(Icons.visibility_outlined),
+                          obscureText: true,
+                        ),
 
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: const Text(
-                        'Forgot Password?',
-                        style: TextStyle(color: Colors.redAccent),
-                      ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: const Text(
+                            'Forgot Password?',
+                            style: TextStyle(color: Colors.redAccent),
+                          ),
+                        ),
+                      ],
                     ),
 
                     CustomContainer(

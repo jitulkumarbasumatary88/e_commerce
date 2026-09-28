@@ -1,6 +1,7 @@
-import 'package:e_commerce_app/ui/reusable_widgets/constant.dart';
+import 'package:e_commerce_app/ui/profile_page/widget/bank_account_details.dart';
+import 'package:e_commerce_app/ui/profile_page/widget/business_address_details.dart';
+import 'package:e_commerce_app/ui/profile_page/widget/personal_details.dart';
 import 'package:e_commerce_app/ui/reusable_widgets/custom_container.dart';
-import 'package:e_commerce_app/ui/reusable_widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -34,103 +35,28 @@ class ProfilePage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 30,
                 children: [
-                  Text('Personal Details'),
+                  PersonalDetails(),
 
-                  ContentSpace.lHeight,
-
-                  Text('Email Address'),
-                  ContentSpace.mHeight,
-                  CustomTextField(hintText: 'Email'),
-
-                  ContentSpace.lHeight,
-
-                  Text('Password'),
-                  ContentSpace.mHeight,
-                  CustomTextField(
-                    hintText: 'Password',
-                    obscureText: true,
-                    suffixIcon: Icon(Icons.remove_red_eye_rounded),
-                  ),
-
-                  ContentSpace.mHeight,
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [Text('Change Password')],
-                  ),
-
-                  ContentSpace.lHeight,
                   Divider(color: Colors.grey),
-                  ContentSpace.lHeight,
 
-                  Text('Business Address Details'),
+                  BusinessAddressDetails(),
 
-                  ContentSpace.lHeight,
-
-                  Text('Pin Code'),
-                  ContentSpace.mHeight,
-                  CustomTextField(hintText: 'Pin Code'),
-
-                  ContentSpace.lHeight,
-
-                  Text('Address'),
-                  ContentSpace.mHeight,
-                  CustomTextField(hintText: 'Address'),
-
-                  ContentSpace.lHeight,
-
-                  Text('City'),
-                  ContentSpace.mHeight,
-                  CustomTextField(hintText: 'City'),
-
-                  ContentSpace.lHeight,
-
-                  Text('State'),
-                  ContentSpace.mHeight,
-                  CustomTextField(hintText: 'State'),
-
-                  ContentSpace.lHeight,
-
-                  Text('Country'),
-                  ContentSpace.mHeight,
-                  CustomTextField(hintText: 'Country'),
-
-                  ContentSpace.lHeight,
                   Divider(color: Colors.grey),
-                  ContentSpace.lHeight,
 
-                  Text('Bank Account Details'),
-
-                  ContentSpace.lHeight,
-
-                  Text('Bank Account Number'),
-                  ContentSpace.mHeight,
-                  CustomTextField(
-                    hintText: 'Bank Account Number',
-                    obscureText: true,
-                    suffixIcon: Icon(Icons.remove_red_eye_rounded),
-                  ),
-
-                  ContentSpace.lHeight,
-
-                  Text("Account Holder's Name"),
-                  ContentSpace.mHeight,
-                  CustomTextField(hintText: "Account Holder's Name"),
-
-                  ContentSpace.lHeight,
-
-                  Text('IFSC Code'),
-                  ContentSpace.mHeight,
-                  CustomTextField(hintText: 'IFSC Code'),
-
-                  ContentSpace.lHeight,
+                  BankAccountDetails(),
 
                   CustomContainer(
                     width: double.infinity,
                     color: Colors.pinkAccent,
-                    child: Center(child: Text('Save')),
+                    borderRadius: BorderRadius.circular(6),
+                    child: Center(
+                      child: Text(
+                        'Save',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
                   ),
                 ],
               ),
