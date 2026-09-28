@@ -19,7 +19,7 @@ List<Widget> buildCustomHeader() {
 
     SliverAppBar(
       pinned: true,
-      // primary: false,
+      primary: false,
       automaticallyImplyLeading: false,
       titleSpacing: 0,
       // toolbarHeight: 65,

@@ -19,7 +19,6 @@ class _SplashPageState extends State<SplashPage> {
   Future<void> _startTimer() async {
     await Future.delayed(const Duration(seconds: 3));
     if (!mounted) return;
-    // Navigation baad mein add karna hain
   }
 
   @override

@@ -17,33 +17,35 @@ class GetStartedPage extends StatelessWidget {
             borderRadius: BorderRadius.zero,
           ),
 
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              spacing: 20,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                const Text(
-                  'You want\nAuthentic, here\nyou go!',
-                  textAlign: TextAlign.center,
-                ),
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                spacing: 20,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const Text(
+                    'You want\nAuthentic, here\nyou go!',
+                    textAlign: TextAlign.center,
+                  ),
 
-                const Text(
-                  'Find it here, buy it now!',
-                  textAlign: TextAlign.center,
-                ),
+                  const Text(
+                    'Find it here, buy it now!',
+                    textAlign: TextAlign.center,
+                  ),
 
-                CustomContainer(
-                  width: double.infinity,
-                  color: Colors.redAccent,
-                  child: const Center(
-                    child: Text(
-                      'Get Started',
-                      style: TextStyle(color: Colors.white),
+                  CustomContainer(
+                    width: double.infinity,
+                    color: Colors.redAccent,
+                    child: const Center(
+                      child: Text(
+                        'Get Started',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],

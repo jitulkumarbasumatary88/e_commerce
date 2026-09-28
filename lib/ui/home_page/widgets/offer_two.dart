@@ -22,6 +22,7 @@ class OfferTwo extends StatelessWidget {
 
                 Text(
                   maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                   'We make sure you get the offer you need at best prices',
                 ),
               ],

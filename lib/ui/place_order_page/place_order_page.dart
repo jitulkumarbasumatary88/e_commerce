@@ -105,7 +105,6 @@ class PlaceOrderPage extends StatelessWidget {
 
                   Divider(color: Colors.grey),
 
-                  // Payment Details
                   Text('Other Payment Details'),
 
                   Row(
@@ -119,7 +118,7 @@ class PlaceOrderPage extends StatelessWidget {
                   Row(
                     spacing: 5,
                     children: [
-                      Text('Order Amounts'),
+                      Text('Convenience'),
 
                       Text(
                         'Know More',
@@ -139,7 +138,6 @@ class PlaceOrderPage extends StatelessWidget {
 
                   Divider(color: Colors.grey),
 
-                  // Order Total
                   Row(
                     children: [Text('Order Total'), Spacer(), Text('7,000.00')],
                   ),
