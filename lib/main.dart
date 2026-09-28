@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: SplashPage(),
-      // home: ChooseProductPage(),
+      home: ChooseProductPage(),
       // home: MakePaymentPage(),
       // home: GetYourOrderPage(),
       // home: SignInPage(),
@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
       // home: ProfilePage(),
       // home: CheckoutPage(),
       // home: PlaceOrderPage(),
-      home: ShippingPage(),
+      // home: ShippingPage(),
       // home: SuccessfullyPage(),
     );
   }

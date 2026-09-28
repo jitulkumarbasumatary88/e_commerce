@@ -1,5 +1,5 @@
-// import 'package:e_commerce_app/ui/reusable_widgets/constant.dart';
 import 'package:e_commerce_app/ui/reusable_widgets/custom_container.dart';
+import 'package:e_commerce_app/ui/shipping_page/widget/payment_methods_name.dart';
 import 'package:flutter/material.dart';
 
 class ShippingPage extends StatelessWidget {
@@ -43,15 +43,16 @@ class ShippingPage extends StatelessWidget {
 
                   Text('Payment'),
 
-                  for (int i = 0; i < 4; i++)
-                    CustomContainer(
-                      border: Border.all(color: Colors.pinkAccent),
-                      borderRadius: BorderRadius.circular(6),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [Text('VISA'), Text('*********2109')],
-                      ),
-                    ),
+                  PaymentMethodsName(text1: 'VISA', text2: '*********2109'),
+
+                  PaymentMethodsName(text1: 'PayPal', text2: '*********2109'),
+
+                  PaymentMethodsName(
+                    text1: 'MasterCard',
+                    text2: '*********2109',
+                  ),
+
+                  PaymentMethodsName(text1: 'Apple', text2: '*********2109'),
 
                   CustomContainer(
                     width: double.infinity,
