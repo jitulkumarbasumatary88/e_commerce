@@ -16,7 +16,7 @@ class ShopSimilarSection extends StatelessWidget {
 
         CustomSortFilterBar(title: '282+ Items'),
 
-        CustomHorizontalList(),
+        // CustomHorizontalList(),
       ],
     );
   }

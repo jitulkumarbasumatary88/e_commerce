@@ -15,9 +15,10 @@ import 'package:e_commerce_app/ui/splash_page/make_payment_page.dart';
 import 'package:e_commerce_app/ui/splash_page/splash_page.dart';
 import 'package:e_commerce_app/ui/successfully_page/successfully_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
