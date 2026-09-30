@@ -12,7 +12,12 @@ class OfferThree extends StatelessWidget {
       child: Row(
         spacing: 10,
         children: [
-          CustomContainer(height: 180, width: 140, color: Colors.grey),
+          CustomContainer(
+            height: 180,
+            width: 140,
+            color: Colors.grey,
+            child: Image.asset('assets/home_page/flat_and_heels.png'),
+          ),
 
           Expanded(
             child: Column(

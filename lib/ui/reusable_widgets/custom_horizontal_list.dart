@@ -1,11 +1,9 @@
 import 'package:e_commerce_app/ui/reusable_widgets/custom_container.dart';
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 import 'constant.dart';
 
 class CustomHorizontalList extends StatelessWidget {
-  //
   final List<dynamic> items;
 
   const CustomHorizontalList({super.key, required this.items});
@@ -24,7 +22,6 @@ class CustomHorizontalList extends StatelessWidget {
         },
 
         itemBuilder: (context, index) {
-          //
           final product = items[index];
 
           return CustomContainer(
@@ -37,21 +34,17 @@ class CustomHorizontalList extends StatelessWidget {
                   height: 150,
                   width: double.infinity,
                   color: Colors.grey,
-                  //
-                  child: product.thumbnail != null
-                      ? CachedNetworkImage(
-                          imageUrl: product.thumbnail!,
+
+                  child: (product.thumbnail != null)
+                      ? Image.network(
+                          product.thumbnail.toString().trim(),
                           fit: BoxFit.cover,
-                          placeholder: (_, __) => const Center(
-                            child: CircularProgressIndicator(strokeWidth: 2),
-                          ),
-                          errorWidget: (_, __, ___) =>
+                          errorBuilder: (_, __, ___) =>
                               const Icon(Icons.broken_image),
                         )
-                      : const SizedBox(),
+                      : const Center(child: Icon(Icons.image_not_supported)),
                 ),
 
-                // Text('Nike Sneakers'),
                 Text(
                   product.brand ?? product.category ?? '',
                   style: const TextStyle(fontWeight: FontWeight.bold),
@@ -60,11 +53,9 @@ class CustomHorizontalList extends StatelessWidget {
                 Text(
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  // 'Nike Air Jordan Retro 1 Low Mystic Black',
                   product.title ?? '',
                 ),
 
-                // Text('₹1,900'),
                 Text('\$${product.price ?? 0}'),
 
                 Row(
@@ -72,8 +63,6 @@ class CustomHorizontalList extends StatelessWidget {
                     for (int i = 0; i < 5; i++)
                       Icon(
                         Icons.star_rate_rounded,
-                        // color: i < 4 ? Colors.amber : Colors.grey,
-                        // color: i < (product.rating?.round() ?? 0)
                         color: i < ((product.rating as num?)?.round() ?? 0)
                             ? Colors.amber
                             : Colors.grey,
@@ -81,9 +70,6 @@ class CustomHorizontalList extends StatelessWidget {
 
                     ContentSpace.sWidth,
 
-                    // Text('46,890'),
-                    // Text('${product.reviews?.length ?? 0}'),
-                    // Text('${product.rating ?? 0}')
                     Text('${((product.rating as num?)?.round() ?? 0)}'),
                   ],
                 ),

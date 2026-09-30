@@ -22,7 +22,7 @@ class HomePage extends ConsumerWidget {
     final productsState = ref.watch(getProductsProvider);
 
     return Scaffold(
-      backgroundColor: Colors.green,
+      // backgroundColor: Colors.green,
       body: productsState.when(
         data: (productsData) {
           final allProducts = productsData.products ?? [];

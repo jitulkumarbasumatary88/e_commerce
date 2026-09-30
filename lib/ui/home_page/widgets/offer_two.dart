@@ -11,7 +11,12 @@ class OfferTwo extends StatelessWidget {
       child: Row(
         spacing: 10,
         children: [
-          CustomContainer(height: 100, width: 100, color: Colors.grey),
+          CustomContainer(
+            height: 100,
+            width: 100,
+            color: Colors.grey,
+            child: Image.asset('assets/home_page/special_offer.png'),
+          ),
 
           Expanded(
             child: Column(

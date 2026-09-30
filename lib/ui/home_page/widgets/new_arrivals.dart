@@ -16,6 +16,7 @@ class NewArrivals extends StatelessWidget {
             color: Colors.grey,
             height: 200,
             width: double.infinity,
+            child: Image.asset('assets/home_page/new_arrivals.png'),
           ),
 
           Row(

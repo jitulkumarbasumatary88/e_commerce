@@ -8,6 +8,7 @@ class OfferOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
+      padding: EdgeInsets.only(left: 10),
       color: Colors.pinkAccent,
       child: Row(
         children: [
@@ -16,9 +17,19 @@ class OfferOne extends StatelessWidget {
               spacing: 10,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('50 - 40% OFF'),
+                Text(
+                  '50 - 40% OFF',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 23,
+                  ),
+                ),
 
-                Text('Now in (product)\nAll colours'),
+                Text(
+                  'Now in (product)\nAll colours',
+                  style: TextStyle(color: Colors.white, fontSize: 15),
+                ),
 
                 CustomButton(
                   buttonText: 'Shop Now',
@@ -30,7 +41,16 @@ class OfferOne extends StatelessWidget {
             ),
           ),
 
-          CustomContainer(height: 180, width: 140, color: Colors.grey),
+          CustomContainer(
+            padding: EdgeInsets.zero,
+            height: 180,
+            width: 140,
+            // color: Colors.grey,
+            child: Image.asset(
+              'assets/home_page/girl_image.png',
+              fit: BoxFit.fill,
+            ),
+          ),
         ],
       ),
     );
