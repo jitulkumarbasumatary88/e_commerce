@@ -4,29 +4,43 @@ import 'package:flutter/material.dart';
 class CustomSortFilterBar extends StatelessWidget {
   final String title;
 
-  const   CustomSortFilterBar({super.key, required this.title});
+  const CustomSortFilterBar({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      spacing: 5,
-      children: [
-        Expanded(child: Text(title)),
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: Row(
+        spacing: 5,
+        children: [
+          Expanded(
+            child: Text(
+              title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 18,
+                letterSpacing: 1,
+              ),
+            ),
+          ),
 
-        CustomButton(
-          buttonText: 'Sort',
-          textColor: Colors.black,
-          buttonIcon: Icons.swap_vert_rounded,
-          buttonIconColor: Colors.black,
-        ),
+          CustomButton(
+            buttonText: 'Sort',
+            textColor: Colors.black,
+            buttonIcon: Icons.swap_vert_rounded,
+            buttonIconColor: Colors.black,
+          ),
 
-        CustomButton(
-          buttonText: 'Filter',
-          textColor: Colors.black,
-          buttonIcon: Icons.filter_alt_outlined,
-          buttonIconColor: Colors.black,
-        ),
-      ],
+          CustomButton(
+            buttonText: 'Filter',
+            textColor: Colors.black,
+            buttonIcon: Icons.filter_alt_outlined,
+            buttonIconColor: Colors.black,
+          ),
+        ],
+      ),
     );
   }
 }

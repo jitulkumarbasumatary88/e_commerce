@@ -19,10 +19,10 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final productsState = ref.watch(getProductsProvider);
+    final productsState = ref.watch(productsProvider);
 
     return Scaffold(
-      // backgroundColor: Colors.green,
+      backgroundColor: Colors.yellow,
       body: productsState.when(
         data: (productsData) {
           final allProducts = productsData.products ?? [];
@@ -34,7 +34,8 @@ class HomePage extends ConsumerWidget {
           return CustomScrollView(
             physics: BouncingScrollPhysics(),
             slivers: [
-              ...buildCustomHeader(),
+
+
 
               SliverToBoxAdapter(
                 child: Padding(

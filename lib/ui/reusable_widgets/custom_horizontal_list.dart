@@ -33,7 +33,7 @@ class CustomHorizontalList extends StatelessWidget {
                 CustomContainer(
                   height: 150,
                   width: double.infinity,
-                  color: Colors.grey,
+                  // color: Colors.grey,
 
                   child: (product.thumbnail != null)
                       ? Image.network(
@@ -47,7 +47,10 @@ class CustomHorizontalList extends StatelessWidget {
 
                 Text(
                   product.brand ?? product.category ?? '',
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
                 ),
 
                 Text(
@@ -56,7 +59,10 @@ class CustomHorizontalList extends StatelessWidget {
                   product.title ?? '',
                 ),
 
-                Text('\$${product.price ?? 0}'),
+                Text('\$${product.price ?? 0}' , style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                ),),
 
                 Row(
                   children: [

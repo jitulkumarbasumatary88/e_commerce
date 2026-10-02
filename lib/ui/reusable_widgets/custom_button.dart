@@ -32,9 +32,16 @@ class CustomButton extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(buttonText, style: TextStyle(color: textColor)),
+          Text(
+            buttonText,
+            style: TextStyle(
+              color: textColor,
+              fontWeight: FontWeight.w500,
+              fontSize: 13,
+            ),
+          ),
 
-          Icon(buttonIcon, color: buttonIconColor),
+          Icon(buttonIcon, color: buttonIconColor, size: 18),
         ],
       ),
     );

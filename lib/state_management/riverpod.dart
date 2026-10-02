@@ -5,7 +5,11 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'riverpod.g.dart';
 
 @riverpod
-Future<ProductsModel> getProducts(Ref ref) async {
+class ProductsNotifier extends _$ProductsNotifier  {
   final api = ApiIntegration();
-  return api.fetchProducts();
+
+  @override
+  FutureOr<ProductsModel> build() async {
+    return api.fetchProducts();
+  }
 }

@@ -8,19 +8,24 @@ class Sponsored extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
+      color: Colors.grey,
       child: Column(
         spacing: 10,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Sponsored'),
+          Text('Sponsored', style: TextStyle(fontWeight: FontWeight.bold)),
 
-          CustomContainer(
-            color: Colors.grey,
-            height: 200,
-            width: double.infinity,
-            child: Image.asset('assets/home_page/sponsored.png'),
-          ),
+          Image.asset('assets/home_page/sponsored.png', fit: BoxFit.fill),
 
+          // CustomContainer(
+          //   color: Colors.grey,
+          //   height: 300,
+          //   width: double.infinity,
+          //   child: Image.asset(
+          //     'assets/home_page/sponsored.png',
+          //     fit: BoxFit.cover,
+          //   ),
+          // ),
           Row(
             children: [
               Expanded(child: Text('up to 50% Off')),

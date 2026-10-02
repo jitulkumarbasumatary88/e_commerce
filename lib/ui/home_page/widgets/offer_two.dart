@@ -14,7 +14,7 @@ class OfferTwo extends StatelessWidget {
           CustomContainer(
             height: 100,
             width: 100,
-            color: Colors.grey,
+            // color: Colors.grey,
             child: Image.asset('assets/home_page/special_offer.png'),
           ),
 

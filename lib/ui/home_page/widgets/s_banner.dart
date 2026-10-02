@@ -28,12 +28,25 @@ class SBanner extends StatelessWidget {
               spacing: 5,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(text1),
+                Text(
+                  text1,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 15,
+                  ),
+                ),
 
                 Wrap(
                   spacing: 5,
                   runSpacing: 5,
-                  children: [Icon(icon), Text(text2)],
+                  children: [
+                    Icon(icon, color: Colors.white, size: 18),
+                    Text(
+                      text2,
+                      style: TextStyle(color: Colors.white, fontSize: 13),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -41,9 +54,10 @@ class SBanner extends StatelessWidget {
 
           CustomButton(
             buttonText: 'View All',
-            buttonIcon: Icons.keyboard_arrow_right_rounded,
-            buttonBgColor: backgroundColor,
-            border: Border.all(color: Colors.white),
+            // buttonIcon: Icons.keyboard_arrow_right_rounded,
+            buttonIcon: Icons.arrow_forward_rounded,
+            buttonBgColor: Colors.transparent,
+            border: Border.all(color: Colors.white, width: 1.2),
           ),
         ],
       ),

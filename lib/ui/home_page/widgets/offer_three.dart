@@ -15,7 +15,7 @@ class OfferThree extends StatelessWidget {
           CustomContainer(
             height: 180,
             width: 140,
-            color: Colors.grey,
+            // color: Colors.grey,
             child: Image.asset('assets/home_page/flat_and_heels.png'),
           ),
 
@@ -24,9 +24,16 @@ class OfferThree extends StatelessWidget {
               spacing: 10,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('Flat and Heels'),
+                Text(
+                  'Flat and Heels',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
 
-                Text(maxLines: 2, 'Stand a chance to get rewarded'),
+                Text(
+                  maxLines: 2,
+                  'Stand a chance to get rewarded',
+                  style: TextStyle( fontSize: 15),
+                ),
 
                 Align(
                   alignment: Alignment.centerRight,

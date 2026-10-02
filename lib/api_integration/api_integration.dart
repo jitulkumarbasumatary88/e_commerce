@@ -15,9 +15,9 @@ class ApiIntegration {
       final response = await _dio.get('/products');
       return ProductsModel.fromJson(response.data);
     } on DioException catch (e) {
-      throw Exception('Failed to load products: ${e.message}');
+      throw Exception('Failed to load products');
     } catch (e) {
-      throw Exception('An unexpected error occurred: $e');
+      throw Exception('An unexpected error occurred');
     }
   }
 }

@@ -14,9 +14,12 @@ class NewArrivals extends StatelessWidget {
         children: [
           CustomContainer(
             color: Colors.grey,
-            height: 200,
+            height: 250,
             width: double.infinity,
-            child: Image.asset('assets/home_page/new_arrivals.png'),
+            child: Image.asset(
+              'assets/home_page/new_arrivals.png',
+              fit: BoxFit.cover,
+            ),
           ),
 
           Row(

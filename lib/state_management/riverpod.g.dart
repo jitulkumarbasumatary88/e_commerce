@@ -9,41 +9,46 @@ part of 'riverpod.dart';
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
 
-@ProviderFor(getProducts)
-final getProductsProvider = GetProductsProvider._();
+@ProviderFor(ProductsNotifier)
+final productsProvider = ProductsNotifierProvider._();
 
-final class GetProductsProvider
-    extends
-        $FunctionalProvider<
-          AsyncValue<ProductsModel>,
-          ProductsModel,
-          FutureOr<ProductsModel>
-        >
-    with $FutureModifier<ProductsModel>, $FutureProvider<ProductsModel> {
-  GetProductsProvider._()
+final class ProductsNotifierProvider
+    extends $AsyncNotifierProvider<ProductsNotifier, ProductsModel> {
+  ProductsNotifierProvider._()
     : super(
         from: null,
         argument: null,
         retry: null,
-        name: r'getProductsProvider',
+        name: r'productsProvider',
         isAutoDispose: true,
         dependencies: null,
         $allTransitiveDependencies: null,
       );
 
   @override
-  String debugGetCreateSourceHash() => _$getProductsHash();
+  String debugGetCreateSourceHash() => _$productsNotifierHash();
 
   @$internal
   @override
-  $FutureProviderElement<ProductsModel> $createElement(
-    $ProviderPointer pointer,
-  ) => $FutureProviderElement(pointer);
-
-  @override
-  FutureOr<ProductsModel> create(Ref ref) {
-    return getProducts(ref);
-  }
+  ProductsNotifier create() => ProductsNotifier();
 }
 
-String _$getProductsHash() => r'6786289abdca81b74fc6658b2ab581dd25af0099';
+String _$productsNotifierHash() => r'09f456462e96527ce86df05fe0a5257587539128';
+
+abstract class _$ProductsNotifier extends $AsyncNotifier<ProductsModel> {
+  FutureOr<ProductsModel> build();
+  @$mustCallSuper
+  @override
+  WhenComplete runBuild() {
+    final ref = this.ref as $Ref<AsyncValue<ProductsModel>, ProductsModel>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<AsyncValue<ProductsModel>, ProductsModel>,
+              AsyncValue<ProductsModel>,
+              Object?,
+              Object?
+            >;
+    return element.handleCreate(ref, build);
+  }
+}
