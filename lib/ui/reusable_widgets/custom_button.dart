@@ -9,6 +9,7 @@ class CustomButton extends StatelessWidget {
   final Color buttonIconColor;
   final Color? buttonBgColor;
   final Border? border;
+  final VoidCallback? onTap;
 
   const CustomButton({
     super.key,
@@ -18,31 +19,45 @@ class CustomButton extends StatelessWidget {
     this.buttonIconColor = Colors.white,
     this.buttonBgColor,
     this.border,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return CustomContainer(
-      color: buttonBgColor ?? Colors.white,
-      padding: EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 5),
+    return InkWell(
       borderRadius: BorderRadius.circular(6),
-      border: border,
-      child: Row(
-        spacing: 5,
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            buttonText,
-            style: TextStyle(
-              color: textColor,
-              fontWeight: FontWeight.w500,
-              fontSize: 13,
-            ),
+      onTap: onTap,
+      child: CustomContainer(
+        color: buttonBgColor ?? Colors.white,
+        padding: EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 5),
+        borderRadius: BorderRadius.circular(6),
+        border: border,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 2,
+            // spreadRadius: 1,
+            offset: Offset(0, 3),
           ),
-
-          Icon(buttonIcon, color: buttonIconColor, size: 18),
         ],
+
+        child: Row(
+          spacing: 5,
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              buttonText,
+              style: TextStyle(
+                color: textColor,
+                fontWeight: FontWeight.w500,
+                fontSize: 13,
+              ),
+            ),
+
+            Icon(buttonIcon, color: buttonIconColor, size: 18),
+          ],
+        ),
       ),
     );
   }

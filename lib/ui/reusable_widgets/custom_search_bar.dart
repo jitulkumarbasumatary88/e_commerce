@@ -6,9 +6,9 @@ class CustomSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.grey.shade300,
+      color: Colors.grey.shade200,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
         child: TextField(
           textAlignVertical: TextAlignVertical.center,
           decoration: InputDecoration(

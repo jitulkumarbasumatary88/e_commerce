@@ -24,13 +24,22 @@ class GridViewProducts extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomContainer(
       padding: EdgeInsets.zero,
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black26,
+          blurRadius: 2,
+          // spreadRadius: 1,
+          offset: Offset(0, 3),
+        ),
+      ],
+
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           CachedNetworkImage(
-            imageUrl: imageURL ?? '',
             height: 150,
             width: double.infinity,
+            imageUrl: imageURL ?? '',
 
             imageBuilder: (context, imageProvider) => Container(
               decoration: BoxDecoration(

@@ -7,6 +7,7 @@ class CustomContainer extends StatelessWidget {
   final Color? color;
   final BorderRadius? borderRadius;
   final Border? border;
+  final List<BoxShadow>? boxShadow;
   final Widget? child;
 
   const CustomContainer({
@@ -17,6 +18,7 @@ class CustomContainer extends StatelessWidget {
     this.color,
     this.borderRadius,
     this.border,
+    this.boxShadow,
     this.child,
   });
 
@@ -30,6 +32,7 @@ class CustomContainer extends StatelessWidget {
         color: color ?? Colors.white,
         borderRadius: borderRadius ?? BorderRadius.circular(12),
         border: border,
+        boxShadow: boxShadow,
       ),
       child: child,
     );

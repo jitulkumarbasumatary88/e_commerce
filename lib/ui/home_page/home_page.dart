@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:e_commerce_app/state_management/riverpod.dart';
-import 'package:e_commerce_app/ui/home_page/widgets/bottom_nav_bar.dart';
+import 'package:e_commerce_app/ui/reusable_widgets/custom_bottom_nav_bar.dart';
 import 'package:e_commerce_app/ui/home_page/widgets/new_arrivals.dart';
 import 'package:e_commerce_app/ui/home_page/widgets/offer_one.dart';
 import 'package:e_commerce_app/ui/home_page/widgets/offer_three.dart';
@@ -88,7 +88,7 @@ class HomePage extends ConsumerWidget {
         loading: () => const Center(child: CircularProgressIndicator()),
       ),
 
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar: CustomBottomNavBar(),
     );
   }
 }

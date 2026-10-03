@@ -2,9 +2,11 @@ import 'package:e_commerce_app/state_management/riverpod.dart';
 import 'package:e_commerce_app/ui/product_page/widget/grid_view_products.dart';
 import 'package:e_commerce_app/ui/reusable_widgets/custom_header.dart';
 import 'package:e_commerce_app/ui/reusable_widgets/custom_sort_filter_bar.dart';
+import 'package:e_commerce_app/ui/shop_page/shop_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../reusable_widgets/custom_bottom_nav_bar.dart';
 import '../reusable_widgets/custom_search_bar.dart';
 
 class ProductPage extends ConsumerWidget {
@@ -15,6 +17,7 @@ class ProductPage extends ConsumerWidget {
     final gridProductsState = ref.watch(productsProvider);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: gridProductsState.when(
         data: (gridProductsData) {
           final productsList = gridProductsData.products ?? [];
@@ -47,12 +50,23 @@ class ProductPage extends ConsumerWidget {
 
                       return MediaQuery.withClampedTextScaling(
                         maxScaleFactor: 1,
-                        child: GridViewProducts(
-                          imageURL: item.thumbnail,
-                          text1: item.title ?? 'No Title',
-                          text2: item.description ?? 'No description',
-                          text3: '\$${item.price ?? 0}',
-                          text4: '${item.rating ?? 0}',
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(12),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ShopPage(product: item),
+                              ),
+                            );
+                          },
+                          child: GridViewProducts(
+                            imageURL: item.thumbnail,
+                            text1: item.title ?? 'No Title',
+                            text2: item.description ?? 'No description',
+                            text3: '\$${item.price ?? 0}',
+                            text4: '${item.rating ?? 0}',
+                          ),
                         ),
                       );
                     }, childCount: productsList.length),
@@ -63,8 +77,9 @@ class ProductPage extends ConsumerWidget {
           );
         },
         error: (error, _) => Center(child: Text(error.toString())),
-        loading: () => const Center(child: CircularProgressIndicator()),
+        loading: () => Center(child: CircularProgressIndicator()),
       ),
+      bottomNavigationBar: CustomBottomNavBar(),
     );
   }
 }

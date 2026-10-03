@@ -12,7 +12,10 @@ class CustomHeader extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(Icons.menu_rounded, size: 25),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.menu_rounded, size: 25),
+              ),
 
               Text(
                 'Stylish',
@@ -23,11 +26,14 @@ class CustomHeader extends StatelessWidget {
                 ),
               ),
 
-              CircleAvatar(
-                radius: 20,
-                backgroundColor: Colors.pinkAccent,
-                foregroundColor: Colors.white,
-                child: Icon(Icons.person_rounded),
+              InkWell(
+                onTap: () {},
+                child: CircleAvatar(
+                  radius: 22,
+                  backgroundColor: Colors.pinkAccent,
+                  foregroundColor: Colors.white,
+                  child: Icon(Icons.person_rounded),
+                ),
               ),
             ],
           ),

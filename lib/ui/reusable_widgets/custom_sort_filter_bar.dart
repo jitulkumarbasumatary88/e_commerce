@@ -11,7 +11,7 @@ class CustomSortFilterBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Row(
-        spacing: 5,
+        spacing: 10,
         children: [
           Expanded(
             child: Text(
@@ -31,6 +31,7 @@ class CustomSortFilterBar extends StatelessWidget {
             textColor: Colors.black,
             buttonIcon: Icons.swap_vert_rounded,
             buttonIconColor: Colors.black,
+            onTap: () {},
           ),
 
           CustomButton(
@@ -38,6 +39,7 @@ class CustomSortFilterBar extends StatelessWidget {
             textColor: Colors.black,
             buttonIcon: Icons.filter_alt_outlined,
             buttonIconColor: Colors.black,
+            onTap: () {},
           ),
         ],
       ),
