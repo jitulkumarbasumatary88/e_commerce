@@ -29,7 +29,8 @@ class CustomButton extends StatelessWidget {
       onTap: onTap,
       child: CustomContainer(
         color: buttonBgColor ?? Colors.white,
-        padding: EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 5),
+        // padding: EdgeInsets.only(top: 5, bottom: 5, left: 10, right: 5),
+        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 6),
         borderRadius: BorderRadius.circular(6),
         border: border,
         boxShadow: [
@@ -52,6 +53,7 @@ class CustomButton extends StatelessWidget {
                 color: textColor,
                 fontWeight: FontWeight.w500,
                 fontSize: 13,
+                letterSpacing: 1,
               ),
             ),
 

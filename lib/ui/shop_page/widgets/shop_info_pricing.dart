@@ -1,31 +1,73 @@
+import 'package:e_commerce_app/model/products_model.dart';
 import 'package:flutter/material.dart';
 
 import '../../reusable_widgets/constant.dart';
 
 class ShopInfoPricing extends StatelessWidget {
-  const ShopInfoPricing({super.key});
+  final Products? product;
+
+  const ShopInfoPricing({super.key, this.product});
 
   @override
   Widget build(BuildContext context) {
+    final price = product?.price ?? 0;
+    final discount = product?.discountPercentage ?? 0;
+    final originalPrice = discount > 0
+        ? (price / (1 - (discount / 100))).toStringAsFixed(2)
+        : price.toString();
+    final rating = product?.rating?.toDouble() ?? 0.0;
+
     return Column(
       spacing: 10,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Nike Sneakers'),
+        Text(
+          product?.title ?? 'No Title',
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 18,
+            letterSpacing: 1,
+          ),
+        ),
 
-        Text('Vision Alta Men’s Shoes Size (All Colours)'),
+        Text(
+          product?.brand != null
+              ? '${product?.brand} • ${product?.category ?? ''}'
+              : (product?.category ?? ''),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            // fontWeight: FontWeight.w500,
+            fontSize: 16,
+            letterSpacing: 1,
+          ),
+        ),
 
         Row(
           children: [
-            for (int i = 0; i < 5; i++)
+            for (int star = 0; star < 5; star++)
               Icon(
-                Icons.star_rate_rounded,
-                color: i < 4 ? Colors.amber : Colors.grey,
+                star < rating.floor()
+                    ? Icons.star_rate_rounded
+                    : (star < rating
+                          ? Icons.star_half_rounded
+                          : Icons.star_outline_rounded),
+                color: star < rating ? Colors.amber : Colors.grey,
+                size: 20,
               ),
 
-            ContentSpace.sWidth,
+            ContentSpace.mWidth,
 
-            Text('56,890'),
+            Text(
+              '$rating (${product?.reviews?.length ?? 0} reviews)',
+              style: TextStyle(
+                color: Colors.grey,
+                fontWeight: FontWeight.w500,
+                fontSize: 14,
+              ),
+            ),
           ],
         ),
 
@@ -33,26 +75,42 @@ class ShopInfoPricing extends StatelessWidget {
           spacing: 10,
           children: [
             Text(
-              '₹2,999',
+              '\$$originalPrice',
               style: TextStyle(
+                color: Colors.grey,
                 decoration: TextDecoration.lineThrough,
                 decorationColor: Colors.grey,
-                color: Colors.grey,
+                fontSize: 15,
               ),
             ),
 
-            Text('₹1,500'),
+            Text('\$$price', style: TextStyle(fontSize: 15)),
 
-            Text('50% Off', style: TextStyle(color: Colors.pinkAccent)),
+            Text(
+              '${discount.round()}% Off',
+              style: TextStyle(
+                color: Colors.pinkAccent,
+                fontSize: 15,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ],
         ),
 
-        Text('Product Details'),
+        Text(
+          'Product Details',
+          style: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 16,
+            letterSpacing: 1,
+          ),
+        ),
 
         Text(
-          maxLines: 5,
-          overflow: TextOverflow.ellipsis,
-          'Perhaps the most iconic sneaker of all-time, this original "Chicago"? colorway is the cornerstone to any sneaker collection. Made famous in 1985 by Michael Jordan, the shoe has stood the test of time, becoming the most famous colorway of the Air Jordan 1. This 2015 release saw the ...More',
+          // maxLines: 6,
+          // overflow: TextOverflow.ellipsis,
+          product?.description ?? 'No description available.',
+          style: TextStyle(fontSize: 14, letterSpacing: 1),
         ),
       ],
     );

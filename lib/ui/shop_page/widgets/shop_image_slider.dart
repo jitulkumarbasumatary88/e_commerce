@@ -22,8 +22,16 @@ class _ShopImageSliderState extends State<ShopImageSlider> {
     return Column(
       spacing: 10,
       children: [
-        SizedBox(
+        CustomContainer(
           height: 200,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 2,
+              // spreadRadius: 1,
+              offset: Offset(0, 3),
+            ),
+          ],
           child: PageView.builder(
             itemCount: imageList.length,
             onPageChanged: (index) {
@@ -36,37 +44,17 @@ class _ShopImageSliderState extends State<ShopImageSlider> {
                 height: 200,
                 width: double.infinity,
                 imageUrl: imageList[index],
+                fit: BoxFit.contain,
 
-                imageBuilder: (context, imageProvider) => Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(12),
-                    image: DecorationImage(
-                      image: imageProvider,
-                      fit: BoxFit.contain,
-                    ),
+                placeholder: (context, url) => Center(
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: Colors.grey,
                   ),
                 ),
 
-                placeholder: (context, url) => Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Center(
-                    child: CircularProgressIndicator(
-                      strokeWidth: 2,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-
-                errorWidget: (context, url, error) => Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade300,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Icon(Icons.broken_image_rounded, color: Colors.white),
+                errorWidget: (context, url, error) => Center(
+                  child: Icon(Icons.broken_image_rounded, color: Colors.grey),
                 ),
               );
             },

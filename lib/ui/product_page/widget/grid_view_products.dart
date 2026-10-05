@@ -36,41 +36,25 @@ class GridViewProducts extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          CachedNetworkImage(
+          CustomContainer(
+            color: Colors.grey.shade300,
             height: 150,
-            width: double.infinity,
-            imageUrl: imageURL ?? '',
+            borderRadius: BorderRadius.circular(12),
+            child: CachedNetworkImage(
+              width: double.infinity,
+              imageUrl: imageURL ?? '',
+              fit: BoxFit.contain,
 
-            imageBuilder: (context, imageProvider) => Container(
-              decoration: BoxDecoration(
-                color: Colors.grey.shade300,
-                borderRadius: BorderRadius.circular(12),
-                image: DecorationImage(
-                  image: imageProvider,
-                  fit: BoxFit.contain,
-                ),
-              ),
-            ),
-
-            placeholder: (context, url) => Container(
-              decoration: BoxDecoration(
-                color: Colors.grey.shade300,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Center(
+              placeholder: (context, url) => Center(
                 child: CircularProgressIndicator(
                   strokeWidth: 2,
                   color: Colors.white,
                 ),
               ),
-            ),
 
-            errorWidget: (context, url, error) => Container(
-              decoration: BoxDecoration(
-                color: Colors.grey.shade300,
-                borderRadius: BorderRadius.circular(12),
+              errorWidget: (context, url, error) => Center(
+                child: Icon(Icons.broken_image_rounded, color: Colors.white),
               ),
-              child: Icon(Icons.broken_image_rounded, color: Colors.white),
             ),
           ),
 

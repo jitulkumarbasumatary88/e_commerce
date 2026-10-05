@@ -16,32 +16,30 @@ class ShopPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.yellow,
+      // backgroundColor: Colors.yellow,
       body: SafeArea(
         child: CustomScrollView(
+          physics: BouncingScrollPhysics(),
           slivers: [
             PinnedHeaderSliver(
               child: CustomContainer(
                 color: Colors.white,
                 borderRadius: BorderRadius.zero,
-                child: SafeArea(
-                  bottom: false,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        icon: const Icon(Icons.arrow_back_ios_new_rounded),
-                      ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(Icons.arrow_back_ios_new_rounded),
+                    ),
 
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.shopping_cart_outlined),
-                      ),
-                    ],
-                  ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.shopping_cart_outlined),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -61,13 +59,16 @@ class ShopPage extends StatelessWidget {
                               : []),
                     ),
 
-                    ShopSizeSelector(),
+                    if (product?.category?.contains('shoes') == true ||
+                        product?.category?.contains('shirt') == true ||
+                        product?.category?.contains('dress') == true)
+                      ShopSizeSelector(),
 
-                    ShopInfoPricing(),
+                    ShopInfoPricing(product: product),
 
                     ShopActionSection(),
 
-                    ShopSimilarSection(),
+                    ShopSimilarSection(product: product),
                   ],
                 ),
               ),

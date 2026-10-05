@@ -23,39 +23,65 @@ class ShopActionSection extends StatelessWidget {
           runSpacing: 5,
           children: [
             for (var tag in tags)
-              CustomContainer(
-                padding: EdgeInsets.all(4),
+              InkWell(
+                onTap: () {},
                 borderRadius: BorderRadius.circular(6),
-                border: Border.all(color: Colors.grey),
-                child: Row(
-                  spacing: 5,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(tag['icon'] as IconData, color: Colors.grey, size: 14),
-
-                    Text(
-                      tag['label'] as String,
-                      style: TextStyle(color: Colors.grey, fontSize: 12),
+                child: CustomContainer(
+                  padding: EdgeInsets.symmetric(horizontal: 6, vertical: 4),
+                  borderRadius: BorderRadius.circular(6),
+                  border: Border.all(color: Colors.grey),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      blurRadius: 2,
+                      // spreadRadius: 1,
+                      offset: Offset(0, 3),
                     ),
                   ],
+                  child: Row(
+                    spacing: 3,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        tag['icon'] as IconData,
+                        color: Colors.grey,
+                        size: 14,
+                      ),
+
+                      Text(
+                        tag['label'] as String,
+                        style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 12,
+                          letterSpacing: 1,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
           ],
         ),
 
         Row(
-          spacing: 5,
+          spacing: 10,
           children: [
-            CustomButton(
-              buttonText: 'Go to cart',
-              buttonIcon: Icons.shopping_cart_outlined,
-              buttonBgColor: Colors.blue,
+            Expanded(
+              child: CustomButton(
+                buttonText: 'Go to Cart',
+                buttonIcon: Icons.shopping_cart_outlined,
+                buttonBgColor: Colors.blue,
+                onTap: () {},
+              ),
             ),
 
-            CustomButton(
-              buttonText: 'Buy Now',
-              buttonIcon: Icons.touch_app_outlined,
-              buttonBgColor: Colors.green,
+            Expanded(
+              child: CustomButton(
+                buttonText: 'Buy Now',
+                buttonIcon: Icons.touch_app_outlined,
+                buttonBgColor: Colors.green,
+                onTap: () {},
+              ),
             ),
           ],
         ),
@@ -63,15 +89,43 @@ class ShopActionSection extends StatelessWidget {
         CustomContainer(
           width: double.infinity,
           color: Colors.pinkAccent,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black26,
+              blurRadius: 2,
+              // spreadRadius: 1,
+              offset: Offset(0, 3),
+            ),
+          ],
           child: Column(
             spacing: 5,
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [Text('Delivery in'), Text('1 within Hour')],
+            children: [
+              Text(
+                'Delivery in',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                  letterSpacing: 1,
+                ),
+              ),
+
+              Text(
+                '1 within hour',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 18,
+                  letterSpacing: 1,
+                ),
+              ),
+            ],
           ),
         ),
 
         Row(
-          spacing: 5,
+          spacing: 10,
           children: [
             Expanded(
               child: CustomButton(
@@ -80,6 +134,7 @@ class ShopActionSection extends StatelessWidget {
                 buttonIcon: Icons.remove_red_eye_outlined,
                 buttonIconColor: Colors.black,
                 border: Border.all(color: Colors.grey),
+                onTap: () {},
               ),
             ),
 
@@ -90,6 +145,7 @@ class ShopActionSection extends StatelessWidget {
                 buttonIcon: Icons.compare_arrows_rounded,
                 buttonIconColor: Colors.black,
                 border: Border.all(color: Colors.grey),
+                onTap: () {},
               ),
             ),
           ],
