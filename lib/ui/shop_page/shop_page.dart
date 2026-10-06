@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/ui/place_order_page/place_order_page.dart';
 import 'package:e_commerce_app/ui/shop_page/widgets/shop_action_section.dart';
 import 'package:e_commerce_app/ui/shop_page/widgets/shop_image_slider.dart';
 import 'package:e_commerce_app/ui/shop_page/widgets/shop_info_pricing.dart';
@@ -36,7 +37,15 @@ class ShopPage extends StatelessWidget {
                     ),
 
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                PlaceOrderPage(product: product),
+                          ),
+                        );
+                      },
                       icon: Icon(Icons.shopping_cart_outlined),
                     ),
                   ],
@@ -66,7 +75,7 @@ class ShopPage extends StatelessWidget {
 
                     ShopInfoPricing(product: product),
 
-                    ShopActionSection(),
+                    ShopActionSection(product: product),
 
                     ShopSimilarSection(product: product),
                   ],

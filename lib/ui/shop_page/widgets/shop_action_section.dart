@@ -1,10 +1,16 @@
+import 'package:e_commerce_app/ui/checkout_page/checkout_page.dart';
+import 'package:e_commerce_app/ui/checkout_page/checkout_page.dart';
+import 'package:e_commerce_app/ui/place_order_page/place_order_page.dart';
 import 'package:e_commerce_app/ui/reusable_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
+import '../../../model/products_model.dart';
 import '../../reusable_widgets/custom_container.dart';
 
 class ShopActionSection extends StatelessWidget {
-  const ShopActionSection({super.key});
+  final Products? product;
+
+  const ShopActionSection({super.key, this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +77,14 @@ class ShopActionSection extends StatelessWidget {
                 buttonText: 'Go to Cart',
                 buttonIcon: Icons.shopping_cart_outlined,
                 buttonBgColor: Colors.blue,
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => PlaceOrderPage(product: product),
+                    ),
+                  );
+                },
               ),
             ),
 
@@ -80,7 +93,12 @@ class ShopActionSection extends StatelessWidget {
                 buttonText: 'Buy Now',
                 buttonIcon: Icons.touch_app_outlined,
                 buttonBgColor: Colors.green,
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => CheckoutPage()),
+                  );
+                },
               ),
             ),
           ],

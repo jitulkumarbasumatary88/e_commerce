@@ -29,9 +29,9 @@ class ProfilePage extends StatelessWidget {
               title: Text(
                 'Profile',
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w500,
                   fontSize: 20,
-                  letterSpacing: 1.5,
+                  letterSpacing: 1,
                 ),
               ),
 

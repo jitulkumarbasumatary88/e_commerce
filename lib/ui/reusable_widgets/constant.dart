@@ -17,5 +17,9 @@ class ProfilePageTextStyle {
     letterSpacing: 1,
   );
 
-  static const subHeading = TextStyle(fontSize: 14, letterSpacing: 1);
+  static const subHeading = TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeight.w300,
+    letterSpacing: 1,
+  );
 }

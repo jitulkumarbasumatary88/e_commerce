@@ -16,6 +16,10 @@ class ShopInfoPricing extends StatelessWidget {
         ? (price / (1 - (discount / 100))).toStringAsFixed(2)
         : price.toString();
     final rating = product?.rating?.toDouble() ?? 0.0;
+    final categoryName =
+        (product?.category != null && product!.category!.isNotEmpty)
+        ? '${product!.category![0].toUpperCase()}${product!.category!.substring(1)}'
+        : '';
 
     return Column(
       spacing: 10,
@@ -34,8 +38,8 @@ class ShopInfoPricing extends StatelessWidget {
 
         Text(
           product?.brand != null
-              ? '${product?.brand} • ${product?.category ?? ''}'
-              : (product?.category ?? ''),
+              ? '${product?.brand} • $categoryName'
+              : categoryName,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
@@ -107,10 +111,12 @@ class ShopInfoPricing extends StatelessWidget {
         ),
 
         Text(
-          // maxLines: 6,
-          // overflow: TextOverflow.ellipsis,
           product?.description ?? 'No description available.',
-          style: TextStyle(fontSize: 14, letterSpacing: 1),
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w300,
+            letterSpacing: 1,
+          ),
         ),
       ],
     );
