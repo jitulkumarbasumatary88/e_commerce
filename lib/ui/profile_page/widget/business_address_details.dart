@@ -11,46 +11,36 @@ class BusinessAddressDetails extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Business Address Details'),
+        Text('Business Address Details', style: ProfilePageTextStyle.heading),
 
         ContentSpace.lHeight,
 
-        Text('Pin Code'),
-
+        Text('Pin Code', style: ProfilePageTextStyle.subHeading),
         ContentSpace.mHeight,
-
         CustomTextField(hintText: 'Pin Code'),
 
         ContentSpace.lHeight,
 
-        Text('Address'),
-
+        Text('Address', style: ProfilePageTextStyle.subHeading),
         ContentSpace.mHeight,
-
         CustomTextField(hintText: 'Address'),
 
         ContentSpace.lHeight,
 
-        Text('City'),
-
+        Text('City', style: ProfilePageTextStyle.subHeading),
         ContentSpace.mHeight,
-
         CustomTextField(hintText: 'City'),
 
         ContentSpace.lHeight,
 
-        Text('State'),
-
+        Text('State', style: ProfilePageTextStyle.subHeading),
         ContentSpace.mHeight,
-
         CustomTextField(hintText: 'State'),
 
         ContentSpace.lHeight,
 
-        Text('Country'),
-
+        Text('Country', style: ProfilePageTextStyle.subHeading),
         ContentSpace.mHeight,
-
         CustomTextField(hintText: 'Country'),
       ],
     );

@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/ui/profile_page/profile_page.dart';
 import 'package:flutter/material.dart';
 
 class CustomHeader extends StatelessWidget {
@@ -25,7 +26,13 @@ class CustomHeader extends StatelessWidget {
             ),
 
             InkWell(
-              onTap: () {},
+              customBorder: const CircleBorder(),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                );
+              },
               child: CircleAvatar(
                 radius: 22,
                 backgroundColor: Colors.pinkAccent,

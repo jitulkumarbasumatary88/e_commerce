@@ -29,16 +29,24 @@ class CustomSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SearchBar(
-      hintText: 'Search any Product...',
-      backgroundColor: const WidgetStatePropertyAll(Colors.white),
-      elevation: const WidgetStatePropertyAll(3),
-      shadowColor: WidgetStatePropertyAll(Colors.black87),
-      shape: WidgetStatePropertyAll(
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+    return Theme(
+      data: Theme.of(context).copyWith(
+        textSelectionTheme: const TextSelectionThemeData(
+          cursorColor: Colors.black,
+        ),
       ),
-      leading: const Icon(Icons.search_rounded),
-      trailing: const [Icon(Icons.mic_rounded)],
+
+      child: SearchBar(
+        hintText: 'Search any Product...',
+        backgroundColor: const WidgetStatePropertyAll(Colors.white),
+        elevation: const WidgetStatePropertyAll(3),
+        shadowColor: WidgetStatePropertyAll(Colors.black87),
+        shape: WidgetStatePropertyAll(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        ),
+        leading: const Icon(Icons.search_rounded),
+        trailing: const [Icon(Icons.mic_rounded)],
+      ),
     );
   }
 }

@@ -38,8 +38,6 @@ class MyApp extends StatelessWidget {
       // home: GetStartedPage(),
       // home: HomePage(),
       home: ProductPage(),
-      // home: ShopPage(),
-      // home: ProfilePage(),
       // home: CheckoutPage(),
       // home: PlaceOrderPage(),
       // home: ShippingPage(),
