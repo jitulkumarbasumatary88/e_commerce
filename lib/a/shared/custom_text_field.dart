@@ -24,12 +24,14 @@ class CustomTextField extends StatelessWidget {
       controller: controller,
       obscureText: obscureText,
       cursorColor: AppColors.black,
+
       style: const TextStyle(
         fontSize: 15,
         fontWeight: FontWeight.w500,
         color: AppColors.black,
         letterSpacing: 1,
       ),
+
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: const TextStyle(
@@ -37,14 +39,18 @@ class CustomTextField extends StatelessWidget {
           fontSize: 15,
           letterSpacing: 1,
         ),
+
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
+
         filled: true,
         fillColor: AppColors.white,
+
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
-          borderSide: const BorderSide(color: AppColors.borderGrey),
+          borderSide: const BorderSide(color: AppColors.grey),
         ),
+
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: const BorderSide(color: AppColors.black, width: 1),

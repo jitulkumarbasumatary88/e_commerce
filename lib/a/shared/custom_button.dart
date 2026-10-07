@@ -5,10 +5,13 @@ import '../core/app_colors.dart';
 class CustomButton extends StatelessWidget {
   final String buttonText;
   final Color? textColor;
+  final double? fontSize;
+  final FontWeight? fontWeight;
   final IconData? buttonIcon;
   final Color? buttonIconColor;
   final Color? buttonBgColor;
   final Border? border;
+  final List<BoxShadow>? boxShadow;
   final EdgeInsetsGeometry? padding;
   final VoidCallback? onTap;
 
@@ -16,10 +19,13 @@ class CustomButton extends StatelessWidget {
     super.key,
     required this.buttonText,
     this.textColor,
+    this.fontSize,
+    this.fontWeight,
     this.buttonIcon,
     this.buttonIconColor,
     this.buttonBgColor,
     this.border,
+    this.boxShadow,
     this.padding,
     this.onTap,
   });
@@ -36,14 +42,17 @@ class CustomButton extends StatelessWidget {
           color: buttonBgColor ?? AppColors.white,
           borderRadius: BorderRadius.circular(6),
           border: border,
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 2,
-              offset: Offset(0, 3),
-            ),
-          ],
+          boxShadow:
+              boxShadow ??
+              [
+                BoxShadow(
+                  color: Colors.black26,
+                  blurRadius: 2,
+                  offset: Offset(0, 3),
+                ),
+              ],
         ),
+
         child: Row(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -52,11 +61,12 @@ class CustomButton extends StatelessWidget {
               buttonText,
               style: TextStyle(
                 color: textColor ?? AppColors.black,
-                fontWeight: FontWeight.w500,
-                fontSize: 13,
+                fontWeight: fontWeight ?? FontWeight.w500,
+                fontSize: fontSize ?? 13,
                 letterSpacing: 1,
               ),
             ),
+
             if (buttonIcon != null) ...[
               const SizedBox(width: 5),
               Icon(
