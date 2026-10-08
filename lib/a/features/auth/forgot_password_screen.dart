@@ -6,73 +6,88 @@ import '../../core/app_text_styles.dart';
 import '../../shared/custom_button.dart';
 import '../../shared/custom_text_field.dart';
 
-class ForgotPasswordScreen extends StatelessWidget {
+class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
 
   @override
+  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
+}
+
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+  final TextEditingController _emailController = TextEditingController();
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AppColors.white,
-      appBar: AppBar(
-        backgroundColor: AppColors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios_new,
-            color: AppColors.black,
-            size: 20,
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          physics: const BouncingScrollPhysics(),
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+        body: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              AppSpacing.h15,
-
-              // 🏷️ Headline
-              Text(
-                'Forgot\npassword?',
-                style: AppTextStyles.xl.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.black,
-                ),
+              IconButton(
+                icon: Icon(Icons.arrow_back_ios_new),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
 
-              AppSpacing.h30,
+              Expanded(
+                child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AppSpacing.h20,
 
-              // ✉️ Email Field
-              const CustomTextField(
-                hintText: 'Enter your email address',
-                prefixIcon: Icon(Icons.mail_outline),
-              ),
+                      Text(
+                        'Forgot\npassword?',
+                        style: AppTextStyles.xl.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
 
-              AppSpacing.h15,
+                      AppSpacing.h30,
 
-              // ℹ️ Info Text
-              Text(
-                '* We will send you a message to set or reset your new password',
-                style: AppTextStyles.caption.copyWith(color: AppColors.grey),
-              ),
+                      CustomTextField(
+                        controller: _emailController,
+                        hintText: 'Enter your email address',
+                        prefixIcon: Icon(Icons.mail_outline),
+                      ),
 
-              AppSpacing.h30,
+                      AppSpacing.h20,
 
-              // 🔘 Submit Button
-              SizedBox(
-                width: double.infinity,
-                child: CustomButton(
-                  buttonText: 'Submit',
-                  buttonBgColor: AppColors.pink,
-                  textColor: AppColors.white,
-                  fontSize: 18,
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                  onTap: () {
-                    // TODO: Reset password logic
-                  },
+                      Text(
+                        '* We will send you a message to set or reset your new password',
+                        style: AppTextStyles.body.copyWith(
+                          color: AppColors.grey,
+                        ),
+                      ),
+
+                      AppSpacing.h40,
+
+                      SizedBox(
+                        width: double.infinity,
+                        child: CustomButton(
+                          buttonText: 'Submit',
+                          buttonBgColor: AppColors.pink,
+                          textColor: AppColors.white,
+                          fontSize: 18,
+                          padding: const EdgeInsets.symmetric(vertical: 10),
+                          onTap: () {},
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

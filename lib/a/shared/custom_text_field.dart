@@ -35,7 +35,7 @@ class CustomTextField extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: const TextStyle(
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w300,
           fontSize: 15,
           letterSpacing: 1,
         ),
@@ -44,7 +44,7 @@ class CustomTextField extends StatelessWidget {
         suffixIcon: suffixIcon,
 
         filled: true,
-        fillColor: AppColors.white,
+        fillColor: AppColors.lightGrey,
 
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),

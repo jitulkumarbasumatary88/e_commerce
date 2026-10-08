@@ -43,7 +43,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           padding: const EdgeInsets.all(10),
           child: Column(
             children: [
-              // TOP ROW
+              // TOP
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -108,7 +108,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
 
-              // BOTTOM CONTROLS
+              // BOTTOM
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

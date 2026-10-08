@@ -7,7 +7,6 @@ import '../features/onboarding/get_started_screen.dart';
 import '../features/onboarding/onboarding_screen.dart';
 
 class AppRoutes {
-  // Onboarding
   static void toOnboarding(BuildContext context) {
     Navigator.pushReplacement(
       context,
@@ -15,7 +14,6 @@ class AppRoutes {
     );
   }
 
-  // Get Started
   static void toGetStarted(BuildContext context) {
     Navigator.pushReplacement(
       context,
@@ -23,7 +21,6 @@ class AppRoutes {
     );
   }
 
-  // Sign In
   static void toSignIn(BuildContext context) {
     Navigator.pushReplacement(
       context,
@@ -31,7 +28,6 @@ class AppRoutes {
     );
   }
 
-  // Sign Up
   static void toSignUp(BuildContext context) {
     Navigator.push(
       context,
@@ -39,7 +35,6 @@ class AppRoutes {
     );
   }
 
-  // Forgot Password
   static void toForgotPassword(BuildContext context) {
     Navigator.push(
       context,
