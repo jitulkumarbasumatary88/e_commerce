@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_spacing.dart';
 import '../../core/app_text_styles.dart';
-import '../../shared/custom_button.dart';
-import '../../shared/custom_text_field.dart';
+import '../../shared/app_button.dart';
+import '../../shared/app_text_field.dart';
 import 'widgets/social_icons.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -69,7 +69,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                 AppSpacing.h30,
 
-                CustomTextField(
+                AppTextField(
                   controller: _emailController,
                   hintText: 'Username or Email',
                   prefixIcon: const Icon(Icons.person_outline),
@@ -77,7 +77,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                 AppSpacing.h20,
 
-                CustomTextField(
+                AppTextField(
                   controller: _passwordController,
                   hintText: 'Password',
                   prefixIcon: Icon(Icons.lock_outline),
@@ -99,7 +99,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                 AppSpacing.h20,
 
-                CustomTextField(
+                AppTextField(
                   controller: _confirmPasswordController,
                   hintText: 'Confirm Password',
                   prefixIcon: Icon(Icons.lock_outline),
@@ -130,7 +130,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                 SizedBox(
                   width: double.infinity,
-                  child: CustomButton(
+                  child: AppButton(
                     buttonText: 'Create Account',
                     buttonBgColor: AppColors.pink,
                     textColor: AppColors.white,

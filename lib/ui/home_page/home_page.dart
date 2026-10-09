@@ -34,9 +34,6 @@ class HomePage extends ConsumerWidget {
           return CustomScrollView(
             physics: BouncingScrollPhysics(),
             slivers: [
-
-
-
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.all(10),

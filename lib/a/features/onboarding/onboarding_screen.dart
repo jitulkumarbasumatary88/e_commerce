@@ -4,7 +4,7 @@ import 'package:e_commerce_app/a/core/app_routes.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_spacing.dart';
 import '../../core/app_text_styles.dart';
-import '../../shared/custom_container.dart';
+import '../../shared/app_container.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -127,16 +127,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   Row(
                     children: List.generate(3, (index) {
                       final isActive = _currentIndex == index;
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        child: CustomContainer(
-                          height: 6,
-                          width: isActive ? 25 : 10,
-                          color: isActive
-                              ? AppColors.black
-                              : AppColors.lightGrey,
-                          borderRadius: BorderRadius.circular(3),
-                        ),
+                      return AppContainer(
+                        height: 5,
+                        width: isActive ? 25 : 10,
+                        color: isActive ? AppColors.black : AppColors.grey300,
+                        margin: const EdgeInsets.symmetric(horizontal: 5),
+                        borderRadius: BorderRadius.circular(5),
                       );
                     }),
                   ),

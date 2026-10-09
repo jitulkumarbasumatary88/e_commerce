@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'a/core/app_theme.dart';
+import 'a/features/home/home_screen.dart';
 import 'a/features/onboarding/splash_screen.dart';
 
 void main() {
@@ -16,7 +17,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: const SplashScreen(),
+      // home: const SplashScreen(),
+      home: const HomeScreen(),
     );
   }
 }

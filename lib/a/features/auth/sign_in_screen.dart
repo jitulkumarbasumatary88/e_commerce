@@ -4,8 +4,8 @@ import '../../core/app_colors.dart';
 import '../../core/app_routes.dart';
 import '../../core/app_spacing.dart';
 import '../../core/app_text_styles.dart';
-import '../../shared/custom_button.dart';
-import '../../shared/custom_text_field.dart';
+import '../../shared/app_button.dart';
+import '../../shared/app_text_field.dart';
 import 'widgets/social_icons.dart';
 
 class SignInScreen extends StatefulWidget {
@@ -61,7 +61,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
                 AppSpacing.h30,
 
-                CustomTextField(
+                AppTextField(
                   controller: _emailController,
                   hintText: 'Username or Email',
                   prefixIcon: const Icon(Icons.person_outline),
@@ -69,7 +69,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
                 AppSpacing.h20,
 
-                CustomTextField(
+                AppTextField(
                   controller: _passwordController,
                   obscureText: _isPasswordObscure,
                   hintText: 'Password',
@@ -108,7 +108,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
                 SizedBox(
                   width: double.infinity,
-                  child: CustomButton(
+                  child: AppButton(
                     buttonText: 'Login',
                     buttonBgColor: AppColors.pink,
                     textColor: AppColors.white,

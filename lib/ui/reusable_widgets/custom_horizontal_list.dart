@@ -24,6 +24,7 @@ class CustomHorizontalList extends StatelessWidget {
 
           return MediaQuery.withClampedTextScaling(
             maxScaleFactor: 1,
+
             child: CustomContainer(
               width: 200,
               padding: EdgeInsets.zero,

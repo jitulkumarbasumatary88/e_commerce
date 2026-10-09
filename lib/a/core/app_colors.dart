@@ -12,9 +12,9 @@ class AppColors {
   static const white = Colors.white;
 
   static const grey = Colors.grey;
-  static const lightGrey = Color(0xFFEEEEEE);
-
-  // static const lightGrey = Color(0xFFE0E0E0);
+  static const grey100 = Color(0xFFF5F5F5);
+  static const grey200 = Color(0xFFEEEEEE);
+  static const grey300 = Color(0xFFE0E0E0);
 
   static const amber = Colors.amber;
 }

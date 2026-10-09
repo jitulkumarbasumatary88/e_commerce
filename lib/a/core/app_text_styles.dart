@@ -28,7 +28,7 @@ class AppTextStyles {
   ////////////////////
   static const price = TextStyle(
     fontSize: 16,
-    fontWeight: FontWeight.bold,
+    fontWeight: FontWeight.w500,
     letterSpacing: 0,
   );
 

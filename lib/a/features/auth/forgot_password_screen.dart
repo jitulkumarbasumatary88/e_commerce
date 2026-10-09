@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_spacing.dart';
 import '../../core/app_text_styles.dart';
-import '../../shared/custom_button.dart';
-import '../../shared/custom_text_field.dart';
+import '../../shared/app_button.dart';
+import '../../shared/app_text_field.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -58,7 +58,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
                       AppSpacing.h30,
 
-                      CustomTextField(
+                      AppTextField(
                         controller: _emailController,
                         hintText: 'Enter your email address',
                         prefixIcon: Icon(Icons.mail_outline),
@@ -77,7 +77,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
 
                       SizedBox(
                         width: double.infinity,
-                        child: CustomButton(
+                        child: AppButton(
                           buttonText: 'Submit',
                           buttonBgColor: AppColors.pink,
                           textColor: AppColors.white,

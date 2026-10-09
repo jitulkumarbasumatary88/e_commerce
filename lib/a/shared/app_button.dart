@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../core/app_colors.dart';
 
-class CustomButton extends StatelessWidget {
+class AppButton extends StatelessWidget {
   final String buttonText;
   final Color? textColor;
   final double? fontSize;
@@ -15,7 +15,7 @@ class CustomButton extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final VoidCallback? onTap;
 
-  const CustomButton({
+  const AppButton({
     super.key,
     required this.buttonText,
     this.textColor,
@@ -39,14 +39,14 @@ class CustomButton extends StatelessWidget {
         padding:
             padding ?? const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
         decoration: BoxDecoration(
-          color: buttonBgColor ?? AppColors.white,
+          color: buttonBgColor ?? AppColors.grey100,
           borderRadius: BorderRadius.circular(6),
           border: border,
           boxShadow:
               boxShadow ??
               [
                 BoxShadow(
-                  color: Colors.black26,
+                  color: Colors.black12,
                   blurRadius: 2,
                   offset: Offset(0, 3),
                 ),
@@ -60,7 +60,7 @@ class CustomButton extends StatelessWidget {
             Text(
               buttonText,
               style: TextStyle(
-                color: textColor ?? AppColors.black,
+                color: textColor,
                 fontWeight: fontWeight ?? FontWeight.w500,
                 fontSize: fontSize ?? 13,
                 letterSpacing: 1,
@@ -69,11 +69,7 @@ class CustomButton extends StatelessWidget {
 
             if (buttonIcon != null) ...[
               const SizedBox(width: 5),
-              Icon(
-                buttonIcon,
-                color: buttonIconColor ?? AppColors.black,
-                size: 18,
-              ),
+              Icon(buttonIcon, color: buttonIconColor ?? textColor, size: 18),
             ],
           ],
         ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../core/app_colors.dart';
 
-class CustomContainer extends StatelessWidget {
+class AppContainer extends StatelessWidget {
   final double? height;
   final double? width;
   final EdgeInsetsGeometry? padding;
@@ -13,7 +13,7 @@ class CustomContainer extends StatelessWidget {
   final List<BoxShadow>? boxShadow;
   final Widget? child;
 
-  const CustomContainer({
+  const AppContainer({
     super.key,
     this.height,
     this.width,
