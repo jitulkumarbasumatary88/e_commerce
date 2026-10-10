@@ -2,6 +2,7 @@ import 'package:e_commerce_app/a/features/home/widgets/category_selector.dart';
 import 'package:e_commerce_app/a/features/home/widgets/deal_banner.dart';
 import 'package:e_commerce_app/a/features/home/widgets/discount_banner.dart';
 import 'package:e_commerce_app/a/features/home/widgets/flat_heels_card.dart';
+import 'package:e_commerce_app/a/shared/bottom_nav_bar.dart';
 import 'package:e_commerce_app/a/features/home/widgets/new_arrivals_card.dart';
 import 'package:e_commerce_app/a/features/home/widgets/special_offer_card.dart';
 import 'package:e_commerce_app/a/features/home/widgets/sponsored_card.dart';
@@ -156,6 +157,8 @@ class HomeScreen extends ConsumerWidget {
             ),
           ),
         ),
+
+        bottomNavigationBar: BottomNavBar(),
       ),
     );
   }
