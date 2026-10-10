@@ -1,5 +1,10 @@
 import 'package:e_commerce_app/a/features/home/widgets/category_selector.dart';
+import 'package:e_commerce_app/a/features/home/widgets/deal_banner.dart';
 import 'package:e_commerce_app/a/features/home/widgets/discount_banner.dart';
+import 'package:e_commerce_app/a/features/home/widgets/flat_heels_card.dart';
+import 'package:e_commerce_app/a/features/home/widgets/new_arrivals_card.dart';
+import 'package:e_commerce_app/a/features/home/widgets/special_offer_card.dart';
+import 'package:e_commerce_app/a/features/home/widgets/sponsored_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -63,6 +68,15 @@ class HomeScreen extends ConsumerWidget {
 
                         AppSpacing.h15,
 
+                        DealBanner(
+                          text1: 'Deal of the Day',
+                          icon: Icons.alarm,
+                          text2: '22h 55m 20s remaining',
+                          backgroundColor: AppColors.blue,
+                        ),
+
+                        AppSpacing.h15,
+
                         productsState.when(
                           data: (productsData) {
                             final allProducts = productsData.products ?? [];
@@ -83,6 +97,57 @@ class HomeScreen extends ConsumerWidget {
                           error: (error, stack) =>
                               Center(child: Text('Error: $error')),
                         ),
+
+                        AppSpacing.h15,
+
+                        SpecialOfferCard(),
+
+                        AppSpacing.h15,
+
+                        FlatHeelsCard(),
+
+                        AppSpacing.h15,
+
+                        DealBanner(
+                          text1: 'Trending Products',
+                          icon: Icons.calendar_month_rounded,
+                          text2: 'Last Date 29/02/9999',
+                          backgroundColor: AppColors.pink,
+                        ),
+
+                        AppSpacing.h15,
+
+                        productsState.when(
+                          data: (productsData) {
+                            final allProducts = productsData.products ?? [];
+                            final dealList = allProducts
+                                .skip(10)
+                                .take(10)
+                                .toList();
+
+                            return ProductHorizontalList(
+                              items: dealList,
+                              onProductTap: (product) {},
+                            );
+                          },
+
+                          loading: () => const Center(
+                            child: CircularProgressIndicator(
+                              color: AppColors.pink,
+                            ),
+                          ),
+
+                          error: (error, stack) =>
+                              Center(child: Text('Error: $error')),
+                        ),
+
+                        AppSpacing.h15,
+
+                        NewArrivalsCard(),
+
+                        AppSpacing.h15,
+
+                        SponsoredCard(),
                       ],
                     ),
                   ),

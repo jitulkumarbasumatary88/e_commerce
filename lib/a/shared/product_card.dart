@@ -37,8 +37,8 @@ class ProductCard extends StatelessWidget {
             children: [
               // Product Image Container
               AppContainer(
-                color: AppColors.grey200,
                 height: 150,
+                color: AppColors.grey200,
                 borderRadius: BorderRadius.circular(12),
                 child: CachedNetworkImage(
                   width: double.infinity,
