@@ -121,13 +121,13 @@ class HomeScreen extends ConsumerWidget {
                         productsState.when(
                           data: (productsData) {
                             final allProducts = productsData.products ?? [];
-                            final dealList = allProducts
+                            final trendingList = allProducts
                                 .skip(10)
                                 .take(10)
                                 .toList();
 
                             return ProductHorizontalList(
-                              items: dealList,
+                              items: trendingList,
                               onProductTap: (product) {},
                             );
                           },
