@@ -1,6 +1,9 @@
+import 'package:e_commerce_app/a/features/product_list/product_list_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../data/products_model.dart';
 import '../features/auth/forgot_password_screen.dart';
+import '../features/product_detail/product_detail_screen.dart';
 import '../features/auth/sign_in_screen.dart';
 import '../features/auth/sign_up_screen.dart';
 import '../features/onboarding/get_started_screen.dart';
@@ -39,6 +42,22 @@ class AppRoutes {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const ForgotPasswordScreen()),
+    );
+  }
+
+  static void toProductListScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const ProductListScreen()),
+    );
+  }
+
+  static void toProductDetailScreen(BuildContext context, {Products? product}) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ProductDetailScreen(product: product),
+      ),
     );
   }
 }

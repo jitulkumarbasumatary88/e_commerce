@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/a/core/app_routes.dart';
 import 'package:e_commerce_app/a/features/home/widgets/category_selector.dart';
 import 'package:e_commerce_app/a/features/home/widgets/deal_banner.dart';
 import 'package:e_commerce_app/a/features/home/widgets/discount_banner.dart';
@@ -54,6 +55,7 @@ class HomeScreen extends ConsumerWidget {
                       horizontal: 10,
                       vertical: 15,
                     ),
+
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -74,6 +76,9 @@ class HomeScreen extends ConsumerWidget {
                           icon: Icons.alarm,
                           text2: '22h 55m 20s remaining',
                           backgroundColor: AppColors.blue,
+                          onViewAllTap: () {
+                            AppRoutes.toProductListScreen(context);
+                          },
                         ),
 
                         AppSpacing.h15,
@@ -89,14 +94,14 @@ class HomeScreen extends ConsumerWidget {
                             );
                           },
 
+                          error: (error, stack) =>
+                              Center(child: Text('Error: $error')),
+
                           loading: () => const Center(
                             child: CircularProgressIndicator(
                               color: AppColors.pink,
                             ),
                           ),
-
-                          error: (error, stack) =>
-                              Center(child: Text('Error: $error')),
                         ),
 
                         AppSpacing.h15,
@@ -132,14 +137,14 @@ class HomeScreen extends ConsumerWidget {
                             );
                           },
 
+                          error: (error, stack) =>
+                              Center(child: Text('Error: $error')),
+
                           loading: () => const Center(
                             child: CircularProgressIndicator(
                               color: AppColors.pink,
                             ),
                           ),
-
-                          error: (error, stack) =>
-                              Center(child: Text('Error: $error')),
                         ),
 
                         AppSpacing.h15,

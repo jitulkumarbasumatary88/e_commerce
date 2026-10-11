@@ -54,7 +54,6 @@ class SBanner extends StatelessWidget {
 
           CustomButton(
             buttonText: 'View All',
-            // buttonIcon: Icons.keyboard_arrow_right_rounded,
             buttonIcon: Icons.arrow_forward_rounded,
             buttonBgColor: Colors.transparent,
             border: Border.all(color: Colors.white, width: 1.2),
