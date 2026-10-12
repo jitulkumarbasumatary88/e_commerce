@@ -122,8 +122,8 @@ class ProfileScreen extends StatelessWidget {
                         SizedBox(
                           width: double.infinity,
                           child: AppButton(
-                            padding: EdgeInsets.symmetric(vertical: 12),
-                            fontSize: 14,
+                            padding: EdgeInsets.symmetric(vertical: 10),
+                            fontSize: 18,
                             buttonText: 'Save',
                             buttonBgColor: AppColors.pink,
                             textColor: AppColors.white,

@@ -62,13 +62,13 @@ class AppButton extends StatelessWidget {
               style: TextStyle(
                 color: textColor,
                 fontWeight: fontWeight ?? FontWeight.w500,
-                fontSize: fontSize ?? 12,
-                letterSpacing: 1,
+                fontSize: fontSize ?? 14,
               ),
             ),
 
             if (buttonIcon != null) ...[
-              const SizedBox(width: 5),
+              const SizedBox(width: 8),
+
               Icon(buttonIcon, color: buttonIconColor ?? textColor, size: 18),
             ],
           ],
