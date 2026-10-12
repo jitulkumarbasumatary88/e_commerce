@@ -23,7 +23,7 @@ class ProductHorizontalList extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
         itemCount: items.length,
-        separatorBuilder: (context, index) => AppSpacing.w10,
+        separatorBuilder: (context, index) => AppSpacing.w15,
         itemBuilder: (context, index) {
           final product = items[index];
 

@@ -75,7 +75,10 @@ class ProductListScreen extends ConsumerWidget {
                               return ProductCard(
                                 product: item,
                                 onTap: () {
-                                  AppRoutes.toProductDetailScreen(context);
+                                  AppRoutes.toProductDetailScreen(
+                                    context,
+                                    product: item,
+                                  );
                                 },
                               );
                             }, childCount: productsList.length),
@@ -96,7 +99,7 @@ class ProductListScreen extends ConsumerWidget {
           ),
         ),
 
-        bottomNavigationBar: const BottomNavBar(currentIndex: 0),
+        bottomNavigationBar: const BottomNavBar(),
       ),
     );
   }

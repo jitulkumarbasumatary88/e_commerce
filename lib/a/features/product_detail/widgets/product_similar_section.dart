@@ -9,7 +9,6 @@ import 'package:e_commerce_app/a/shared/product_horizontal_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-/// Section showing horizontal carousel of items in the same category
 class ProductSimilarSection extends ConsumerWidget {
   final Products? product;
 
@@ -17,66 +16,59 @@ class ProductSimilarSection extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Watch catalog products from Riverpod
     final productsState = ref.watch(productsProvider);
 
-    return productsState.when(
-      data: (productsData) {
-        final allProducts = productsData.products ?? [];
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Similar To', style: AppTextStyles.heading),
 
-        // Filter products with matching category excluding currently viewed product
-        final similarList = allProducts
-            .where(
-              (p) => p.category == product?.category && p.id != product?.id,
-            )
-            .toList();
+        AppSpacing.h10,
 
-        // Fallback to allProducts if no specific matches found
-        final displayList = similarList.isNotEmpty ? similarList : allProducts;
+        productsState.when(
+          data: (productsData) {
+            final allProducts = productsData.products ?? [];
 
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Section Title
-            Text(
-              'Similar To',
-              style: AppTextStyles.heading.copyWith(fontSize: 18),
-            ),
+            final similarList = allProducts
+                .where(
+                  (p) => p.category == product?.category && p.id != product?.id,
+                )
+                .toList();
 
-            AppSpacing.h10,
+            final displayList = similarList.isNotEmpty
+                ? similarList
+                : allProducts;
 
-            // Filter & Sort bar with items count
-            FilterSortBar(title: '${displayList.length}+ Items'),
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                FilterSortBar(title: '${displayList.length}+ Items'),
 
-            AppSpacing.h15,
+                AppSpacing.h15,
 
-            // Horizontal Carousel of Similar Product Cards
-            ProductHorizontalList(
-              items: displayList,
-              onProductTap: (selectedProduct) {
-                // Navigate to selected product details
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        ProductDetailScreen(product: selectedProduct),
-                  ),
-                );
-              },
-            ),
-          ],
-        );
-      },
+                ProductHorizontalList(
+                  items: displayList,
+                  onProductTap: (selectedProduct) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ProductDetailScreen(product: selectedProduct),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            );
+          },
 
-      // Spinner while similar products load
-      loading: () => const Center(
-        child: CircularProgressIndicator(color: AppColors.pink),
-      ),
+          error: (error, _) => Center(child: Text('Error: $error')),
 
-      // Error fallback
-      error: (error, _) => Center(
-        child: Text('Error: $error'),
-      ),
+          loading: () => const Center(
+            child: CircularProgressIndicator(color: AppColors.pink),
+          ),
+        ),
+      ],
     );
   }
 }
