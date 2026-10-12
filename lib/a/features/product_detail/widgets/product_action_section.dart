@@ -36,8 +36,8 @@ class ProductActionSection extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Wrap(
-            spacing: 10,
-            runSpacing: 10,
+            spacing: 5,
+            runSpacing: 5,
             children: [
               for (var tag in tags)
                 Container(
@@ -47,16 +47,8 @@ class ProductActionSection extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(6),
-                    // border: Border.all(color: AppColors.grey),
-                    color: AppColors.grey100,
-
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.black12,
-                        blurRadius: 2,
-                        offset: Offset(0, 3),
-                      ),
-                    ],
+                    border: Border.all(color: AppColors.grey),
+                    color: AppColors.white,
                   ),
 
                   child: Row(
@@ -88,19 +80,13 @@ class ProductActionSection extends StatelessWidget {
             children: [
               Expanded(
                 child: AppButton(
-                  padding: EdgeInsets.symmetric(vertical: 12),
+                  padding: EdgeInsets.symmetric(vertical: 10),
                   fontSize: 14,
                   buttonText: 'Go to Cart',
                   buttonIcon: Icons.shopping_cart_outlined,
                   buttonBgColor: AppColors.blue,
                   textColor: AppColors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.blue.shade200,
-                      blurRadius: 2,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
+                  boxShadow: [],
                   onTap: onGoToCartTap,
                 ),
               ),
@@ -109,19 +95,13 @@ class ProductActionSection extends StatelessWidget {
 
               Expanded(
                 child: AppButton(
-                  padding: EdgeInsets.symmetric(vertical: 12),
+                  padding: EdgeInsets.symmetric(vertical: 10),
                   fontSize: 14,
                   buttonText: 'Buy Now',
                   buttonIcon: Icons.touch_app_outlined,
                   buttonBgColor: AppColors.green,
                   textColor: AppColors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.green.shade200,
-                      blurRadius: 2,
-                      offset: Offset(0, 3),
-                    ),
-                  ],
+                  boxShadow: [],
                   onTap: onBuyNowTap,
                 ),
               ),
@@ -134,20 +114,16 @@ class ProductActionSection extends StatelessWidget {
             width: double.infinity,
             color: AppColors.pink,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.red.shade200,
-                blurRadius: 2,
-                offset: Offset(0, 3),
-              ),
-            ],
 
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   'Delivery in',
-                  style: AppTextStyles.body.copyWith(color: AppColors.white),
+                  style: AppTextStyles.body.copyWith(
+                    color: AppColors.white,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
 
                 AppSpacing.h5,
@@ -166,11 +142,13 @@ class ProductActionSection extends StatelessWidget {
             children: [
               Expanded(
                 child: AppButton(
-                  padding: EdgeInsets.symmetric(vertical: 12),
+                  padding: EdgeInsets.symmetric(vertical: 10),
                   fontSize: 14,
                   buttonText: 'Similar',
                   buttonIcon: Icons.remove_red_eye_outlined,
-                  buttonBgColor: AppColors.grey100,
+                  buttonBgColor: AppColors.white,
+                  border: Border.all(color: AppColors.grey),
+                  boxShadow: [],
                   onTap: onSimilarTap,
                 ),
               ),
@@ -179,11 +157,13 @@ class ProductActionSection extends StatelessWidget {
 
               Expanded(
                 child: AppButton(
-                  padding: EdgeInsets.symmetric(vertical: 12),
+                  padding: EdgeInsets.symmetric(vertical: 10),
                   fontSize: 14,
                   buttonText: 'Add to Compare',
                   buttonIcon: Icons.compare_arrows_rounded,
-                  buttonBgColor: AppColors.grey100,
+                  buttonBgColor: AppColors.white,
+                  border: Border.all(color: AppColors.grey),
+                  boxShadow: [],
                   onTap: onCompareTap,
                 ),
               ),

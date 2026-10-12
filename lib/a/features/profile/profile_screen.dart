@@ -106,13 +106,13 @@ class ProfileScreen extends StatelessWidget {
                         const PersonalDetailsSection(),
 
                         AppSpacing.h20,
-                        const Divider(color: AppColors.grey),
+                        const Divider(color: AppColors.grey300),
                         AppSpacing.h20,
 
                         const BusinessAddressSection(),
 
                         AppSpacing.h20,
-                        const Divider(color: AppColors.grey),
+                        const Divider(color: AppColors.grey300),
                         AppSpacing.h20,
 
                         const BankAccountSection(),
@@ -127,6 +127,7 @@ class ProfileScreen extends StatelessWidget {
                             buttonText: 'Save',
                             buttonBgColor: AppColors.pink,
                             textColor: AppColors.white,
+                            boxShadow: [],
                             onTap: () {},
                           ),
                         ),

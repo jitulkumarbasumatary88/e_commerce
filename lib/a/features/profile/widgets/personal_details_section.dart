@@ -27,7 +27,7 @@ class _PersonalDetailsSectionState extends State<PersonalDetailsSection> {
         AppSpacing.h5,
         AppTextField(
           hintText: 'Enter Email Address',
-          prefixIcon: Icon(Icons.email_outlined, color: AppColors.grey),
+          prefixIcon: Icon(Icons.email_rounded, color: AppColors.grey),
         ),
 
         AppSpacing.h20,
@@ -37,7 +37,7 @@ class _PersonalDetailsSectionState extends State<PersonalDetailsSection> {
         AppTextField(
           hintText: 'Enter Password',
           obscureText: _isPasswordObscure,
-          prefixIcon: const Icon(Icons.lock_outline, color: AppColors.grey),
+          prefixIcon: const Icon(Icons.lock_rounded, color: AppColors.grey),
           suffixIcon: IconButton(
             onPressed: () {
               setState(() {
