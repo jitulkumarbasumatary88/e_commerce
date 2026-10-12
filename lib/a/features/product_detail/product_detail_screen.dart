@@ -73,10 +73,11 @@ class ProductDetailScreen extends StatelessWidget {
                         product?.category?.contains('dress') == true ||
                         product?.category?.contains('tops') == true ||
                         product?.category?.contains('women-shoes') == true ||
-                        product?.category?.contains('mens-shoes') == true)
+                        product?.category?.contains('mens-shoes') == true) ...[
                       ProductSizeSelector(),
 
-                    AppSpacing.h15,
+                      AppSpacing.h15,
+                    ],
 
                     ProductInfoPricing(product: product),
 
