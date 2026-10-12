@@ -49,6 +49,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       onTap: () {
         FocusScope.of(context).unfocus();
       },
+
       child: Scaffold(
         body: SafeArea(
           child: SingleChildScrollView(

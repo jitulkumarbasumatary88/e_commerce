@@ -29,6 +29,7 @@ class HomeScreen extends ConsumerWidget {
       onTap: () {
         FocusScope.of(context).unfocus();
       },
+
       child: Scaffold(
         body: SafeArea(
           child: NestedScrollView(

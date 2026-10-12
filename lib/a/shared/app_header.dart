@@ -1,13 +1,11 @@
+import 'package:e_commerce_app/a/core/app_routes.dart';
 import 'package:flutter/material.dart';
 
 import '../core/app_colors.dart';
 import '../core/app_text_styles.dart';
 
 class AppHeader extends StatelessWidget {
-  final VoidCallback? onMenuPressed;
-  final VoidCallback? onProfilePressed;
-
-  const AppHeader({super.key, this.onMenuPressed, this.onProfilePressed});
+  const AppHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +13,7 @@ class AppHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         IconButton(
-          onPressed: onMenuPressed,
+          onPressed: () {},
           icon: const Icon(Icons.menu_rounded, color: AppColors.black),
         ),
 
@@ -23,7 +21,9 @@ class AppHeader extends StatelessWidget {
 
         InkWell(
           customBorder: const CircleBorder(),
-          onTap: onProfilePressed,
+          onTap: () {
+            AppRoutes.toProfileScreen(context);
+          },
           child: const CircleAvatar(
             radius: 22,
             backgroundColor: AppColors.pink,

@@ -26,9 +26,9 @@ class AppTextField extends StatelessWidget {
       cursorColor: AppColors.black,
 
       style: const TextStyle(
-        fontSize: 15,
+        fontSize: 16,
         fontWeight: FontWeight.w500,
-        color: AppColors.black,
+        // color: AppColors.black,
         letterSpacing: 1,
       ),
 
@@ -36,7 +36,7 @@ class AppTextField extends StatelessWidget {
         hintText: hintText,
         hintStyle: const TextStyle(
           fontWeight: FontWeight.w300,
-          fontSize: 15,
+          fontSize: 16,
           letterSpacing: 1,
         ),
 

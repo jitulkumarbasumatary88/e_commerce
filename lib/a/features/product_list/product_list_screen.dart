@@ -20,6 +20,7 @@ class ProductListScreen extends ConsumerWidget {
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
+
       child: Scaffold(
         body: SafeArea(
           child: NestedScrollView(

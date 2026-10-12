@@ -28,6 +28,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
       onTap: () {
         FocusScope.of(context).unfocus();
       },
+
       child: Scaffold(
         body: SafeArea(
           child: Column(

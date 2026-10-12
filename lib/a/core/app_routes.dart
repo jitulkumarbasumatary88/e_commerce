@@ -8,6 +8,7 @@ import '../features/auth/sign_in_screen.dart';
 import '../features/auth/sign_up_screen.dart';
 import '../features/onboarding/get_started_screen.dart';
 import '../features/onboarding/onboarding_screen.dart';
+import '../features/profile/profile_screen.dart';
 
 class AppRoutes {
   static void toOnboarding(BuildContext context) {
@@ -58,6 +59,13 @@ class AppRoutes {
       MaterialPageRoute(
         builder: (context) => ProductDetailScreen(product: product),
       ),
+    );
+  }
+
+  static void toProfileScreen(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ProfileScreen()),
     );
   }
 }
