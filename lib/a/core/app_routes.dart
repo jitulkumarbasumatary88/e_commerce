@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../data/products_model.dart';
 import '../features/auth/forgot_password_screen.dart';
+import '../features/cart/cart_screen.dart';
 import '../features/product_detail/product_detail_screen.dart';
 import '../features/auth/sign_in_screen.dart';
 import '../features/auth/sign_up_screen.dart';
@@ -66,6 +67,13 @@ class AppRoutes {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => ProfileScreen()),
+    );
+  }
+
+  static void toCartScreen(BuildContext context, {Products? product}) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => CartScreen(product: product)),
     );
   }
 }

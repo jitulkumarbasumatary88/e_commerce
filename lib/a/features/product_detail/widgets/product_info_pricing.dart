@@ -33,7 +33,7 @@ class ProductInfoPricing extends StatelessWidget {
           product?.title ?? 'No Title',
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
-          style: AppTextStyles.title,
+          style: AppTextStyles.heading,
         ),
 
         AppSpacing.h10,
@@ -44,7 +44,7 @@ class ProductInfoPricing extends StatelessWidget {
               : categoryName,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
-          style: AppTextStyles.body.copyWith(color: AppColors.grey),
+          style: AppTextStyles.title.copyWith(fontWeight: FontWeight.w300),
         ),
 
         AppSpacing.h10,

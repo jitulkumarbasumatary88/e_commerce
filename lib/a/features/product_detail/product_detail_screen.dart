@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/a/core/app_routes.dart';
 import 'package:e_commerce_app/a/core/app_spacing.dart';
 import 'package:e_commerce_app/a/data/products_model.dart';
 import 'package:e_commerce_app/a/shared/app_container.dart';
@@ -46,7 +47,9 @@ class ProductDetailScreen extends StatelessWidget {
                     ),
 
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        AppRoutes.toCartScreen(context, product: product);
+                      },
                       icon: const Icon(Icons.shopping_cart_outlined),
                     ),
                   ],
@@ -85,7 +88,9 @@ class ProductDetailScreen extends StatelessWidget {
 
                     ProductActionSection(
                       product: product,
-                      onGoToCartTap: () {},
+                      onGoToCartTap: () {
+                        AppRoutes.toCartScreen(context, product: product);
+                      },
                       onBuyNowTap: () {},
                     ),
 
