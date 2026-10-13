@@ -12,6 +12,7 @@ class CartCouponSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      borderRadius: BorderRadius.circular(6),
       onTap: onCouponTap,
       child: Row(
         children: [

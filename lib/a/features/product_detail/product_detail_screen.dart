@@ -88,10 +88,10 @@ class ProductDetailScreen extends StatelessWidget {
 
                     ProductActionSection(
                       product: product,
-                      onGoToCartTap: () {
+                      onGoToCartTap: () {},
+                      onBuyNowTap: () {
                         AppRoutes.toCartScreen(context, product: product);
                       },
-                      onBuyNowTap: () {},
                     ),
 
                     AppSpacing.h15,
