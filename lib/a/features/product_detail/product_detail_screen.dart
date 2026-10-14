@@ -4,6 +4,7 @@ import 'package:e_commerce_app/a/data/products_model.dart';
 import 'package:e_commerce_app/a/shared/app_container.dart';
 import 'package:flutter/material.dart';
 
+import '../../shared/bottom_nav_bar.dart';
 import 'widgets/product_action_section.dart';
 import 'widgets/product_image_slider.dart';
 import 'widgets/product_info_pricing.dart';
@@ -48,7 +49,7 @@ class ProductDetailScreen extends StatelessWidget {
 
                     IconButton(
                       onPressed: () {
-                        AppRoutes.toCartScreen(context, product: product);
+                        AppRoutes.toCheckoutScreen(context, product: product);
                       },
                       icon: const Icon(Icons.shopping_cart_outlined),
                     ),
@@ -90,7 +91,7 @@ class ProductDetailScreen extends StatelessWidget {
                       product: product,
                       onGoToCartTap: () {},
                       onBuyNowTap: () {
-                        AppRoutes.toCartScreen(context, product: product);
+                        AppRoutes.toCheckoutScreen(context, product: product);
                       },
                     ),
 
@@ -104,6 +105,8 @@ class ProductDetailScreen extends StatelessWidget {
           ],
         ),
       ),
+
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 }

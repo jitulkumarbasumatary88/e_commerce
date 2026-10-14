@@ -3,6 +3,7 @@ import 'package:e_commerce_app/a/core/app_spacing.dart';
 import 'package:e_commerce_app/a/core/app_text_styles.dart';
 import 'package:e_commerce_app/a/data/products_model.dart';
 import 'package:e_commerce_app/a/shared/app_container.dart';
+import 'package:e_commerce_app/a/shared/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/cart_billing_details.dart';
@@ -59,7 +60,11 @@ class CartScreen extends StatelessWidget {
 
               SliverToBoxAdapter(
                 child: Padding(
-                  padding: const EdgeInsets.all(15),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 15,
+                  ),
+
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -82,7 +87,14 @@ class CartScreen extends StatelessWidget {
           ),
         ),
 
-        bottomNavigationBar: CartBottomBar(price: price, onProceedTap: () {}),
+        bottomNavigationBar: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            CartBottomBar(price: price, onProceedTap: () {}),
+
+            BottomNavBar(),
+          ],
+        ),
       ),
     );
   }

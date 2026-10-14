@@ -57,7 +57,7 @@ class _ProductImageSliderState extends State<ProductImageSlider> {
                 errorWidget: (context, url, error) => const Center(
                   child: Icon(
                     Icons.broken_image_rounded,
-                    color: AppColors.grey,
+                    color: AppColors.pink,
                   ),
                 ),
               );

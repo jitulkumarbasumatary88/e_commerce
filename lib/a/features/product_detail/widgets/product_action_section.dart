@@ -82,7 +82,7 @@ class ProductActionSection extends StatelessWidget {
                 child: AppButton(
                   padding: EdgeInsets.symmetric(vertical: 10),
                   fontSize: 14,
-                  buttonText: 'Go to Cart',
+                  buttonText: 'Add to Cart',
                   buttonIcon: Icons.shopping_cart_outlined,
                   buttonBgColor: AppColors.blue,
                   textColor: AppColors.white,

@@ -35,7 +35,6 @@ class ProductCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Product Image Container
               AppContainer(
                 height: 150,
                 color: AppColors.grey200,
@@ -48,26 +47,24 @@ class ProductCard extends StatelessWidget {
                   placeholder: (context, url) => const Center(
                     child: CircularProgressIndicator(
                       strokeWidth: 2,
-                      color: AppColors.white,
+                      color: AppColors.pink,
                     ),
                   ),
 
                   errorWidget: (context, url, error) => const Center(
                     child: Icon(
                       Icons.broken_image_rounded,
-                      color: AppColors.white,
+                      color: AppColors.pink,
                     ),
                   ),
                 ),
               ),
 
-              // Product Details (Title, Description, Price, Rating)
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Title
                     Text(
                       product.title ?? 'No Title',
                       maxLines: 1,
@@ -77,7 +74,6 @@ class ProductCard extends StatelessWidget {
 
                     AppSpacing.h5,
 
-                    // Description
                     Text(
                       product.description ?? 'No description',
                       maxLines: 2,
@@ -87,12 +83,10 @@ class ProductCard extends StatelessWidget {
 
                     AppSpacing.h5,
 
-                    // Price
                     Text('\$${product.price ?? 0}', style: AppTextStyles.price),
 
                     AppSpacing.h5,
 
-                    // Rating Stars Row
                     FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Builder(

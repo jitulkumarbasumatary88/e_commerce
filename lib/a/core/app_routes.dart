@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/a/features/checkout/checkout_screen.dart';
 import 'package:e_commerce_app/a/features/product_list/product_list_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -67,6 +68,13 @@ class AppRoutes {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => ProfileScreen()),
+    );
+  }
+
+  static void toCheckoutScreen(BuildContext context, {Products? product}) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => CheckoutScreen(product: product)),
     );
   }
 

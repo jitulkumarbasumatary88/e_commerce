@@ -10,6 +10,7 @@ class AppButton extends StatelessWidget {
   final IconData? buttonIcon;
   final Color? buttonIconColor;
   final Color? buttonBgColor;
+  final BorderRadius? borderRadius;
   final Border? border;
   final List<BoxShadow>? boxShadow;
   final EdgeInsetsGeometry? padding;
@@ -24,6 +25,7 @@ class AppButton extends StatelessWidget {
     this.buttonIcon,
     this.buttonIconColor,
     this.buttonBgColor,
+    this.borderRadius,
     this.border,
     this.boxShadow,
     this.padding,
@@ -40,7 +42,7 @@ class AppButton extends StatelessWidget {
             padding ?? const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
         decoration: BoxDecoration(
           color: buttonBgColor ?? AppColors.grey100,
-          borderRadius: BorderRadius.circular(6),
+          borderRadius: borderRadius ?? BorderRadius.circular(6),
           border: border,
           boxShadow:
               boxShadow ??
