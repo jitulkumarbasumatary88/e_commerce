@@ -1,12 +1,13 @@
+import 'package:e_commerce_app/a/core/app_colors.dart';
 import 'package:e_commerce_app/a/core/app_routes.dart';
 import 'package:flutter/material.dart';
 
-import '../../../ui/reusable_widgets/custom_bottom_nav_bar.dart';
 import '../../core/app_spacing.dart';
 import '../../core/app_text_styles.dart';
 import '../../data/products_model.dart';
 import '../../shared/app_button.dart';
 import '../../shared/app_container.dart';
+import '../../shared/bottom_nav_bar.dart';
 import 'widgets/delivery_address_card.dart';
 import 'widgets/shopping_list_item.dart';
 
@@ -87,15 +88,22 @@ class CheckoutScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                 buttonText: 'Continue',
+                buttonBgColor: AppColors.white,
                 fontSize: 16,
-                boxShadow: [],
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 2,
+                    offset: Offset(0, -3),
+                  ),
+                ],
                 onTap: () {
                   AppRoutes.toCartScreen(context, product: product);
                 },
               ),
             ),
 
-            const CustomBottomNavBar(),
+            const BottomNavBar(),
           ],
         ),
       ),

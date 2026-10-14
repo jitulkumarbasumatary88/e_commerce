@@ -20,7 +20,6 @@ class BottomNavBar extends StatelessWidget {
         unselectedItemColor: AppColors.grey,
         selectedFontSize: 12,
         unselectedFontSize: 12,
-        elevation: 8,
         onTap: onTap,
         items: const [
           BottomNavigationBarItem(
