@@ -17,6 +17,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
   int _currentIndex = 0;
 
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
   final List<Map<String, String>> _slides = [
     {
       'image': 'assets/onboarding/choose_products.png',

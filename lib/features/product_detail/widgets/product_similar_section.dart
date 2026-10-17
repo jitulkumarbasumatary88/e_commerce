@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,7 +9,6 @@ import '../../../data/products_model.dart';
 import '../../../riverpod/product_riverpod.dart';
 import '../../../shared/filter_sort_bar.dart';
 import '../../../shared/product_horizontal_list.dart';
-import '../product_detail_screen.dart';
 
 class ProductSimilarSection extends ConsumerWidget {
   final Products? product;
@@ -50,12 +50,9 @@ class ProductSimilarSection extends ConsumerWidget {
                 ProductHorizontalList(
                   items: displayList,
                   onProductTap: (selectedProduct) {
-                    Navigator.push(
+                    AppRoutes.toProductDetailScreen(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            ProductDetailScreen(product: selectedProduct),
-                      ),
+                      product: selectedProduct,
                     );
                   },
                 ),

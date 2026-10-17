@@ -173,7 +173,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
               fontSize: 16,
               boxShadow: const [],
               onTap: () {
-                AppRoutes.showOrderSuccess(context);
+                AppRoutes.toShowOrderSuccess(context);
               },
             ),
           ),

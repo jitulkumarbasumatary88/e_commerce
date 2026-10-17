@@ -17,21 +17,24 @@ import '../features/profile/profile_screen.dart';
 
 class AppRoutes {
   static void toOnboarding(BuildContext context) {
-    Navigator.pushReplacement(
+    // Navigator.pushReplacement(
+    Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const OnboardingScreen()),
     );
   }
 
   static void toGetStarted(BuildContext context) {
-    Navigator.pushReplacement(
+    // Navigator.pushReplacement(
+    Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const GetStartedScreen()),
     );
   }
 
   static void toSignIn(BuildContext context) {
-    Navigator.pushReplacement(
+    // Navigator.pushReplacement(
+    Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const SignInScreen()),
     );
@@ -53,10 +56,11 @@ class AppRoutes {
 
   ////////////////////
   static void toHomeScreen(BuildContext context) {
-    Navigator.pushAndRemoveUntil(
+    // Navigator.pushAndRemoveUntil(
+    Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const HomeScreen()),
-      (route) => false,
+      // (route) => false,
     );
   }
 
@@ -104,7 +108,7 @@ class AppRoutes {
     );
   }
 
-  static void showOrderSuccess(BuildContext context) {
+  static void toShowOrderSuccess(BuildContext context) {
     showDialog(
       context: context,
       builder: (context) => const OrderSuccessDialog(),
