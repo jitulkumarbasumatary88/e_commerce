@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/app_colors.dart';
@@ -32,16 +33,35 @@ class _SignUpScreenState extends State<SignUpScreen> {
     super.dispose();
   }
 
-  void _handleSignUp() {
+  Future<void> _handleSignUp() async {
     final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
     final confirmPassword = _confirmPasswordController.text.trim();
 
-    if (email.isEmpty || password.isEmpty || confirmPassword.isEmpty) return;
+    if (email.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Please fill all fields')));
+      return;
+    }
 
-    if (password != confirmPassword) return;
+    if (password != confirmPassword) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Passwords do not match')));
+      return;
+    }
 
-    // AppRoutes.toHome(context);
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      if (!mounted) return;
+      AppRoutes.toHomeScreen(context);
+    } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.message ?? 'Sign up failed')));
+    }
   }
 
   @override
@@ -134,13 +154,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   width: double.infinity,
                   child: AppButton(
                     buttonText: 'Create Account',
+                    fontSize: 18,
                     buttonBgColor: AppColors.pink,
                     textColor: AppColors.white,
-                    fontSize: 18,
                     padding: const EdgeInsets.symmetric(vertical: 10),
-                    onTap: () {
-                      AppRoutes.toHomeScreen(context);
-                    },
+                    boxShadow: [],
+                    onTap: _handleSignUp,
                   ),
                 ),
 

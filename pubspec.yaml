@@ -39,6 +39,8 @@ dependencies:
   riverpod_annotation: ^4.0.7
   font_awesome_flutter: ^11.0.0
   cached_network_image: ^4.0.3
+  firebase_core: ^5.1.0
+  firebase_auth: ^7.0.1
 
 dev_dependencies:
   flutter_test:

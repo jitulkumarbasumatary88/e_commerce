@@ -7,7 +7,6 @@ import '../../core/app_text_styles.dart';
 import '../../shared/app_button.dart';
 import '../../shared/app_container.dart';
 
-/// Payment Success Popup Dialog (Figma "Successfully" modal design)
 class OrderSuccessDialog extends StatelessWidget {
   const OrderSuccessDialog({super.key});
 
@@ -15,19 +14,18 @@ class OrderSuccessDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       backgroundColor: Colors.transparent,
-      // Background transparent taaki card clean dikhe
-      insetPadding: const EdgeInsets.symmetric(horizontal: 25),
+      insetPadding: const EdgeInsets.symmetric(horizontal: 10),
+
       child: AppContainer(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
-        borderRadius: BorderRadius.circular(20),
         child: Column(
-          mainAxisSize: MainAxisSize.min, // Jitna content utni hi height
+          mainAxisSize: MainAxisSize.min,
           children: [
-            // Pink Circular Badge with Checkmark
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: AppColors.pink,
+
                 shape: BoxShape.circle,
                 boxShadow: [
                   BoxShadow(
@@ -37,12 +35,12 @@ class OrderSuccessDialog extends StatelessWidget {
                   ),
                 ],
               ),
+
               child: const Icon(Icons.check, color: AppColors.white, size: 36),
             ),
 
             AppSpacing.h20,
 
-            // Success Text
             const Text(
               'Payment done successfully.',
               textAlign: TextAlign.center,
@@ -51,15 +49,14 @@ class OrderSuccessDialog extends StatelessWidget {
 
             AppSpacing.h20,
 
-            // Continue Shopping Button (Wapas Home Screen par le jane ke liye)
             SizedBox(
               width: double.infinity,
               child: AppButton(
-                padding: const EdgeInsets.symmetric(vertical: 12),
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 buttonText: 'Continue Shopping',
-                buttonBgColor: AppColors.pink,
+                fontSize: 16,
                 textColor: AppColors.white,
-                fontSize: 15,
+                buttonBgColor: AppColors.pink,
                 boxShadow: const [],
                 onTap: () {
                   AppRoutes.toHomeScreen(context);

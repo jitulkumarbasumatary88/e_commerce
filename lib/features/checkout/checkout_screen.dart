@@ -82,24 +82,21 @@ class CheckoutScreen extends StatelessWidget {
         bottomNavigationBar: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(
-              width: double.infinity,
-              child: AppButton(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-                buttonText: 'Continue',
-                buttonBgColor: AppColors.white,
-                fontSize: 16,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 2,
-                    offset: Offset(0, -3),
-                  ),
-                ],
-                onTap: () {
-                  AppRoutes.toCartScreen(context, product: product);
-                },
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+              child: SizedBox(
+                width: double.infinity,
+                child: AppButton(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  buttonText: 'Continue',
+                  fontSize: 16,
+                  textColor: AppColors.white,
+                  buttonBgColor: AppColors.pink,
+                  boxShadow: const [],
+                  onTap: () {
+                    AppRoutes.toCartScreen(context, product: product);
+                  },
+                ),
               ),
             ),
 

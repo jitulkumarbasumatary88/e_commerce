@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../core/app_colors.dart';
 import '../../../core/app_text_styles.dart';
 import '../../../shared/app_container.dart';
 
-/// Payment method tile (VISA, PayPal, MasterCard, Apple Pay ke liye)
 class PaymentMethodTile extends StatelessWidget {
-  final String text1; // Method name (e.g., VISA, PayPal)
-  final String text2; // Card number mask (e.g., *********2109)
-  final bool isSelected; // Selected highlight karne ke liye
+  final FaIconData icon;
+  final String text;
+  final bool isSelected;
   final VoidCallback? onTap;
 
   const PaymentMethodTile({
     super.key,
-    required this.text1,
-    required this.text2,
+    required this.icon,
+    required this.text,
     this.isSelected = false,
     this.onTap,
   });
@@ -23,35 +23,28 @@ class PaymentMethodTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(10),
+
+      borderRadius: BorderRadius.circular(6),
       child: AppContainer(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        borderRadius: BorderRadius.circular(10),
-        // Selected method ko pink border, baaki ko light grey border
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+
+        borderRadius: BorderRadius.circular(6),
+
         border: Border.all(
           color: isSelected ? AppColors.pink : AppColors.grey300,
           width: isSelected ? 1.5 : 1,
         ),
+
         boxShadow: const [
-          BoxShadow(color: Colors.black12, blurRadius: 2, offset: Offset(0, 2)),
+          BoxShadow(color: Colors.black12, blurRadius: 2, offset: Offset(0, 3)),
         ],
+
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            // Payment method brand name
-            Text(
-              text1,
-              style: AppTextStyles.body.copyWith(
-                fontWeight: FontWeight.w600,
-                color: isSelected ? AppColors.pink : AppColors.black,
-              ),
-            ),
+            FaIcon(icon),
 
-            // Card masked number
-            Text(
-              text2,
-              style: AppTextStyles.caption.copyWith(color: AppColors.grey),
-            ),
+            Text(text, style: AppTextStyles.body),
           ],
         ),
       ),

@@ -80,10 +80,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         width: double.infinity,
                         child: AppButton(
                           buttonText: 'Submit',
+                          fontSize: 18,
                           buttonBgColor: AppColors.pink,
                           textColor: AppColors.white,
-                          fontSize: 18,
                           padding: const EdgeInsets.symmetric(vertical: 10),
+                          boxShadow: [],
                           onTap: () {},
                         ),
                       ),

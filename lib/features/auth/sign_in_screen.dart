@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/app_colors.dart';
@@ -28,13 +29,27 @@ class _SignInScreenState extends State<SignInScreen> {
     super.dispose();
   }
 
-  void _handleLogin() {
+  Future<void> _handleSignIn() async {
     final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
 
-    if (email.isEmpty || password.isEmpty) return;
+    if (email.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('Please fill all fields')));
+      return;
+    }
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
 
-    // AppRoutes.toHome(context);
+      if (!mounted) return;
+      AppRoutes.toHomeScreen(context);
+    } on FirebaseAuthException catch (e) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.message ?? 'Login failed')));
+    }
   }
 
   @override
@@ -111,12 +126,11 @@ class _SignInScreenState extends State<SignInScreen> {
                   child: AppButton(
                     buttonText: 'Login',
                     buttonBgColor: AppColors.pink,
-                    textColor: AppColors.white,
                     fontSize: 18,
+                    textColor: AppColors.white,
                     padding: const EdgeInsets.symmetric(vertical: 10),
-                    onTap: () {
-                      AppRoutes.toHomeScreen(context);
-                    },
+                    boxShadow: [],
+                    onTap: _handleSignIn,
                   ),
                 ),
 
