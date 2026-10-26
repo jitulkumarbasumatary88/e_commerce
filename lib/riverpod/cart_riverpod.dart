@@ -61,4 +61,3 @@ class CartNotifier extends StreamNotifier<List<CartItem>> {
 
 final cartNotifierProvider =
     StreamNotifierProvider<CartNotifier, List<CartItem>>(CartNotifier.new);
-git add . ; git commit -m "initial commit" ; git push
