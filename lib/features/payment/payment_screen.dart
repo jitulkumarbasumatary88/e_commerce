@@ -56,7 +56,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                         icon: const Icon(Icons.arrow_back_ios_new_rounded),
                       ),
 
-                      const Text('Checkout', style: AppTextStyles.appBarTitle),
+                      const Text('Payment', style: AppTextStyles.appBarTitle),
 
                       const SizedBox(width: 45),
                     ],
