@@ -30,7 +30,7 @@ class ShoppingListItem extends StatelessWidget {
       child: Column(
         children: [
           Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               AppContainer(
                 height: 130,
@@ -44,6 +44,7 @@ class ShoppingListItem extends StatelessWidget {
                     offset: Offset(0, 3),
                   ),
                 ],
+
                 child: CachedNetworkImage(
                   width: double.infinity,
                   imageUrl: product?.thumbnail ?? '',
@@ -81,6 +82,7 @@ class ShoppingListItem extends StatelessWidget {
                     AppSpacing.h10,
 
                     Wrap(
+                      crossAxisAlignment: WrapCrossAlignment.center,
                       spacing: 10,
                       runSpacing: 10,
                       children: [

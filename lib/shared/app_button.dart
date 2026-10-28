@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../core/app_colors.dart';
 
 class AppButton extends StatelessWidget {
-  final String buttonText;
+  final String? buttonText;
   final Color? textColor;
   final double? fontSize;
   final FontWeight? fontWeight;
@@ -18,7 +18,7 @@ class AppButton extends StatelessWidget {
 
   const AppButton({
     super.key,
-    required this.buttonText,
+    this.buttonText,
     this.textColor,
     this.fontSize,
     this.fontWeight,
@@ -59,20 +59,21 @@ class AppButton extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              buttonText,
-              style: TextStyle(
-                color: textColor,
-                fontWeight: fontWeight ?? FontWeight.w500,
-                fontSize: fontSize ?? 14,
+            if (buttonText != null)
+              Text(
+                buttonText!,
+                style: TextStyle(
+                  color: textColor,
+                  fontWeight: fontWeight ?? FontWeight.w500,
+                  fontSize: fontSize ?? 14,
+                ),
               ),
-            ),
 
-            if (buttonIcon != null) ...[
+            if (buttonText != null && buttonIcon != null)
               const SizedBox(width: 8),
 
+            if (buttonIcon != null)
               Icon(buttonIcon, color: buttonIconColor ?? textColor, size: 18),
-            ],
           ],
         ),
       ),
