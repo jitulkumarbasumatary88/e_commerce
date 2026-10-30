@@ -28,7 +28,10 @@ class CartBottomBar extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('\$$price', style: AppTextStyles.title),
+                Text(
+                  '\$${price.toStringAsFixed(2)}',
+                  style: AppTextStyles.title,
+                ),
 
                 AppSpacing.h5,
 

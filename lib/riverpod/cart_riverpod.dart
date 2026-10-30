@@ -36,6 +36,7 @@ class CartNotifier extends StreamNotifier<List<CartItem>> {
               thumbnail: Value(product.thumbnail),
               category: Value(product.category),
               quantity: const Value(1),
+              rating: Value(product.rating?.toDouble()),
             ),
           );
     }

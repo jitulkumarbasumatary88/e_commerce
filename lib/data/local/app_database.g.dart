@@ -85,6 +85,15 @@ class $CartItemsTable extends CartItems
     type: DriftSqlType.string,
     requiredDuringInsert: false,
   );
+  static const VerificationMeta _ratingMeta = const VerificationMeta('rating');
+  @override
+  late final GeneratedColumn<double> rating = GeneratedColumn<double>(
+    'rating',
+    aliasedName,
+    true,
+    type: DriftSqlType.double,
+    requiredDuringInsert: false,
+  );
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -94,6 +103,7 @@ class $CartItemsTable extends CartItems
     thumbnail,
     quantity,
     category,
+    rating,
   ];
   @override
   String get aliasedName => _alias ?? actualTableName;
@@ -152,6 +162,12 @@ class $CartItemsTable extends CartItems
         category.isAcceptableOrUnknown(data['category']!, _categoryMeta),
       );
     }
+    if (data.containsKey('rating')) {
+      context.handle(
+        _ratingMeta,
+        rating.isAcceptableOrUnknown(data['rating']!, _ratingMeta),
+      );
+    }
     return context;
   }
 
@@ -189,6 +205,10 @@ class $CartItemsTable extends CartItems
         DriftSqlType.string,
         data['${effectivePrefix}category'],
       ),
+      rating: attachedDatabase.typeMapping.read(
+        DriftSqlType.double,
+        data['${effectivePrefix}rating'],
+      ),
     );
   }
 
@@ -206,6 +226,7 @@ class CartItem extends DataClass implements Insertable<CartItem> {
   final String? thumbnail;
   final int quantity;
   final String? category;
+  final double? rating;
   const CartItem({
     required this.id,
     required this.productId,
@@ -214,6 +235,7 @@ class CartItem extends DataClass implements Insertable<CartItem> {
     this.thumbnail,
     required this.quantity,
     this.category,
+    this.rating,
   });
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
@@ -228,6 +250,9 @@ class CartItem extends DataClass implements Insertable<CartItem> {
     map['quantity'] = Variable<int>(quantity);
     if (!nullToAbsent || category != null) {
       map['category'] = Variable<String>(category);
+    }
+    if (!nullToAbsent || rating != null) {
+      map['rating'] = Variable<double>(rating);
     }
     return map;
   }
@@ -245,6 +270,9 @@ class CartItem extends DataClass implements Insertable<CartItem> {
       category: category == null && nullToAbsent
           ? const Value.absent()
           : Value(category),
+      rating: rating == null && nullToAbsent
+          ? const Value.absent()
+          : Value(rating),
     );
   }
 
@@ -261,6 +289,7 @@ class CartItem extends DataClass implements Insertable<CartItem> {
       thumbnail: serializer.fromJson<String?>(json['thumbnail']),
       quantity: serializer.fromJson<int>(json['quantity']),
       category: serializer.fromJson<String?>(json['category']),
+      rating: serializer.fromJson<double?>(json['rating']),
     );
   }
   @override
@@ -274,6 +303,7 @@ class CartItem extends DataClass implements Insertable<CartItem> {
       'thumbnail': serializer.toJson<String?>(thumbnail),
       'quantity': serializer.toJson<int>(quantity),
       'category': serializer.toJson<String?>(category),
+      'rating': serializer.toJson<double?>(rating),
     };
   }
 
@@ -285,6 +315,7 @@ class CartItem extends DataClass implements Insertable<CartItem> {
     Value<String?> thumbnail = const Value.absent(),
     int? quantity,
     Value<String?> category = const Value.absent(),
+    Value<double?> rating = const Value.absent(),
   }) => CartItem(
     id: id ?? this.id,
     productId: productId ?? this.productId,
@@ -293,6 +324,7 @@ class CartItem extends DataClass implements Insertable<CartItem> {
     thumbnail: thumbnail.present ? thumbnail.value : this.thumbnail,
     quantity: quantity ?? this.quantity,
     category: category.present ? category.value : this.category,
+    rating: rating.present ? rating.value : this.rating,
   );
   CartItem copyWithCompanion(CartItemsCompanion data) {
     return CartItem(
@@ -303,6 +335,7 @@ class CartItem extends DataClass implements Insertable<CartItem> {
       thumbnail: data.thumbnail.present ? data.thumbnail.value : this.thumbnail,
       quantity: data.quantity.present ? data.quantity.value : this.quantity,
       category: data.category.present ? data.category.value : this.category,
+      rating: data.rating.present ? data.rating.value : this.rating,
     );
   }
 
@@ -315,14 +348,23 @@ class CartItem extends DataClass implements Insertable<CartItem> {
           ..write('price: $price, ')
           ..write('thumbnail: $thumbnail, ')
           ..write('quantity: $quantity, ')
-          ..write('category: $category')
+          ..write('category: $category, ')
+          ..write('rating: $rating')
           ..write(')'))
         .toString();
   }
 
   @override
-  int get hashCode =>
-      Object.hash(id, productId, title, price, thumbnail, quantity, category);
+  int get hashCode => Object.hash(
+    id,
+    productId,
+    title,
+    price,
+    thumbnail,
+    quantity,
+    category,
+    rating,
+  );
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -333,7 +375,8 @@ class CartItem extends DataClass implements Insertable<CartItem> {
           other.price == this.price &&
           other.thumbnail == this.thumbnail &&
           other.quantity == this.quantity &&
-          other.category == this.category);
+          other.category == this.category &&
+          other.rating == this.rating);
 }
 
 class CartItemsCompanion extends UpdateCompanion<CartItem> {
@@ -344,6 +387,7 @@ class CartItemsCompanion extends UpdateCompanion<CartItem> {
   final Value<String?> thumbnail;
   final Value<int> quantity;
   final Value<String?> category;
+  final Value<double?> rating;
   const CartItemsCompanion({
     this.id = const Value.absent(),
     this.productId = const Value.absent(),
@@ -352,6 +396,7 @@ class CartItemsCompanion extends UpdateCompanion<CartItem> {
     this.thumbnail = const Value.absent(),
     this.quantity = const Value.absent(),
     this.category = const Value.absent(),
+    this.rating = const Value.absent(),
   });
   CartItemsCompanion.insert({
     this.id = const Value.absent(),
@@ -361,6 +406,7 @@ class CartItemsCompanion extends UpdateCompanion<CartItem> {
     this.thumbnail = const Value.absent(),
     this.quantity = const Value.absent(),
     this.category = const Value.absent(),
+    this.rating = const Value.absent(),
   }) : productId = Value(productId),
        title = Value(title),
        price = Value(price);
@@ -372,6 +418,7 @@ class CartItemsCompanion extends UpdateCompanion<CartItem> {
     Expression<String>? thumbnail,
     Expression<int>? quantity,
     Expression<String>? category,
+    Expression<double>? rating,
   }) {
     return RawValuesInsertable({
       if (id != null) 'id': id,
@@ -381,6 +428,7 @@ class CartItemsCompanion extends UpdateCompanion<CartItem> {
       if (thumbnail != null) 'thumbnail': thumbnail,
       if (quantity != null) 'quantity': quantity,
       if (category != null) 'category': category,
+      if (rating != null) 'rating': rating,
     });
   }
 
@@ -392,6 +440,7 @@ class CartItemsCompanion extends UpdateCompanion<CartItem> {
     Value<String?>? thumbnail,
     Value<int>? quantity,
     Value<String?>? category,
+    Value<double?>? rating,
   }) {
     return CartItemsCompanion(
       id: id ?? this.id,
@@ -401,6 +450,7 @@ class CartItemsCompanion extends UpdateCompanion<CartItem> {
       thumbnail: thumbnail ?? this.thumbnail,
       quantity: quantity ?? this.quantity,
       category: category ?? this.category,
+      rating: rating ?? this.rating,
     );
   }
 
@@ -428,6 +478,9 @@ class CartItemsCompanion extends UpdateCompanion<CartItem> {
     if (category.present) {
       map['category'] = Variable<String>(category.value);
     }
+    if (rating.present) {
+      map['rating'] = Variable<double>(rating.value);
+    }
     return map;
   }
 
@@ -440,7 +493,8 @@ class CartItemsCompanion extends UpdateCompanion<CartItem> {
           ..write('price: $price, ')
           ..write('thumbnail: $thumbnail, ')
           ..write('quantity: $quantity, ')
-          ..write('category: $category')
+          ..write('category: $category, ')
+          ..write('rating: $rating')
           ..write(')'))
         .toString();
   }
@@ -465,6 +519,7 @@ typedef $$CartItemsTableCreateCompanionBuilder = CartItemsCompanion Function({
   Value<String?> thumbnail,
   Value<int> quantity,
   Value<String?> category,
+  Value<double?> rating,
 });
 typedef $$CartItemsTableUpdateCompanionBuilder = CartItemsCompanion Function({
   Value<int> id,
@@ -474,6 +529,7 @@ typedef $$CartItemsTableUpdateCompanionBuilder = CartItemsCompanion Function({
   Value<String?> thumbnail,
   Value<int> quantity,
   Value<String?> category,
+  Value<double?> rating,
 });
 
 class $$CartItemsTableFilterComposer
@@ -517,6 +573,11 @@ class $$CartItemsTableFilterComposer
 
   ColumnFilters<String> get category => $composableBuilder(
     column: $table.category,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<double> get rating => $composableBuilder(
+    column: $table.rating,
     builder: (column) => ColumnFilters(column),
   );
 }
@@ -564,6 +625,11 @@ class $$CartItemsTableOrderingComposer
     column: $table.category,
     builder: (column) => ColumnOrderings(column),
   );
+
+  ColumnOrderings<double> get rating => $composableBuilder(
+    column: $table.rating,
+    builder: (column) => ColumnOrderings(column),
+  );
 }
 
 class $$CartItemsTableAnnotationComposer
@@ -595,6 +661,9 @@ class $$CartItemsTableAnnotationComposer
 
   GeneratedColumn<String> get category =>
       $composableBuilder(column: $table.category, builder: (column) => column);
+
+  GeneratedColumn<double> get rating =>
+      $composableBuilder(column: $table.rating, builder: (column) => column);
 }
 
 class $$CartItemsTableTableManager
@@ -632,6 +701,7 @@ class $$CartItemsTableTableManager
                 Value<String?> thumbnail = const Value.absent(),
                 Value<int> quantity = const Value.absent(),
                 Value<String?> category = const Value.absent(),
+                Value<double?> rating = const Value.absent(),
               }) => CartItemsCompanion(
                 id: id,
                 productId: productId,
@@ -640,6 +710,7 @@ class $$CartItemsTableTableManager
                 thumbnail: thumbnail,
                 quantity: quantity,
                 category: category,
+                rating: rating,
               ),
           createCompanionCallback:
               ({
@@ -650,6 +721,7 @@ class $$CartItemsTableTableManager
                 Value<String?> thumbnail = const Value.absent(),
                 Value<int> quantity = const Value.absent(),
                 Value<String?> category = const Value.absent(),
+                Value<double?> rating = const Value.absent(),
               }) => CartItemsCompanion.insert(
                 id: id,
                 productId: productId,
@@ -658,6 +730,7 @@ class $$CartItemsTableTableManager
                 thumbnail: thumbnail,
                 quantity: quantity,
                 category: category,
+                rating: rating,
               ),
           withReferenceMapper: (p0) => p0
               .map(

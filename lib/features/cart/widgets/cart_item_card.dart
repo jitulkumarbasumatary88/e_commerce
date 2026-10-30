@@ -10,8 +10,19 @@ import '../../../shared/app_container.dart';
 
 class CartItemCard extends StatelessWidget {
   final Products? product;
+  final int quantity;
+  final VoidCallback? onDeleteTap;
+  final VoidCallback? onIncrementTap;
+  final VoidCallback? onDecrementTap;
 
-  const CartItemCard({super.key, this.product});
+  const CartItemCard({
+    super.key,
+    this.product,
+    this.quantity = 1,
+    this.onDeleteTap,
+    this.onIncrementTap,
+    this.onDecrementTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -93,16 +104,26 @@ class CartItemCard extends StatelessWidget {
                     ],
 
                     AppButton(
-                      buttonText: 'Qty 1',
-                      buttonIcon: Icons.arrow_drop_down_rounded,
+                      buttonIcon: Icons.remove_rounded,
                       buttonBgColor: AppColors.grey100,
-                      onTap: () {},
+                      onTap: onDecrementTap,
+                    ),
+
+                    AppContainer(
+                      padding: EdgeInsets.all(5),
+                      child: Text('$quantity'),
+                    ),
+
+                    AppButton(
+                      buttonIcon: Icons.add_rounded,
+                      buttonBgColor: AppColors.grey100,
+                      onTap: onIncrementTap,
                     ),
 
                     AppButton(
                       buttonIcon: Icons.delete_outline_rounded,
                       buttonBgColor: AppColors.grey100,
-                      onTap: () {},
+                      onTap: onDeleteTap,
                     ),
                   ],
                 ),

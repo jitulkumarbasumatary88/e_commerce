@@ -17,6 +17,8 @@ class CartItems extends Table {
   IntColumn get quantity => integer().withDefault(const Constant(1))();
 
   TextColumn get category => text().nullable()();
+
+  RealColumn get rating => real().nullable()();
 }
 
 @DriftDatabase(tables: [CartItems])

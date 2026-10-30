@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../core/app_colors.dart';
 import '../../../core/app_spacing.dart';
 import '../../../core/app_text_styles.dart';
 import '../../../data/products_model.dart';
+import '../../../riverpod/cart_riverpod.dart';
 import '../../../shared/app_button.dart';
 import '../../../shared/app_container.dart';
 
-class ProductActionSection extends StatelessWidget {
+class ProductActionSection extends ConsumerWidget {
   final Products? product;
-  final VoidCallback? onGoToCartTap;
+  final VoidCallback? onAddToCartTap;
   final VoidCallback? onBuyNowTap;
   final VoidCallback? onSimilarTap;
   final VoidCallback? onCompareTap;
@@ -17,19 +19,24 @@ class ProductActionSection extends StatelessWidget {
   const ProductActionSection({
     super.key,
     this.product,
-    this.onGoToCartTap,
+    this.onAddToCartTap,
     this.onBuyNowTap,
     this.onSimilarTap,
     this.onCompareTap,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final tags = [
       {'icon': Icons.location_on_outlined, 'label': 'Nearest Store'},
       {'icon': Icons.lock_outline_rounded, 'label': 'VIP'},
       {'icon': Icons.assignment_return_outlined, 'label': 'Return policy'},
     ];
+
+    final cartAsync = ref.watch(cartNotifierProvider);
+
+    final isInCart =
+        cartAsync.value?.any((item) => item.productId == product?.id) ?? false;
 
     return MediaQuery.withClampedTextScaling(
       maxScaleFactor: 1,
@@ -83,12 +90,22 @@ class ProductActionSection extends StatelessWidget {
                 child: AppButton(
                   padding: EdgeInsets.symmetric(vertical: 10),
                   fontSize: 14,
-                  buttonText: 'Add to Cart',
+                  buttonText: isInCart ? 'Go to Cart' : 'Add to Cart',
                   buttonIcon: Icons.shopping_cart_outlined,
                   buttonBgColor: AppColors.blue,
                   textColor: AppColors.white,
                   boxShadow: [],
-                  onTap: onGoToCartTap,
+                  onTap: () {
+                    if (isInCart) {
+                      onAddToCartTap?.call();
+                    } else {
+                      if (product != null) {
+                        ref
+                            .read(cartNotifierProvider.notifier)
+                            .addToCart(product!);
+                      }
+                    }
+                  },
                 ),
               ),
 

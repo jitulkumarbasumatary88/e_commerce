@@ -1,4 +1,6 @@
+import 'package:e_commerce_app/riverpod/cart_riverpod.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/app_colors.dart';
 import '../../core/app_routes.dart';
@@ -11,13 +13,17 @@ import '../../shared/bottom_nav_bar.dart';
 import 'widgets/delivery_address_card.dart';
 import 'widgets/shopping_list_item.dart';
 
-class CheckoutScreen extends StatelessWidget {
+class CheckoutScreen extends ConsumerWidget {
   final Products? product;
 
   const CheckoutScreen({super.key, this.product});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final checkoutAsync = ref.watch(cartNotifierProvider);
+
+    final checkoutList = checkoutAsync.value ?? [];
+
     return MediaQuery.withClampedTextScaling(
       maxScaleFactor: 1,
       child: Scaffold(
@@ -70,7 +76,61 @@ class CheckoutScreen extends StatelessWidget {
 
                       AppSpacing.h15,
 
-                      ShoppingListItem(product: product),
+                      if (checkoutList.isEmpty)
+                        Center(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 80),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.remove_shopping_cart_outlined,
+                                  size: 80,
+                                  color: AppColors.grey,
+                                ),
+
+                                AppSpacing.h15,
+
+                                const Text(
+                                  'Your Cart is Empty!',
+                                  style: AppTextStyles.heading,
+                                ),
+
+                                AppSpacing.h5,
+
+                                Text(
+                                  'Looks like you haven\'t added anything yet.',
+                                  style: AppTextStyles.body.copyWith(
+                                    color: AppColors.grey,
+                                  ),
+                                ),
+
+                                AppSpacing.h20,
+
+                                AppButton(
+                                  buttonText: 'Shop Now',
+                                  buttonBgColor: AppColors.pink,
+                                  textColor: AppColors.white,
+                                  onTap: () => Navigator.pop(context),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                      else
+                        for (var item in checkoutList) ...[
+                          ShoppingListItem(
+                            product: Products(
+                              id: item.productId,
+                              title: item.title,
+                              price: item.price,
+                              thumbnail: item.thumbnail,
+                              rating: item.rating,
+                            ),
+                          ),
+
+                          AppSpacing.h15,
+                        ],
                     ],
                   ),
                 ),
@@ -79,30 +139,35 @@ class CheckoutScreen extends StatelessWidget {
           ),
         ),
 
-        bottomNavigationBar: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-              child: SizedBox(
-                width: double.infinity,
-                child: AppButton(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  buttonText: 'Continue',
-                  fontSize: 16,
-                  textColor: AppColors.white,
-                  buttonBgColor: AppColors.pink,
-                  boxShadow: const [],
-                  onTap: () {
-                    AppRoutes.toCartScreen(context, product: product);
-                  },
-                ),
-              ),
-            ),
+        bottomNavigationBar: checkoutList.isEmpty
+            ? BottomNavBar()
+            : Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 15,
+                    ),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: AppButton(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        buttonText: 'Continue',
+                        fontSize: 16,
+                        textColor: AppColors.white,
+                        buttonBgColor: AppColors.pink,
+                        boxShadow: const [],
+                        onTap: () {
+                          AppRoutes.toCartScreen(context, product: product);
+                        },
+                      ),
+                    ),
+                  ),
 
-            const BottomNavBar(),
-          ],
-        ),
+                  const BottomNavBar(),
+                ],
+              ),
       ),
     );
   }

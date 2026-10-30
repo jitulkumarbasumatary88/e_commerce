@@ -27,7 +27,7 @@ class CartBillingDetails extends StatelessWidget {
             ),
 
             Text(
-              '\$$price',
+              '\$${price.toStringAsFixed(2)}',
               style: AppTextStyles.title.copyWith(letterSpacing: 0),
             ),
           ],
@@ -85,7 +85,7 @@ class CartBillingDetails extends StatelessWidget {
             const Text('Order Total', style: AppTextStyles.heading),
 
             Text(
-              '\$$price',
+              '\$${price.toStringAsFixed(2)}',
               style: AppTextStyles.title.copyWith(
                 color: AppColors.pink,
                 letterSpacing: 0,
