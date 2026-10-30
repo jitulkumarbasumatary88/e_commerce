@@ -120,7 +120,14 @@ class ProductActionSection extends ConsumerWidget {
                   buttonBgColor: AppColors.green,
                   textColor: AppColors.white,
                   boxShadow: [],
-                  onTap: onBuyNowTap,
+                  onTap: () {
+                    if (product != null) {
+                      ref
+                          .read(cartNotifierProvider.notifier)
+                          .addToCart(product!);
+                    }
+                    onBuyNowTap?.call();
+                  },
                 ),
               ),
             ],

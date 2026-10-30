@@ -26,10 +26,16 @@ class CartScreen extends ConsumerWidget {
 
     final cartList = cartAsync.value ?? [];
 
-    final totalPrice = cartList.fold<double>(
-      0.0,
-      (sum, item) => sum + (item.price * item.quantity),
-    );
+    final singleItem = product != null
+        ? cartList.where((item) => item.productId == product?.id).firstOrNull
+        : null;
+
+    final displayPrice = product != null
+        ? ((product?.price?.toDouble() ?? 0.0) * (singleItem?.quantity ?? 1))
+        : cartList.fold<double>(
+            0.0,
+            (sum, item) => sum + (item.price * item.quantity),
+          );
 
     return MediaQuery.withClampedTextScaling(
       maxScaleFactor: 1,
@@ -75,7 +81,6 @@ class CartScreen extends ConsumerWidget {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 80),
                           child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(
                                 Icons.remove_shopping_cart_outlined,
@@ -120,24 +125,18 @@ class CartScreen extends ConsumerWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            for (var item in cartList) ...[
+                            if (product != null && singleItem != null) ...[
                               CartItemCard(
-                                product: Products(
-                                  id: item.productId,
-                                  title: item.title,
-                                  price: item.price,
-                                  thumbnail: item.thumbnail,
-                                  category: item.category,
-                                ),
+                                product: product,
 
-                                quantity: item.quantity,
+                                quantity: singleItem.quantity,
 
                                 onIncrementTap: () {
                                   ref
                                       .read(cartNotifierProvider.notifier)
                                       .updateQuantity(
-                                        item.id,
-                                        item.quantity + 1,
+                                        singleItem.id,
+                                        singleItem.quantity + 1,
                                       );
                                 },
 
@@ -145,19 +144,59 @@ class CartScreen extends ConsumerWidget {
                                   ref
                                       .read(cartNotifierProvider.notifier)
                                       .updateQuantity(
-                                        item.id,
-                                        item.quantity - 1,
+                                        singleItem.id,
+                                        singleItem.quantity - 1,
                                       );
                                 },
 
                                 onDeleteTap: () {
                                   ref
                                       .read(cartNotifierProvider.notifier)
-                                      .removeFromCart(item.id);
+                                      .removeFromCart(singleItem.id);
                                 },
                               ),
 
                               AppSpacing.h15,
+                            ] else ...[
+                              for (var item in cartList) ...[
+                                CartItemCard(
+                                  product: Products(
+                                    id: item.productId,
+                                    title: item.title,
+                                    price: item.price,
+                                    thumbnail: item.thumbnail,
+                                    category: item.category,
+                                  ),
+
+                                  quantity: item.quantity,
+
+                                  onIncrementTap: () {
+                                    ref
+                                        .read(cartNotifierProvider.notifier)
+                                        .updateQuantity(
+                                          item.id,
+                                          item.quantity + 1,
+                                        );
+                                  },
+
+                                  onDecrementTap: () {
+                                    ref
+                                        .read(cartNotifierProvider.notifier)
+                                        .updateQuantity(
+                                          item.id,
+                                          item.quantity - 1,
+                                        );
+                                  },
+
+                                  onDeleteTap: () {
+                                    ref
+                                        .read(cartNotifierProvider.notifier)
+                                        .removeFromCart(item.id);
+                                  },
+                                ),
+
+                                AppSpacing.h15,
+                              ],
                             ],
 
                             AppSpacing.h25,
@@ -168,7 +207,7 @@ class CartScreen extends ConsumerWidget {
                             const Divider(color: AppColors.grey300),
                             AppSpacing.h15,
 
-                            CartBillingDetails(price: totalPrice),
+                            CartBillingDetails(price: displayPrice),
                           ],
                         ),
                       ),
@@ -183,7 +222,7 @@ class CartScreen extends ConsumerWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   CartBottomBar(
-                    price: totalPrice,
+                    price: displayPrice,
                     onProceedTap: () {
                       AppRoutes.toPaymentScreen(context, product: product);
                     },

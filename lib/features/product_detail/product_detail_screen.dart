@@ -90,7 +90,7 @@ class ProductDetailScreen extends StatelessWidget {
                     ProductActionSection(
                       product: product,
                       onAddToCartTap: () {
-                        AppRoutes.toCheckoutScreen(context, product: product);
+                        AppRoutes.toCheckoutScreen(context);
                       },
                       onBuyNowTap: () {
                         AppRoutes.toCheckoutScreen(context, product: product);

@@ -41,11 +41,6 @@ class BottomNavBar extends StatelessWidget {
           ),
 
           BottomNavigationBarItem(
-            icon: Icon(Icons.search_rounded),
-            label: 'Search',
-          ),
-
-          BottomNavigationBarItem(
             icon: Icon(Icons.settings_outlined),
             activeIcon: Icon(Icons.settings),
             label: 'Setting',

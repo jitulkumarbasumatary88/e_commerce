@@ -24,6 +24,10 @@ class CheckoutScreen extends ConsumerWidget {
 
     final checkoutList = checkoutAsync.value ?? [];
 
+    final isProductInCart = checkoutList.any(
+      (item) => item.productId == product?.id,
+    );
+
     return MediaQuery.withClampedTextScaling(
       maxScaleFactor: 1,
       child: Scaffold(
@@ -76,12 +80,13 @@ class CheckoutScreen extends ConsumerWidget {
 
                       AppSpacing.h15,
 
-                      if (checkoutList.isEmpty)
+                      if (product != null && isProductInCart) ...[
+                        ShoppingListItem(product: product),
+                      ] else if (checkoutList.isEmpty)
                         Center(
                           child: Padding(
                             padding: const EdgeInsets.symmetric(vertical: 80),
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(
                                   Icons.remove_shopping_cart_outlined,
@@ -92,7 +97,7 @@ class CheckoutScreen extends ConsumerWidget {
                                 AppSpacing.h15,
 
                                 const Text(
-                                  'Your Cart is Empty!',
+                                  'Your Shopping List is Empty!',
                                   style: AppTextStyles.heading,
                                 ),
 
@@ -117,7 +122,7 @@ class CheckoutScreen extends ConsumerWidget {
                             ),
                           ),
                         )
-                      else
+                      else ...[
                         for (var item in checkoutList) ...[
                           ShoppingListItem(
                             product: Products(
@@ -131,6 +136,7 @@ class CheckoutScreen extends ConsumerWidget {
 
                           AppSpacing.h15,
                         ],
+                      ],
                     ],
                   ),
                 ),
