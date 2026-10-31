@@ -1,4 +1,6 @@
+import 'package:e_commerce_app/riverpod/cart_riverpod.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../core/app_colors.dart';
@@ -11,16 +13,16 @@ import '../../shared/app_container.dart';
 import '../../shared/bottom_nav_bar.dart';
 import 'widgets/payment_method_tile.dart';
 
-class PaymentScreen extends StatefulWidget {
+class PaymentScreen extends ConsumerStatefulWidget {
   final Products? product;
 
   const PaymentScreen({super.key, this.product});
 
   @override
-  State<PaymentScreen> createState() => _PaymentScreenState();
+  ConsumerState<PaymentScreen> createState() => _PaymentScreenState();
 }
 
-class _PaymentScreenState extends State<PaymentScreen> {
+class _PaymentScreenState extends ConsumerState<PaymentScreen> {
   int selectedMethodIndex = 0;
 
   @override
@@ -193,6 +195,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   buttonBgColor: AppColors.pink,
                   boxShadow: const [],
                   onTap: () {
+                    ref.read(cartNotifierProvider.notifier).clearCart();
                     AppRoutes.toShowOrderSuccess(context);
                   },
                 ),
