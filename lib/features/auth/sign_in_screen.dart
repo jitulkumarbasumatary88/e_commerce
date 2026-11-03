@@ -21,6 +21,7 @@ class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController _passwordController = TextEditingController();
 
   bool _isPasswordObscure = true;
+  bool _isLoading = false;
 
   @override
   void dispose() {
@@ -30,6 +31,8 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 
   Future<void> _handleSignIn() async {
+    if (_isLoading) return;
+
     final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
 
@@ -38,6 +41,9 @@ class _SignInScreenState extends State<SignInScreen> {
           .showSnackBar(SnackBar(content: Text('Please fill all fields')));
       return;
     }
+
+    setState(() => _isLoading = true);
+
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: email,
@@ -49,6 +55,8 @@ class _SignInScreenState extends State<SignInScreen> {
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(e.message ?? 'Login failed')));
+    } finally {
+      if (mounted) setState(() => _isLoading = false);
     }
   }
 
@@ -124,13 +132,13 @@ class _SignInScreenState extends State<SignInScreen> {
                 SizedBox(
                   width: double.infinity,
                   child: AppButton(
-                    buttonText: 'Login',
+                    buttonText: _isLoading ? 'Logging in...' : 'Login',
                     buttonBgColor: AppColors.pink,
                     fontSize: 18,
                     textColor: AppColors.white,
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     boxShadow: [],
-                    onTap: _handleSignIn,
+                    onTap: _isLoading ? null : _handleSignIn,
                   ),
                 ),
 

@@ -30,12 +30,19 @@ class CartScreen extends ConsumerWidget {
         ? cartList.where((item) => item.productId == product?.id).firstOrNull
         : null;
 
-    final displayPrice = product != null
-        ? ((product?.price?.toDouble() ?? 0.0) * (singleItem?.quantity ?? 1))
-        : cartList.fold<double>(
-            0.0,
-            (sum, item) => sum + (item.price * item.quantity),
-          );
+    final isCartEmpty = product != null
+        ? (singleItem == null)
+        : cartList.isEmpty;
+
+    final displayPrice = isCartEmpty
+        ? 0.0
+        : (product != null
+              ? ((product?.price?.toDouble() ?? 0.0) *
+                    (singleItem?.quantity ?? 1))
+              : cartList.fold<double>(
+                  0.0,
+                  (sum, item) => sum + (item.price * item.quantity),
+                ));
 
     return MediaQuery.withClampedTextScaling(
       maxScaleFactor: 1,
@@ -76,7 +83,7 @@ class CartScreen extends ConsumerWidget {
               ),
 
               SliverToBoxAdapter(
-                child: cartList.isEmpty
+                child: isCartEmpty
                     ? Center(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 80),
@@ -157,7 +164,7 @@ class CartScreen extends ConsumerWidget {
                               ),
 
                               AppSpacing.h15,
-                            ] else ...[
+                            ] else if (product == null) ...[
                               for (var item in cartList) ...[
                                 CartItemCard(
                                   product: Products(
@@ -216,7 +223,7 @@ class CartScreen extends ConsumerWidget {
           ),
         ),
 
-        bottomNavigationBar: cartList.isEmpty
+        bottomNavigationBar: isCartEmpty
             ? BottomNavBar(currentIndex: 2)
             : Column(
                 mainAxisSize: MainAxisSize.min,

@@ -24,6 +24,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   bool _isPasswordObscure = true;
   bool _isConfirmPasswordObscure = true;
+  bool _isLoading = false;
 
   @override
   void dispose() {
@@ -34,6 +35,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   Future<void> _handleSignUp() async {
+    if (_isLoading) return;
+
     final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
     final confirmPassword = _confirmPasswordController.text.trim();
@@ -50,6 +53,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
       return;
     }
 
+    setState(() => _isLoading = true);
+
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
@@ -61,6 +66,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(e.message ?? 'Sign up failed')));
+    } finally {
+      if (mounted) setState(() => _isLoading = false);
     }
   }
 
@@ -153,13 +160,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 SizedBox(
                   width: double.infinity,
                   child: AppButton(
-                    buttonText: 'Create Account',
+                    buttonText: _isLoading
+                        ? 'Creating Account...'
+                        : 'Create Account',
                     fontSize: 18,
-                    buttonBgColor: AppColors.pink,
                     textColor: AppColors.white,
+                    buttonBgColor: AppColors.pink,
                     padding: const EdgeInsets.symmetric(vertical: 10),
                     boxShadow: [],
-                    onTap: _handleSignUp,
+                    onTap: _isLoading ? null : _handleSignUp,
                   ),
                 ),
 
