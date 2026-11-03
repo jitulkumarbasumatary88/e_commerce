@@ -21,4 +21,18 @@ class ApiService {
       throw Exception('An unexpected error occurred: $e');
     }
   }
+
+  Future<ProductsModel> searchProducts(String query) async {
+    try {
+      final response = await _dio.get(
+        '/products/search',
+        queryParameters: {'q': query},
+      );
+      return ProductsModel.fromJson(response.data);
+    } on DioException catch (e) {
+      throw Exception('Failed to search products: ${e.message}');
+    } catch (e) {
+      throw Exception('An unexpected error occurred: $e');
+    }
+  }
 }

@@ -30,15 +30,23 @@ class AppContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: height,
+
       width: width,
+
       margin: margin,
+
       padding: padding ?? const EdgeInsets.all(10),
+
       decoration: BoxDecoration(
         color: color ?? AppColors.white,
+
         borderRadius: borderRadius ?? BorderRadius.circular(12),
+
         border: border,
+
         boxShadow: boxShadow,
       ),
+
       child: child,
     );
   }

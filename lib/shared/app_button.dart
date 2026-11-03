@@ -36,14 +36,19 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(6),
+
       onTap: onTap,
+
       child: Container(
         padding:
             padding ?? const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
         decoration: BoxDecoration(
           color: buttonBgColor ?? AppColors.grey100,
+
           borderRadius: borderRadius ?? BorderRadius.circular(6),
+
           border: border,
+
           boxShadow:
               boxShadow ??
               [
@@ -57,14 +62,18 @@ class AppButton extends StatelessWidget {
 
         child: Row(
           mainAxisSize: MainAxisSize.min,
+
           mainAxisAlignment: MainAxisAlignment.center,
+
           children: [
             if (buttonText != null)
               Text(
                 buttonText!,
                 style: TextStyle(
                   color: textColor,
+
                   fontWeight: fontWeight ?? FontWeight.w500,
+
                   fontSize: fontSize ?? 14,
                 ),
               ),

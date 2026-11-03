@@ -18,19 +18,27 @@ class ProductHorizontalList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 300,
+
       child: ListView.separated(
         clipBehavior: Clip.none,
+
         physics: const BouncingScrollPhysics(),
+
         scrollDirection: Axis.horizontal,
+
         itemCount: items.length,
+
         separatorBuilder: (context, index) => AppSpacing.w15,
+
         itemBuilder: (context, index) {
           final product = items[index];
 
           return SizedBox(
             width: 190,
+
             child: ProductCard(
               product: product,
+
               onTap: () => onProductTap?.call(product),
             ),
           );

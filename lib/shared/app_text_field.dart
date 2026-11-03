@@ -22,24 +22,32 @@ class AppTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
+
       obscureText: obscureText,
+
       cursorColor: AppColors.black,
 
       style: const TextStyle(
         fontSize: 16,
+
         fontWeight: FontWeight.w500,
+
         letterSpacing: 1,
       ),
 
       decoration: InputDecoration(
         hintText: hintText,
+
         hintStyle: const TextStyle(
           fontWeight: FontWeight.w300,
+
           fontSize: 16,
+
           letterSpacing: 1,
         ),
 
         prefixIcon: prefixIcon,
+
         suffixIcon: suffixIcon,
 
         filled: true,
@@ -47,11 +55,13 @@ class AppTextField extends StatelessWidget {
 
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
+
           borderSide: const BorderSide(color: AppColors.grey),
         ),
 
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
+
           borderSide: const BorderSide(color: AppColors.black, width: 1),
         ),
       ),

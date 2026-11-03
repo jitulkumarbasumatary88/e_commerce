@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 import '../../../core/app_colors.dart';
 import '../../../core/app_spacing.dart';
@@ -82,7 +82,6 @@ class DiscountBanner extends StatelessWidget {
 
           AppSpacing.h10,
 
-          // CAPSULE DOTS INDICATOR (3 Dots)
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

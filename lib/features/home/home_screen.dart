@@ -25,147 +25,156 @@ class HomeScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final productsState = ref.watch(productsProvider);
 
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-      },
+    return Scaffold(
+      body: SafeArea(
+        child: NestedScrollView(
+          headerSliverBuilder: (context, innerBoxIsScrolled) {
+            return [
+              SliverPadding(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                sliver: SliverToBoxAdapter(child: AppHeader()),
+              ),
 
-      child: Scaffold(
-        body: SafeArea(
-          child: NestedScrollView(
-            headerSliverBuilder: (context, innerBoxIsScrolled) {
-              return [
-                SliverPadding(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                  sliver: SliverToBoxAdapter(child: AppHeader()),
-                ),
-
-                SliverPadding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  sliver: PinnedHeaderSliver(child: AppSearchBar()),
-                ),
-              ];
-            },
-
-            body: CustomScrollView(
-              physics: BouncingScrollPhysics(),
-              slivers: [
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 15,
-                    ),
-
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        FilterSortBar(title: 'All Featured'),
-
-                        AppSpacing.h15,
-
-                        CategorySelector(),
-
-                        AppSpacing.h15,
-
-                        DiscountBanner(),
-
-                        AppSpacing.h15,
-
-                        DealBanner(
-                          text1: 'Deal of the Day',
-                          icon: Icons.alarm,
-                          text2: '22h 55m 20s remaining',
-                          backgroundColor: AppColors.blue,
-                          onViewAllTap: () {
-                            AppRoutes.toProductListScreen(context);
-                          },
-                        ),
-
-                        AppSpacing.h15,
-
-                        productsState.when(
-                          data: (productsData) {
-                            final allProducts = productsData.products ?? [];
-                            final dealList = allProducts.take(10).toList();
-
-                            return ProductHorizontalList(
-                              items: dealList,
-                              onProductTap: (product) {},
-                            );
-                          },
-
-                          error: (error, stack) =>
-                              Center(child: Text('Error: $error')),
-
-                          loading: () => const Center(
-                            child: CircularProgressIndicator(
-                              color: AppColors.pink,
-                            ),
-                          ),
-                        ),
-
-                        AppSpacing.h15,
-
-                        SpecialOfferCard(),
-
-                        AppSpacing.h15,
-
-                        FlatHeelsCard(),
-
-                        AppSpacing.h15,
-
-                        DealBanner(
-                          text1: 'Trending Products',
-                          icon: Icons.calendar_month_rounded,
-                          text2: 'Last Date 29/02/9999',
-                          backgroundColor: AppColors.pink,
-                        ),
-
-                        AppSpacing.h15,
-
-                        productsState.when(
-                          data: (productsData) {
-                            final allProducts = productsData.products ?? [];
-                            final trendingList = allProducts
-                                .skip(10)
-                                .take(10)
-                                .toList();
-
-                            return ProductHorizontalList(
-                              items: trendingList,
-                              onProductTap: (product) {},
-                            );
-                          },
-
-                          error: (error, stack) =>
-                              Center(child: Text('Error: $error')),
-
-                          loading: () => const Center(
-                            child: CircularProgressIndicator(
-                              color: AppColors.pink,
-                            ),
-                          ),
-                        ),
-
-                        AppSpacing.h15,
-
-                        NewArrivalsCard(),
-
-                        AppSpacing.h15,
-
-                        SponsoredCard(),
-                      ],
-                    ),
+              SliverPadding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                sliver: PinnedHeaderSliver(
+                  child: AppSearchBar(
+                    readOnly: true,
+                    onTap: () {
+                      AppRoutes.toSearchScreen(context);
+                    },
                   ),
                 ),
-              ],
-            ),
+              ),
+            ];
+          },
+
+          body: CustomScrollView(
+            physics: BouncingScrollPhysics(),
+            slivers: [
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 15,
+                  ),
+
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      FilterSortBar(title: 'All Featured'),
+
+                      AppSpacing.h15,
+
+                      CategorySelector(),
+
+                      AppSpacing.h15,
+
+                      DiscountBanner(),
+
+                      AppSpacing.h15,
+
+                      DealBanner(
+                        text1: 'Deal of the Day',
+                        icon: Icons.alarm,
+                        text2: '22h 55m 20s remaining',
+                        backgroundColor: AppColors.blue,
+                        onViewAllTap: () {},
+                      ),
+
+                      AppSpacing.h15,
+
+                      productsState.when(
+                        data: (productsData) {
+                          final allProducts = productsData.products ?? [];
+                          final dealList = allProducts.take(10).toList();
+
+                          return ProductHorizontalList(
+                            items: dealList,
+                            onProductTap: (product) {
+                              AppRoutes.toProductDetailScreen(
+                                context,
+                                product: product,
+                              );
+                            },
+                          );
+                        },
+
+                        error: (error, stack) =>
+                            Center(child: Text('Error: $error')),
+
+                        loading: () => const Center(
+                          child: CircularProgressIndicator(
+                            color: AppColors.pink,
+                          ),
+                        ),
+                      ),
+
+                      AppSpacing.h15,
+
+                      SpecialOfferCard(),
+
+                      AppSpacing.h15,
+
+                      FlatHeelsCard(),
+
+                      AppSpacing.h15,
+
+                      DealBanner(
+                        text1: 'Trending Products',
+                        icon: Icons.calendar_month_rounded,
+                        text2: 'Last Date 29/02/9999',
+                        backgroundColor: AppColors.pink,
+                      ),
+
+                      AppSpacing.h15,
+
+                      productsState.when(
+                        data: (productsData) {
+                          final allProducts = productsData.products ?? [];
+                          final trendingList = allProducts
+                              .skip(10)
+                              .take(10)
+                              .toList();
+
+                          return ProductHorizontalList(
+                            items: trendingList,
+                            onProductTap: (product) {
+                              AppRoutes.toProductDetailScreen(
+                                context,
+                                product: product,
+                              );
+                            },
+                          );
+                        },
+
+                        error: (error, stack) =>
+                            Center(child: Text('Error: $error')),
+
+                        loading: () => const Center(
+                          child: CircularProgressIndicator(
+                            color: AppColors.pink,
+                          ),
+                        ),
+                      ),
+
+                      AppSpacing.h15,
+
+                      NewArrivalsCard(),
+
+                      AppSpacing.h15,
+
+                      SponsoredCard(),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
-
-        bottomNavigationBar: BottomNavBar(),
       ),
+
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 }

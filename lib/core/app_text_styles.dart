@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 class AppTextStyles {
   static const xl = TextStyle(
@@ -25,7 +25,6 @@ class AppTextStyles {
     letterSpacing: 1,
   );
 
-  ////////////////////
   static const price = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.w500,

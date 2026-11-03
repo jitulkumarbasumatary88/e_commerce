@@ -217,7 +217,7 @@ class CartScreen extends ConsumerWidget {
         ),
 
         bottomNavigationBar: cartList.isEmpty
-            ? BottomNavBar()
+            ? BottomNavBar(currentIndex: 2)
             : Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -228,7 +228,7 @@ class CartScreen extends ConsumerWidget {
                     },
                   ),
 
-                  BottomNavBar(),
+                  BottomNavBar(currentIndex: 2),
                 ],
               ),
       ),

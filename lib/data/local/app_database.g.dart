@@ -8,7 +8,9 @@ class $CartItemsTable extends CartItems
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;
+
   $CartItemsTable(this.attachedDatabase, [this._alias]);
+
   static const VerificationMeta _idMeta = const VerificationMeta('id');
   @override
   late final GeneratedColumn<int> id = GeneratedColumn<int>(
@@ -94,6 +96,7 @@ class $CartItemsTable extends CartItems
     type: DriftSqlType.double,
     requiredDuringInsert: false,
   );
+
   @override
   List<GeneratedColumn> get $columns => [
     id,
@@ -105,11 +108,14 @@ class $CartItemsTable extends CartItems
     category,
     rating,
   ];
+
   @override
   String get aliasedName => _alias ?? actualTableName;
+
   @override
   String get actualTableName => $name;
   static const String $name = 'cart_items';
+
   @override
   VerificationContext validateIntegrity(
     Insertable<CartItem> instance, {
@@ -173,6 +179,7 @@ class $CartItemsTable extends CartItems
 
   @override
   Set<GeneratedColumn> get $primaryKey => {id};
+
   @override
   CartItem map(Map<String, dynamic> data, {String? tablePrefix}) {
     final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
@@ -227,6 +234,7 @@ class CartItem extends DataClass implements Insertable<CartItem> {
   final int quantity;
   final String? category;
   final double? rating;
+
   const CartItem({
     required this.id,
     required this.productId,
@@ -237,6 +245,7 @@ class CartItem extends DataClass implements Insertable<CartItem> {
     this.category,
     this.rating,
   });
+
   @override
   Map<String, Expression> toColumns(bool nullToAbsent) {
     final map = <String, Expression>{};
@@ -292,6 +301,7 @@ class CartItem extends DataClass implements Insertable<CartItem> {
       rating: serializer.fromJson<double?>(json['rating']),
     );
   }
+
   @override
   Map<String, dynamic> toJson({ValueSerializer? serializer}) {
     serializer ??= driftRuntimeOptions.defaultSerializer;
@@ -326,6 +336,7 @@ class CartItem extends DataClass implements Insertable<CartItem> {
     category: category.present ? category.value : this.category,
     rating: rating.present ? rating.value : this.rating,
   );
+
   CartItem copyWithCompanion(CartItemsCompanion data) {
     return CartItem(
       id: data.id.present ? data.id.value : this.id,
@@ -365,6 +376,7 @@ class CartItem extends DataClass implements Insertable<CartItem> {
     category,
     rating,
   );
+
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
@@ -388,6 +400,7 @@ class CartItemsCompanion extends UpdateCompanion<CartItem> {
   final Value<int> quantity;
   final Value<String?> category;
   final Value<double?> rating;
+
   const CartItemsCompanion({
     this.id = const Value.absent(),
     this.productId = const Value.absent(),
@@ -398,6 +411,7 @@ class CartItemsCompanion extends UpdateCompanion<CartItem> {
     this.category = const Value.absent(),
     this.rating = const Value.absent(),
   });
+
   CartItemsCompanion.insert({
     this.id = const Value.absent(),
     required int productId,
@@ -410,6 +424,7 @@ class CartItemsCompanion extends UpdateCompanion<CartItem> {
   }) : productId = Value(productId),
        title = Value(title),
        price = Value(price);
+
   static Insertable<CartItem> custom({
     Expression<int>? id,
     Expression<int>? productId,
@@ -502,11 +517,14 @@ class CartItemsCompanion extends UpdateCompanion<CartItem> {
 
 abstract class _$AppDatabase extends GeneratedDatabase {
   _$AppDatabase(QueryExecutor e) : super(e);
+
   $AppDatabaseManager get managers => $AppDatabaseManager(this);
   late final $CartItemsTable cartItems = $CartItemsTable(this);
+
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
+
   @override
   List<DatabaseSchemaEntity> get allSchemaEntities => [cartItems];
 }
@@ -541,6 +559,7 @@ class $$CartItemsTableFilterComposer
     super.$addJoinBuilderToRootComposer,
     super.$removeJoinBuilderFromRootComposer,
   });
+
   ColumnFilters<int> get id => $composableBuilder(
     column: $table.id,
     builder: (column) => ColumnFilters(column),
@@ -591,6 +610,7 @@ class $$CartItemsTableOrderingComposer
     super.$addJoinBuilderToRootComposer,
     super.$removeJoinBuilderFromRootComposer,
   });
+
   ColumnOrderings<int> get id => $composableBuilder(
     column: $table.id,
     builder: (column) => ColumnOrderings(column),
@@ -641,6 +661,7 @@ class $$CartItemsTableAnnotationComposer
     super.$addJoinBuilderToRootComposer,
     super.$removeJoinBuilderFromRootComposer,
   });
+
   GeneratedColumn<int> get id =>
       $composableBuilder(column: $table.id, builder: (column) => column);
 
@@ -766,7 +787,9 @@ typedef $$CartItemsTableProcessedTableManager =
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
+
   $AppDatabaseManager(this._db);
+
   $$CartItemsTableTableManager get cartItems =>
       $$CartItemsTableTableManager(_db, _db.cartItems);
 }

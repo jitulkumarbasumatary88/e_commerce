@@ -12,11 +12,15 @@ import '../../shared/filter_sort_bar.dart';
 import '../../shared/product_card.dart';
 
 class ProductListScreen extends ConsumerWidget {
-  const ProductListScreen({super.key});
+  final String? searchQuery;
+
+  const ProductListScreen({super.key, this.searchQuery});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final gridProductsState = ref.watch(productsProvider);
+    final gridProductsState = searchQuery != null && searchQuery!.isNotEmpty
+        ? ref.watch(searchProductsProvider(searchQuery!))
+        : ref.watch(productsProvider);
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
@@ -27,12 +31,20 @@ class ProductListScreen extends ConsumerWidget {
             headerSliverBuilder: (context, innerBoxIsScrolled) => [
               const SliverPadding(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                sliver: SliverToBoxAdapter(child: AppHeader()),
+                sliver: SliverToBoxAdapter(
+                  child: AppHeader(isBackButton: true),
+                ),
               ),
 
-              const SliverPadding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                sliver: PinnedHeaderSliver(child: AppSearchBar()),
+              SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                sliver: PinnedHeaderSliver(
+                  child: AppSearchBar(
+                    controller: TextEditingController(text: searchQuery),
+                    readOnly: true,
+                    onTap: () => Navigator.pop(context),
+                  ),
+                ),
               ),
             ],
 

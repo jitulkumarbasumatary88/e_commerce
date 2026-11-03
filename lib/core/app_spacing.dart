@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 class AppSpacing {
-  // Height (Vertical)
   static const h5 = SizedBox(height: 5);
   static const h10 = SizedBox(height: 10);
   static const h15 = SizedBox(height: 15);
@@ -11,7 +10,6 @@ class AppSpacing {
   static const h35 = SizedBox(height: 35);
   static const h40 = SizedBox(height: 40);
 
-  // Width (Horizontal)
   static const w5 = SizedBox(width: 5);
   static const w10 = SizedBox(width: 10);
   static const w15 = SizedBox(width: 15);

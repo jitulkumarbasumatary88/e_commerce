@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/app_routes.dart';
@@ -20,7 +21,11 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(seconds: 3));
     if (!mounted) return;
 
-    AppRoutes.toOnboarding(context);
+    if (FirebaseAuth.instance.currentUser != null) {
+      AppRoutes.toHomeScreen(context);
+    } else {
+      AppRoutes.toOnboarding(context);
+    }
   }
 
   @override

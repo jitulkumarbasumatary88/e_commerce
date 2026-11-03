@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 import '../../core/app_colors.dart';
 import '../../core/app_routes.dart';
@@ -49,7 +49,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           padding: const EdgeInsets.all(10),
           child: Column(
             children: [
-              // TOP
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -69,7 +69,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ],
               ),
 
-              // CENTER
               Expanded(
                 child: PageView.builder(
                   controller: _pageController,
@@ -114,7 +113,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
 
-              // BOTTOM
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

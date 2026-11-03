@@ -23,15 +23,20 @@ class FilterSortBar extends StatelessWidget {
         Expanded(
           child: Text(
             title,
+
             maxLines: 1,
+
             overflow: TextOverflow.ellipsis,
+
             style: AppTextStyles.heading,
           ),
         ),
 
         AppButton(
           buttonText: 'Sort',
+
           buttonIcon: Icons.swap_vert_rounded,
+
           onTap: onSortTap,
         ),
 
@@ -39,7 +44,9 @@ class FilterSortBar extends StatelessWidget {
 
         AppButton(
           buttonText: 'Filter',
+
           buttonIcon: Icons.filter_alt_outlined,
+
           onTap: onFilterTap,
         ),
       ],

@@ -49,7 +49,7 @@ class ProductDetailScreen extends StatelessWidget {
 
                     IconButton(
                       onPressed: () {
-                        AppRoutes.toCheckoutScreen(context, product: product);
+                        AppRoutes.toCartScreen(context);
                       },
                       icon: const Icon(Icons.shopping_cart_outlined),
                     ),
@@ -90,7 +90,7 @@ class ProductDetailScreen extends StatelessWidget {
                     ProductActionSection(
                       product: product,
                       onAddToCartTap: () {
-                        AppRoutes.toCheckoutScreen(context);
+                        AppRoutes.toCartScreen(context);
                       },
                       onBuyNowTap: () {
                         AppRoutes.toCheckoutScreen(context, product: product);

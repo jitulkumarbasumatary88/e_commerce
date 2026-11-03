@@ -6,12 +6,19 @@ class AppSearchBar extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final VoidCallback? onTap;
   final TextEditingController? controller;
+  final bool readOnly;
 
-  const AppSearchBar({super.key, this.onChanged, this.onTap, this.controller});
+  const AppSearchBar({
+    super.key,
+    this.onChanged,
+    this.onTap,
+    this.controller,
+    this.readOnly = false,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Theme(
+    final searchBarWidget = Theme(
       data: Theme.of(context).copyWith(
         textSelectionTheme: const TextSelectionThemeData(
           cursorColor: AppColors.black,
@@ -43,5 +50,14 @@ class AppSearchBar extends StatelessWidget {
         trailing: const [Icon(Icons.mic_rounded, color: AppColors.grey)],
       ),
     );
+
+    if (readOnly) {
+      return GestureDetector(
+        onTap: onTap,
+
+        child: AbsorbPointer(child: searchBarWidget),
+      );
+    }
+    return searchBarWidget;
   }
 }

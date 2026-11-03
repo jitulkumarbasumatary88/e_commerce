@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 
 import '../../../core/app_colors.dart';
 import '../../../core/app_spacing.dart';
@@ -20,12 +20,11 @@ class _BankAccountSectionState extends State<BankAccountSection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Section Title
+
         const Text('Bank Account Details', style: AppTextStyles.heading),
 
         AppSpacing.h20,
 
-        // Bank Account Number
         const Text('Bank Account Number', style: AppTextStyles.body),
         AppSpacing.h5,
         AppTextField(
@@ -48,14 +47,12 @@ class _BankAccountSectionState extends State<BankAccountSection> {
 
         AppSpacing.h20,
 
-        // Account Holder's Name
         const Text("Account Holder's Name", style: AppTextStyles.body),
         AppSpacing.h5,
         const AppTextField(hintText: "Account Holder's Name"),
 
         AppSpacing.h20,
 
-        // IFSC Code
         const Text('IFSC Code', style: AppTextStyles.body),
         AppSpacing.h5,
         const AppTextField(hintText: 'IFSC Code'),

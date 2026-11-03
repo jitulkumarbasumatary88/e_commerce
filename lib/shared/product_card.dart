@@ -20,9 +20,12 @@ class ProductCard extends StatelessWidget {
 
       child: InkWell(
         borderRadius: BorderRadius.circular(12),
+
         onTap: onTap,
+
         child: AppContainer(
           padding: EdgeInsets.zero,
+
           boxShadow: const [
             BoxShadow(
               color: Colors.black12,
@@ -33,20 +36,28 @@ class ProductCard extends StatelessWidget {
 
           child: Column(
             mainAxisSize: MainAxisSize.min,
+
             crossAxisAlignment: CrossAxisAlignment.start,
+
             children: [
               AppContainer(
                 height: 150,
+
                 color: AppColors.grey200,
+
                 borderRadius: BorderRadius.circular(12),
+
                 child: CachedNetworkImage(
                   width: double.infinity,
+
                   imageUrl: product.thumbnail ?? '',
+
                   fit: BoxFit.contain,
 
                   placeholder: (context, url) => const Center(
                     child: CircularProgressIndicator(
                       strokeWidth: 2,
+
                       color: AppColors.pink,
                     ),
                   ),
@@ -54,6 +65,7 @@ class ProductCard extends StatelessWidget {
                   errorWidget: (context, url, error) => const Center(
                     child: Icon(
                       Icons.broken_image_rounded,
+
                       color: AppColors.pink,
                     ),
                   ),
@@ -62,13 +74,18 @@ class ProductCard extends StatelessWidget {
 
               Padding(
                 padding: const EdgeInsets.all(10),
+
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+
                   children: [
                     Text(
                       product.title ?? 'No Title',
+
                       maxLines: 1,
+
                       overflow: TextOverflow.ellipsis,
+
                       style: AppTextStyles.title,
                     ),
 
@@ -76,8 +93,11 @@ class ProductCard extends StatelessWidget {
 
                     Text(
                       product.description ?? 'No description',
+
                       maxLines: 2,
+
                       overflow: TextOverflow.ellipsis,
+
                       style: AppTextStyles.body,
                     ),
 
@@ -89,6 +109,7 @@ class ProductCard extends StatelessWidget {
 
                     FittedBox(
                       fit: BoxFit.scaleDown,
+
                       child: Builder(
                         builder: (context) {
                           final rating =
@@ -103,6 +124,7 @@ class ProductCard extends StatelessWidget {
                                       : (star < rating
                                             ? Icons.star_half_rounded
                                             : Icons.star_outline_rounded),
+
                                   color: star < rating
                                       ? AppColors.amber
                                       : AppColors.grey,
@@ -113,6 +135,7 @@ class ProductCard extends StatelessWidget {
 
                               Text(
                                 '${product.rating ?? 0}',
+
                                 style: AppTextStyles.caption.copyWith(
                                   color: AppColors.grey,
                                 ),

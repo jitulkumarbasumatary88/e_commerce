@@ -5,7 +5,9 @@ import '../core/app_routes.dart';
 import '../core/app_text_styles.dart';
 
 class AppHeader extends StatelessWidget {
-  const AppHeader({super.key});
+  final bool isBackButton;
+
+  const AppHeader({super.key, this.isBackButton = false});
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +15,17 @@ class AppHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.menu_rounded, color: AppColors.black),
+          onPressed: () {
+            if (isBackButton) {
+              Navigator.pop(context);
+            }
+          },
+
+          icon: Icon(
+            isBackButton
+                ? Icons.arrow_back_ios_new_rounded
+                : Icons.menu_rounded,
+          ),
         ),
 
         Text('Stylish', style: AppTextStyles.appBarTitle),
@@ -24,9 +35,12 @@ class AppHeader extends StatelessWidget {
           onTap: () {
             AppRoutes.toProfileScreen(context);
           },
+
           child: const CircleAvatar(
             radius: 22,
+
             backgroundColor: AppColors.pink,
+
             child: Icon(Icons.person_rounded, color: AppColors.white),
           ),
         ),

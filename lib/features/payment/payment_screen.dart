@@ -27,8 +27,21 @@ class _PaymentScreenState extends ConsumerState<PaymentScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final itemPrice = widget.product?.price?.toDouble() ?? 0;
+    final cartAsync = ref.watch(cartNotifierProvider);
+
+    final cartList = cartAsync.value ?? [];
+
+    final cartTotal = cartList.fold<double>(
+      0.0,
+      (sum, item) => sum + (item.price * item.quantity),
+    );
+
+    final itemPrice = widget.product != null
+        ? (widget.product?.price?.toDouble() ?? 0.0)
+        : cartTotal;
+
     const shippingFee = 30.0;
+
     final totalPrice = itemPrice + shippingFee;
 
     return MediaQuery.withClampedTextScaling(

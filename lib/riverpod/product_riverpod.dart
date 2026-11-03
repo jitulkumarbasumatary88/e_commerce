@@ -14,3 +14,8 @@ class ProductsNotifier extends _$ProductsNotifier {
     return _api.fetchProducts();
   }
 }
+
+@riverpod
+Future<ProductsModel> searchProducts(Ref ref, String query) async {
+  return ApiService().searchProducts(query);
+}
