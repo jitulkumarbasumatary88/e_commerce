@@ -28,6 +28,10 @@ class CheckoutScreen extends ConsumerWidget {
       (item) => item.productId == product?.id,
     );
 
+    final isCheckoutEmpty = product != null
+        ? !isProductInCart
+        : checkoutList.isEmpty;
+
     return MediaQuery.withClampedTextScaling(
       maxScaleFactor: 1,
       child: Scaffold(
@@ -63,90 +67,92 @@ class CheckoutScreen extends ConsumerWidget {
               ),
 
               SliverToBoxAdapter(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 15,
-                  ),
+                child: isCheckoutEmpty
+                    ? Center(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 80),
+                          child: Column(
+                            children: [
+                              Icon(
+                                Icons.remove_shopping_cart_outlined,
+                                size: 80,
+                                color: AppColors.grey,
+                              ),
 
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const DeliveryAddressCard(),
+                              AppSpacing.h15,
 
-                      AppSpacing.h15,
+                              const Text(
+                                'Your Shopping List is Empty!',
+                                style: AppTextStyles.heading,
+                              ),
 
-                      const Text('Shopping List', style: AppTextStyles.heading),
+                              AppSpacing.h5,
 
-                      AppSpacing.h15,
-
-                      if (product != null && isProductInCart) ...[
-                        ShoppingListItem(product: product),
-                      ] else if (checkoutList.isEmpty)
-                        Center(
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 80),
-                            child: Column(
-                              children: [
-                                Icon(
-                                  Icons.remove_shopping_cart_outlined,
-                                  size: 80,
+                              Text(
+                                'Looks like you haven\'t added anything yet.',
+                                style: AppTextStyles.body.copyWith(
                                   color: AppColors.grey,
                                 ),
+                              ),
 
-                                AppSpacing.h15,
+                              AppSpacing.h20,
 
-                                const Text(
-                                  'Your Shopping List is Empty!',
-                                  style: AppTextStyles.heading,
-                                ),
+                              AppButton(
+                                buttonText: 'Shop Now',
+                                buttonBgColor: AppColors.pink,
+                                textColor: AppColors.white,
+                                onTap: () => Navigator.pop(context),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    : Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 15,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const DeliveryAddressCard(),
 
-                                AppSpacing.h5,
+                            AppSpacing.h15,
 
-                                Text(
-                                  'Looks like you haven\'t added anything yet.',
-                                  style: AppTextStyles.body.copyWith(
-                                    color: AppColors.grey,
+                            const Text(
+                              'Shopping List',
+                              style: AppTextStyles.heading,
+                            ),
+
+                            AppSpacing.h15,
+
+                            if (product != null && isProductInCart) ...[
+                              ShoppingListItem(product: product),
+                            ] else if (product == null) ...[
+                              for (var item in checkoutList) ...[
+                                ShoppingListItem(
+                                  product: Products(
+                                    id: item.productId,
+                                    title: item.title,
+                                    price: item.price,
+                                    thumbnail: item.thumbnail,
+                                    rating: item.rating,
                                   ),
                                 ),
 
-                                AppSpacing.h20,
-
-                                AppButton(
-                                  buttonText: 'Shop Now',
-                                  buttonBgColor: AppColors.pink,
-                                  textColor: AppColors.white,
-                                  onTap: () => Navigator.pop(context),
-                                ),
+                                AppSpacing.h15,
                               ],
-                            ),
-                          ),
-                        )
-                      else ...[
-                        for (var item in checkoutList) ...[
-                          ShoppingListItem(
-                            product: Products(
-                              id: item.productId,
-                              title: item.title,
-                              price: item.price,
-                              thumbnail: item.thumbnail,
-                              rating: item.rating,
-                            ),
-                          ),
-
-                          AppSpacing.h15,
-                        ],
-                      ],
-                    ],
-                  ),
-                ),
+                            ],
+                          ],
+                        ),
+                      ),
               ),
             ],
           ),
         ),
 
-        bottomNavigationBar: checkoutList.isEmpty
-            ? BottomNavBar()
+        bottomNavigationBar: isCheckoutEmpty
+            ? const BottomNavBar()
             : Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
