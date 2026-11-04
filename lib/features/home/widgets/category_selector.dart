@@ -40,8 +40,7 @@ class CategorySelector extends StatelessWidget {
           itemBuilder: (context, index) {
             final category = _categories[index];
 
-            return InkWell(
-              borderRadius: BorderRadius.circular(30),
+            return GestureDetector(
               onTap: () => onCategorySelected?.call(category.title),
 
               child: Column(
