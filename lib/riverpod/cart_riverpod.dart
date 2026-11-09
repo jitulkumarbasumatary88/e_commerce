@@ -4,12 +4,19 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../data/local/app_database.dart';
 import '../data/products_model.dart';
 
+final appDatabaseProvider = Provider<AppDatabase>((ref) {
+  final db = AppDatabase();
+  ref.onDispose(() => db.close());
+  return db;
+});
+
 class CartNotifier extends StreamNotifier<List<CartItem>> {
-  final _db = AppDatabase();
+  AppDatabase get _db => ref.read(appDatabaseProvider);
 
   @override
   Stream<List<CartItem>> build() {
-    return _db.select(_db.cartItems).watch();
+    final db = ref.watch(appDatabaseProvider);
+    return db.select(db.cartItems).watch();
   }
 
   Future<void> addToCart(Products product) async {
