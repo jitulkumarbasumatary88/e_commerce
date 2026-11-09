@@ -32,9 +32,10 @@ class AppRoutes {
   }
 
   static void toSignIn(BuildContext context) {
-    Navigator.pushReplacement(
+    Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(builder: (context) => const SignInScreen()),
+      (route) => false,
     );
   }
 
@@ -117,14 +118,6 @@ class AppRoutes {
     showDialog(
       context: context,
       builder: (context) => const OrderSuccessDialog(),
-    );
-  }
-
-  static void toSignInScreen(BuildContext context) {
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (context) => const SignInScreen()),
-      (route) => false,
     );
   }
 }
