@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/app_colors.dart';
+import '../../core/app_routes.dart';
 import '../../core/app_spacing.dart';
 import '../../core/app_text_styles.dart';
 import '../../shared/app_button.dart';
@@ -13,6 +15,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isLoggingOut = false;
+
     return MediaQuery.withClampedTextScaling(
       maxScaleFactor: 1,
       child: GestureDetector(
@@ -119,17 +123,46 @@ class ProfileScreen extends StatelessWidget {
 
                         AppSpacing.h30,
 
-                        SizedBox(
-                          width: double.infinity,
-                          child: AppButton(
-                            padding: EdgeInsets.symmetric(vertical: 10),
-                            fontSize: 18,
-                            buttonText: 'Save',
-                            buttonBgColor: AppColors.pink,
-                            textColor: AppColors.white,
-                            boxShadow: [],
-                            onTap: () {},
-                          ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: SizedBox(
+                                width: double.infinity,
+                                child: AppButton(
+                                  padding: EdgeInsets.symmetric(vertical: 10),
+                                  fontSize: 18,
+                                  buttonText: 'Save',
+                                  buttonBgColor: AppColors.pink,
+                                  textColor: AppColors.white,
+                                  boxShadow: [],
+                                  onTap: () {},
+                                ),
+                              ),
+                            ),
+
+                            AppSpacing.w5,
+
+                            AppButton(
+                              padding: EdgeInsets.symmetric(
+                                vertical: 10,
+                                horizontal: 10,
+                              ),
+                              fontSize: 18,
+                              buttonIcon: Icons.logout_rounded,
+                              buttonBgColor: AppColors.pink,
+                              textColor: AppColors.white,
+                              boxShadow: [],
+                              onTap: () async {
+                                if (isLoggingOut) return;
+                                isLoggingOut = true;
+
+                                await FirebaseAuth.instance.signOut();
+                                if (context.mounted) {
+                                  AppRoutes.toSignIn(context);
+                                }
+                              },
+                            ),
+                          ],
                         ),
                       ],
                     ),
